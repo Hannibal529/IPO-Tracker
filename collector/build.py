@@ -22,8 +22,8 @@ OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
 BIO_RE = r"바이오|신약|의약|제약|치료제|치료|항체|항암|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마|단백질|파이프라인|기술이전|퇴행성|치매"
-VALUATION_V = 4  # 재산정 로직 바꾸면 올림
-PARSER_V = 3  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
+VALUATION_V = 5  # 재산정 로직 바꾸면 올림
+PARSER_V = 4  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
@@ -88,6 +88,10 @@ def upsert(lst, rec, keep_existing=()):
 def from_dart(state, dart, codes):
     from .filing_parser import Filing
     filings = dart.ipo_filings(days=120)
+    wd = getattr(dart, "withdrawn", set())
+    if wd:
+        print(f"  철회 제외: {', '.join(sorted(wd))}", flush=True)
+        state["pipeline"] = [p for p in state["pipeline"] if p["name"] not in wd]
     by_corp = {}
     for f in filings:
         by_corp.setdefault(f["corp_code"], []).append(f)
@@ -137,7 +141,7 @@ def from_dart(state, dart, codes):
             continue
         if not spac:
             # 최신 제출본부터 거슬러 올라가며 필요한 값을 채움 (정정신고서는 바뀐 부분만 있어서)
-            summ, peers, fc, full, est = {}, [], None, None, None
+            summ, peers, fc, full, est, tni = {}, [], None, None, None, None
             for f in list(reversed(fs))[:4]:
                 try:
                     d = Filing(dart.document(f["rcept_no"]))
@@ -146,6 +150,7 @@ def from_dart(state, dart, codes):
                     continue
                 sm = d.summary()
                 est = est or d.estimate_info()
+                tni = tni or d.target_ltm_ni()
                 for k, v in sm.items():
                     summ.setdefault(k, v)
                 fc = fc or d.forecast()
@@ -164,11 +169,11 @@ def from_dart(state, dart, codes):
                 "ua_value": summ.get("value"), "discount": summ.get("discount"),
                 "ua_base": summ.get("base"), "ua_shares": summ.get("shares"),
                 "peers_ua": peers, "forecast": fc, "source": "dart", "parser_v": PARSER_V,
-                "ua_est": est,
+                "ua_est": est, "target_ltm": tni,
             })
             # 파서가 다시 읽은 값은 비어 있어도 덮어씀 (이전 잘못된 값 제거)
             if ex:
-                for k in ("peers_ua", "final_price", "ua_est", "our_valuation"):
+                for k in ("peers_ua", "final_price", "ua_est", "our_valuation", "target_ltm"):
                     ex.pop(k, None)
             doc = full
             if doc is not None:

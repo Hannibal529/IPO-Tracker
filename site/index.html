@@ -126,7 +126,7 @@ function rPipe(){
    <td>${rng(p.forecast)}</td><td>${rng(p.subscription)}</td><td>${md(p.listing)}</td>
    <td>${p.band?fmt(p.band[0])+"~"+fmt(p.band[1]):"–"}</td><td>${fmt(p.final_price)}</td>
    <td>${p.ua_multiple?esc(p.ua_method)+" "+fmt(p.ua_multiple,2):"–"}</td><td>${fmt(p.ua_value)}</td>
-   <td>${esc(p.discount||"–")}</td><td><b>${p.our_valuation&&p.our_valuation.value_range?fmt(p.our_valuation.value_range[0])+"~"+fmt(p.our_valuation.value_range[1]):fmt(p.val)}</b></td>
+   <td>${esc(p.discount||"–")}</td><td><b>${p.our_valuation&&p.our_valuation.value_range?fmt(p.our_valuation.value_range[0])+"~"+fmt(p.our_valuation.value_range[1]):fmt(p.val)}</b>${p.our_valuation&&p.our_valuation.per_check&&p.our_valuation.per_check.value?`<br><span class="meta">PER ${fmt(p.our_valuation.per_check.value)}</span>`:""}</td>
    <td class="${p.up>0?"pos":p.up<0?"neg":""}">${p.up==null?"–":(p.up>0?"+":"")+pct(p.up)}</td>
    <td>${p.comp?fmt(p.comp,1)+":1":"–"}</td><td>${pct(p.lock_ratio_38)}</td></tr>`).join("")}
   </tbody></table></div>
@@ -143,6 +143,7 @@ function detail(name){
   const dm=(D.demand||[]).find(x=>x.name===name)||{};
   $("#drawer").innerHTML=`<button class="x" onclick="$('#drawer').classList.remove('on')">×</button>
   <h2>${esc(p.name)}</h2><div class="meta">${esc(p.market||"")} ${p.special?"· 특례상장":""} · ${esc(p.underwriter||"")} ${p.rcept_no?`· <a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${p.rcept_no}" target="_blank">DART 원문</a>`:""}</div>
+  ${p.corp_code&&p.ua_method&&!p.spac?`<p><a class="btn" href="reports/${p.corp_code}.pdf" target="_blank" download="${esc(p.name)}_적정가_산출근거.pdf">적정가 산출 근거 PDF 받기</a></p>`:""}
   ${p.business?`<p>${esc(p.business)}</p>`:""}
   <h4>일정</h4><div class="kv">
    <div><b>신고서 최초 제출</b>${p.first_filed||"–"}</div><div><b>최종 정정</b>${p.last_amended||"–"}</div><div><b>수요예측</b>${rng(p.forecast)}</div>
@@ -158,7 +159,7 @@ function detail(name){
    <div><b>밴드 할인율(상단~하단)</b>${v.band_discount?pct(v.band_discount[0])+" ~ "+pct(v.band_discount[1]):"–"}</div></div>
    <div class="card" style="margin-top:10px"><table><thead><tr><th>기업</th><th>구분</th><th>61일 평균가</th><th>시총(억)</th><th>LTM 기준</th><th>주관사 ${esc(v.method)}</th><th>재산정 ${esc(v.method)}</th><th class="l">판단</th></tr></thead><tbody>
    ${v.peers.map(q=>`<tr><td>${esc(q.name)}</td><td>${esc(q.origin)}</td><td>${fmt(q.avg61)}</td><td>${fmt(q.mcap_eok)}</td><td class="mute">${esc(q.fin_basis||"–")}</td><td>${fmt(q.ua_multiple,2)}</td><td>${fmt((q.multiples||{})[v.method],2)}</td><td class="l ${q.kept?"":"mute"}">${q.kept?"✓ ":"✕ "}${esc(q.reason)}</td></tr>`).join("")}
-   </tbody></table></div><div class="note">${esc(v.rationale||"")}${v.note?"<br>"+esc(v.note):""}${v.price_basis?"<br>"+esc(v.price_basis):""}<br>기준일 ${esc(v.as_of)}</div>`
+   </tbody></table></div>${v.per_check?`<h4>PER 기준 병행 산정</h4>${v.per_check.value?`<div class="kv"><div><b>${esc(v.per_check.basis)} 지배순이익</b>${fmt(v.per_check.ni/1e8,1)}억원</div><div><b>비교기업 평균 PER</b>${v.per_check.multiple_mean}배</div><div><b>PER 기준 주당가치</b><span style="font-size:16px;font-weight:600">${fmt(v.per_check.value)}원</span></div></div>`:`<div class="note">${esc(v.per_check.reason)}</div>`}`:""}<div class="note">${esc(v.rationale||"")}${v.note?"<br>"+esc(v.note):""}${v.price_basis?"<br>"+esc(v.price_basis):""}<br>기준일 ${esc(v.as_of)}</div>`
    :(p.peers_ua&&p.peers_ua.length?`<div class="card"><table><thead><tr><th>주관사 비교기업</th><th>주관사 ${esc(p.ua_method||"")}</th></tr></thead><tbody>${p.peers_ua.map(q=>`<tr><td>${esc(q.name)}</td><td>${fmt(q.ua_multiple,2)}</td></tr>`).join("")}</tbody></table></div><div class="note">재산정은 다음 수집 때 계산됩니다.</div>`:`<div class="note">신고서에서 비교기업 표를 찾지 못했습니다.</div>`)}
   ${dm.inst_count?`<h4>수요예측 참여</h4><div class="kv"><div><b>참여 건수</b>${fmt(dm.inst_count)}</div><div><b>운용사 참여비율</b>${pct(dm.am_part_ratio)}</div><div><b>운용사 확약비율</b>${pct(dm.am_lock_ratio)}</div></div>`:""}`;
   $("#drawer").classList.add("on");

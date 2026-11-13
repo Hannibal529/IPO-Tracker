@@ -303,6 +303,9 @@ def peer_data(dart, codes, name):
     return {"name": name if name == lname else f"{name} ({lname})", "code": code, "price": float(row["Close"]), "avg61": avg and round(avg),
             "mcap_eok": round(mcap / 1e8),
             "industry": row.get("Industry"), "fin_basis": f and f.get("basis"),
+            "ltm_ni_eok": f and f.get("ni") and round(f["ni"] / 1e8),
+            "ebitda_eok": f and round(((f.get("op") or 0) + (f.get("da") or 0)) / 1e8),
+            "equity_eok": f and f.get("eq") and round(f["eq"] / 1e8),
             "multiples": multiples(mcap, f)}
 
 
@@ -360,6 +363,32 @@ JSON 하나로만 답하세요:
 
 
 # ---------------- 메인 ----------------
+def per_check(ipo, peers, manual):
+    """공모기업 LTM 지배순이익 × 비교기업 평균 PER ÷ 적용주식수"""
+    t = ipo.get("target_ltm") or {}
+    shares = ipo.get("ua_shares")
+    if not t or not shares:
+        return {"value": None, "reason": "공모기업 LTM 순이익을 신고서에서 찾지 못함"}
+    if t["ni"] <= 0:
+        return {"value": None, "reason": f"공모기업 {t['basis']} 순이익 적자 → PER 산출 불가",
+                "ni": t["ni"], "basis": t["basis"]}
+    cap = manual.get("max_multiple") or MAX_MULTIPLE
+    tmp = [{"name": p["name"], "multiples": {"PER": (p.get("multiples") or {}).get("PER")}}
+           for p in peers if p.get("multiples")]
+    rule_filter(tmp, "PER", cap)
+    for p in tmp:  # 사업 유사성으로 뺀 기업(수동·Claude)은 PER 에서도 제외
+        src = next(q for q in peers if q["name"] == p["name"])
+        if not src.get("kept") and "배" not in str(src.get("reason")) and "산출 불가" not in str(src.get("reason")):
+            p["kept"], p["reason"] = False, src.get("reason")
+    kept = [p["multiples"]["PER"] for p in tmp if p["kept"]]
+    if not kept:
+        return {"value": None, "reason": "PER 산출 가능한 비교기업 없음"}
+    avg = statistics.mean(kept)
+    return {"value": round(avg * t["ni"] / shares), "multiple_mean": round(avg, 2), "ni": t["ni"],
+            "basis": t["basis"], "peers": [{"name": p["name"], "PER": p["multiples"]["PER"],
+                                            "kept": p["kept"], "reason": p["reason"]} for p in tmp]}
+
+
 def revalue(dart, codes, ipo, manual=None):
     manual = manual or {}
     method = manual.get("method") or ipo.get("ua_method") or "PER"
@@ -471,6 +500,9 @@ def revalue(dart, codes, ipo, manual=None):
            "peers": peers, "rationale": rationale, "as_of": date.today().isoformat(),
            "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 상장주식수, 이익 = LTM 지배주주순이익",
            "note": basis_note}
+    # PER 기준 병행 산정 (주관사가 EV/EBITDA·PSR 등을 쓴 경우)
+    if method != "PER":
+        out["per_check"] = per_check(ipo, peers, manual)
     if out["value"] and ipo.get("band"):
         lo, hi = ipo["band"]
         out["band_discount"] = [round(1 - hi / out["value"], 4), round(1 - lo / out["value"], 4)]

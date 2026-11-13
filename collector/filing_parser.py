@@ -249,6 +249,57 @@ class Filing:
             out["am_lock_qty"] = sum(groups_data[g].get(f"{p}확약", (0, 0))[1] for g in am for p in PERIODS)
         return out
 
+    def target_ltm_ni(self):
+        """공모기업 자체 LTM 순이익(지배) — 재무제표 요약표의 '당기 누적 + 전년 연간 − 전년 동기 누적'"""
+        def colinfo(c):
+            c = c.replace(" ", "")
+            m = re.search(r"(20\d\d)년", c)
+            if not m:
+                return None
+            y = int(m.group(1))
+            if re.search(r"3분기|9월", c):
+                return y, "3Q"
+            if "반기" in c or "6월" in c:
+                return y, "H"
+            if re.search(r"1분기|3월", c):
+                return y, "1Q"
+            if "분기" in c:
+                return None
+            return y, "FY"
+        for i, t in enumerate(self.tables):
+            rows = t["rows"]
+            if len(rows) < 3 or len(rows[0]) < 4:
+                continue
+            info = [colinfo(c) for c in rows[0]]
+            inter = [(k, v) for k, v in enumerate(info) if v and v[1] != "FY"]
+            if len(inter) < 2:
+                continue
+            cur_k, (cy, ct) = max(inter, key=lambda kv: kv[1][0])
+            prev_k = next((k for k, v in inter if v == (cy - 1, ct)), None)
+            fy_k = next((k for k, v in enumerate(info) if v == (cy - 1, "FY")), None)
+            if prev_k is None or fy_k is None:
+                continue
+            lab_rows = [r for r in rows if r and re.search(r"(당기|반기|분기)순이익|순손익", r[0].replace(" ", ""))]
+            ctrl = [r for r in rows if r and "지배기업" in r[0] and "비지배" not in r[0]]
+            pick = (ctrl or lab_rows)
+            if not pick:
+                continue
+            r = pick[0]
+            off = len(rows[0]) - len(r)  # 라벨 열 병합 차이 보정
+            try:
+                vals = [_to_num(r[k - off]) for k in (cur_k, fy_k, prev_k)]
+            except IndexError:
+                continue
+            if None in vals:
+                continue
+            unit = 1
+            if max(abs(v) for v in vals) < 1e8:  # 원 단위가 아니면 앞 표의 단위 표기 확인
+                near = " ".join(" ".join(" ".join(x) for x in self.tables[j]["rows"][:2]) for j in range(max(0, i - 2), i + 1))
+                unit = 1e6 if "백만원" in near else (1e3 if "천원" in near else 1)
+            ltm = (vals[0] + vals[1] - vals[2]) * unit
+            return {"ni": ltm, "basis": f"{cy}년 {dict(H='반기', **{'3Q': '3분기', '1Q': '1분기'})[ct]} LTM"}
+        return None
+
     def forecast(self):
         """수요예측 일시 (정정 시 마지막 값)"""
         found = None

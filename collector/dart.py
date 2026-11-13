@@ -97,11 +97,21 @@ class Dart:
         cur = end - timedelta(days=days)
         while cur < end:
             nxt = min(cur + timedelta(days=89), end)
-            out += self.list_filings(cur.strftime("%Y%m%d"), nxt.strftime("%Y%m%d"),
-                                     detail_ty="C001")
+            out += self.list_filings(cur.strftime("%Y%m%d"), nxt.strftime("%Y%m%d"), pblntf_ty="C")
             cur = nxt + timedelta(days=1)
-        return [r for r in out
-                if r.get("corp_cls") == "E" and "증권신고서" in r.get("report_nm", "")]
+        out = [r for r in out if r.get("corp_cls") == "E"]
+        # 철회: 마지막 증권신고서 이후에 철회신고서가 있으면 제외
+        last_reg, last_wd = {}, {}
+        for r in out:
+            nm = r.get("report_nm", "")
+            if "철회" in nm:
+                last_wd[r["corp_code"]] = max(last_wd.get(r["corp_code"], ""), r["rcept_no"])
+            elif "증권신고서" in nm and "지분증권" in nm:
+                last_reg[r["corp_code"]] = max(last_reg.get(r["corp_code"], ""), r["rcept_no"])
+        self.withdrawn = {r["corp_name"] for r in out
+                          if r["corp_code"] in last_wd and last_wd[r["corp_code"]] > last_reg.get(r["corp_code"], "")}
+        return [r for r in out if "증권신고서" in r.get("report_nm", "") and "지분증권" in r.get("report_nm", "")
+                and r["corp_name"] not in self.withdrawn]
 
     def company_filings(self, corp_code, days=400):
         end = date.today()
