@@ -21,6 +21,7 @@ MANUAL = DATA / "manual.json"
 OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
+PARSER_V = 2  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
@@ -68,7 +69,7 @@ def step(name):
     return deco
 
 
-def upsert(lst, rec, keep_existing=("source",)):
+def upsert(lst, rec, keep_existing=()):
     k = norm(rec["name"])
     for x in lst:
         if norm(x["name"]) == k:
@@ -129,34 +130,45 @@ def from_dart(state, dart, codes):
                 rec["underwriter"] = ", ".join(dict.fromkeys(und))
         except Exception as e:
             WARN.append(f"[estkRs {name}] {e}")
-        if not spac and ex and ex.get("rcept_no") == fs[-1]["rcept_no"] and ex.get("source") == "dart":
+        if not spac and ex and ex.get("rcept_no") == fs[-1]["rcept_no"] and ex.get("parser_v") == PARSER_V:
             upsert(state["pipeline"], rec)  # 원문 변경 없음 → 일정만 갱신
             continue
         if not spac:
-            doc = None
-            for f in reversed(fs):  # 최신 원문이 없으면 이전 제출본으로
+            # 최신 제출본부터 거슬러 올라가며 필요한 값을 채움 (정정신고서는 바뀐 부분만 있어서)
+            summ, peers, fc, full = {}, [], None, None
+            for f in list(reversed(fs))[:4]:
                 try:
-                    doc = Filing(dart.document(f["rcept_no"]))
-                    rec["rcept_no"] = f["rcept_no"]
-                    break
+                    d = Filing(dart.document(f["rcept_no"]))
                 except Exception as e:
                     WARN.append(f"[원문 {name}] {e}")
-            if doc is None:
-                upsert(state["pipeline"], rec)
-                continue
-            meth, mult = doc.method_and_multiple()
+                    continue
+                sm = d.summary()
+                for k, v in sm.items():
+                    summ.setdefault(k, v)
+                fc = fc or d.forecast()
+                if not peers:
+                    peers = d.peer_table(summ.get("method"), summ.get("multiple")) or \
+                        d.peer_table(summ.get("method"), sm.get("multiple"))
+                if full is None and len(d.tables) > 500:
+                    full = d
+                if summ.get("band") and peers and fc and full is not None:
+                    break
+            if not summ:
+                WARN.append(f"[원문 {name}] 공모가 산정 요약표를 찾지 못함")
             rec.update({
-                "band": doc.band(), "ua_method": meth, "ua_multiple": mult,
-                "ua_value": doc.per_share_value(), "discount": doc.discount(),
-                "final_price": doc.final_price(), "total_shares_after": doc.total_shares_after(),
-                "peers_ua": doc.peers(listed, meth),
-                "market": "코스닥" if "코스닥시장" in doc.text[:20000] else
-                ("유가증권" if "유가증권시장" in doc.text[:20000] else None),
-                "special": True if re.search("기술성장기업|기술특례|성장성\\s*특례", doc.text[:60000]) else None,
+                "band": summ.get("band"), "final_price": summ.get("final_price"),
+                "ua_method": summ.get("method"), "ua_multiple": summ.get("multiple"),
+                "ua_value": summ.get("value"), "discount": summ.get("discount"),
+                "ua_base": summ.get("base"), "ua_shares": summ.get("shares"),
+                "peers_ua": peers, "forecast": fc, "source": "dart", "parser_v": PARSER_V,
             })
-            if not rec.get("business"):
+            doc = full
+            if doc is not None:
+                head = doc.text[:60000]
+                rec["market"] = "코스닥" if "코스닥시장" in head else ("유가증권" if "유가증권시장" in head else None)
+                rec["special"] = bool(re.search("기술성장기업|기술특례|성장성\\s*특례", head))
                 rec["business"] = doc.business_summary()
-            rec["source"] = "dart"
+                rec["total_shares_after"] = doc.total_shares_after()
         upsert(state["pipeline"], rec)
 
 
@@ -336,6 +348,8 @@ def save(state):
 
 def main():
     state = json.loads((STATE if STATE.exists() else SEED).read_text(encoding="utf-8"))
+    # 공모 예정 목록은 DART 기준으로만 관리 (엑셀에서 온 값은 제거)
+    state["pipeline"] = [p for p in state["pipeline"] if p.get("source") == "dart" or p.get("spac") is not None and p.get("corp_code") and p.get("source") != "excel"]
     manual = json.loads(MANUAL.read_text(encoding="utf-8")) if MANUAL.exists() else {}
     try:
         from .dart import Dart

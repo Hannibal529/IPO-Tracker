@@ -254,10 +254,14 @@ def revalue(dart, codes, ipo, manual=None):
     manual = manual or {}
     method = manual.get("method") or ipo.get("ua_method") or "PER"
     ua_peers = ipo.get("peers_ua") or []
-    peers = [d for d in (peer_data(dart, codes, p["name"]) for p in ua_peers) if d]
-    for p in peers:
-        p["ua_multiple"] = next((q["ua_multiple"] for q in ua_peers if q["name"] == p["name"]), None)
-        p["origin"] = "주관사"
+    peers, outside = [], []
+    for q in ua_peers:
+        d = peer_data(dart, codes, q["name"])
+        if d:
+            peers.append({**d, "ua_multiple": q.get("ua_multiple"), "origin": "주관사"})
+        else:
+            outside.append({"name": q["name"], "ua_multiple": q.get("ua_multiple"), "origin": "주관사",
+                            "multiples": {}, "kept": False, "reason": "해외·비상장 등 국내 시세 없음 → 재산정 제외"})
     if not peers:
         return None
 
@@ -307,19 +311,28 @@ def revalue(dart, codes, ipo, manual=None):
             peers.append({**d, "origin": "수동 추가", "kept": d["multiples"].get(method) is not None,
                           "reason": "수동 추가"})
 
+    peers += outside
     kept = [p["multiples"][method] for p in peers if p["kept"]]
     if not kept:
         return {"method": method, "peers": peers, "rationale": rationale, "value": None}
     med = statistics.median(kept)
     avg = statistics.mean(kept)
     basis = (manual.get("target_basis") or {}).get(method)
-    if basis is None and ipo.get("ua_value") and ipo.get("ua_multiple") and method == ipo.get("ua_method"):
+    value = None
+    same = method == ipo.get("ua_method") and ipo.get("ua_value") and ipo.get("ua_multiple")
+    if basis is not None:
+        value = round(med * basis)
+    elif same and method == "EV/EBITDA" and ipo.get("ua_base") and ipo.get("ua_shares"):
+        # 주관사 평가가액에서 멀티플 차이만큼만 조정 (순차입금·공모유입자금 등은 주관사 값 유지)
+        value = round(ipo["ua_value"] + ipo["ua_base"] * (med - ipo["ua_multiple"]) / ipo["ua_shares"])
+        basis = ipo["ua_base"] / ipo["ua_shares"]
+    elif same:
         basis = ipo["ua_value"] / ipo["ua_multiple"]
-    value = round(med * basis) if basis else None
+        value = round(med * basis)
     out = {"method": method, "multiple_median": round(med, 2), "multiple_mean": round(avg, 2),
            "per_share_basis": basis and round(basis, 1), "value": value, "peers": peers,
            "rationale": rationale, "as_of": date.today().isoformat(),
-           "note": "EV/EBITDA는 순차입금을 주관사 기준과 동일하다고 가정한 근사치" if method == "EV/EBITDA" else None}
+           "note": "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체" if method == "EV/EBITDA" else None}
     if value and ipo.get("band"):
         lo, hi = ipo["band"]
         out["band_discount"] = [round(1 - hi / value, 4), round(1 - lo / value, 4)]

@@ -18,13 +18,30 @@ def _clean(s):
 def _to_num(s):
     if s is None:
         return None
-    s = str(s).replace(",", "").replace("배", "").replace("원", "").replace("주", "").strip()
+    s = str(s).replace(",", "").replace("배", "").replace("원", "").replace("주", "").replace("x", "").replace("X", "").replace("%", "").strip()
     s = s.replace("(", "-").replace(")", "") if re.fullmatch(r"\([\d.]+\)", s) else s
     try:
         return float(s)
     except ValueError:
         m = re.search(NUM, s)
         return float(m.group().replace(",", "")) if m else None
+
+
+def _is_num(c):
+    return bool(re.fullmatch(r"\s*\(?-?\d[\d,]*(?:\.\d+)?\)?\s*(배|x|X|원|%)?\s*", c or ""))
+
+
+_SKIP = re.compile(r"^(구\s*분|산\s*식|비\s*고|단위.*|평균|합계|항목|기업명|회사명|국내|해외|통화|"
+                   r"[A-Z]{3}|-|[A-Z]|[①-⑳]|\[.*\]|\(.*\)|.*[=÷×].*)$")
+
+
+def _name_like(c):
+    c = (c or "").strip()
+    return bool(c) and not _SKIP.match(c) and not re.search(r"\d", c) and len(c) <= 40
+
+
+def _clean_name(n):
+    return re.sub(r"\(주\)|㈜|주식회사|\s", "", n)
 
 
 class Filing:
@@ -54,7 +71,117 @@ class Filing:
                 if rows:
                     self.tables.append({"rows": rows, "title": last_title})
 
-    # ---------- 공모가 관련 ----------
+
+    # ================= 표준 양식 기반 추출 (2026-11 실제 신고서 16건으로 검증) =================
+    def summary(self):
+        """[공모가 산정 요약표] — 모든 신고서에 들어가는 표준 표. 정정신고서는 마지막 표가 정정 후."""
+        tabs = [t["rows"] for t in self.tables
+                if t["rows"][0][:1] == ["평가방법"] or (len(t["rows"]) > 1 and t["rows"][1][:1] == ["평가모형"])]
+        if not tabs:
+            return {}
+        out = {}
+        for r in tabs[-1]:
+            lab = r[0]
+            head = " ".join(r[:2])
+            joined = " ".join(r)
+            if lab == "평가모형":
+                rest = " ".join(r[1:]).upper()
+                out["method"] = next((m for m in METHODS if m in rest), rest[:20])
+                continue
+            if lab in ("평가방법", "적용 재무수치", "적용재무수치", "적용산식", "적용근거"):
+                continue
+            if lab == "①" and "base" not in out:  # 적용 이익/EBITDA (원 단위로 환산)
+                cells = r[1:]
+                unit = 1e6 if any("백만원" in c for c in cells) else (1e3 if any("천원" in c for c in cells) else 1)
+                vals = [_to_num(c) for c in cells[1:] if re.search(r"\d", c) and _to_num(c)]
+                if vals:
+                    out["base"] = vals[0] * unit
+            if re.search("주식수", head) and "shares" not in out and lab in "①②③④⑤⑥⑦":
+                vals = [_to_num(c) for c in r[1:] if re.search(r"\d{1,3}(,\d{3})+", c)]
+                if vals:
+                    out["shares"] = vals[0]
+            m = out.get("method")
+            if m and "multiple" not in out and m in head.upper() and re.search("비교|유사|평균|적용", head):
+                vals = [c for c in r[1:] if _is_num(c)]
+                if vals:
+                    out["multiple"] = _to_num(vals[0])
+            if re.search(r"주당\s*평가\s*가", lab) and "할인" not in lab and "value" not in out:
+                vals = [_to_num(c) for c in r[1:] if _is_num(c)]
+                vals = [v for v in vals if v and v >= 100]
+                if vals:
+                    out["value"] = vals[0]
+            if ("평가가액에 대한" in head or "할인율" in lab) and "discount" not in out:
+                pcts = re.findall(r"(\d+(?:\.\d+)?)\s*%?", " ".join(c for c in r[1:] if re.search(r"%|\d+\.\d+\s*~", c)))
+                if pcts:
+                    p = sorted(float(x) for x in pcts[:2])
+                    out["discount"] = " ~ ".join(f"{x:.2f}%" for x in p)
+            if re.search(r"공모\s*가\s*산정|공모가액\s*밴드|확정\s*공모\s*가", lab):
+                nums = list(dict.fromkeys(int(x.replace(",", "")) for x in
+                                          re.findall(r"\d{1,3}(?:,\d{3})+|\d{4,6}", " ".join(r[1:3]))))
+                if "확정" in joined or "결정" in joined:
+                    if len(nums) == 1 or "확정" in lab:
+                        out["final_price"] = nums[-1] if nums else None
+                        continue
+                if len(nums) >= 2:
+                    out["band"] = nums[:2]
+        return out
+
+    def peer_table(self, method, mult):
+        """최종 멀티플이 계산된 표에서 비교기업과 개별 배수 추출 (회사가 열/행 어느 방향이든)"""
+        if not method:
+            return []
+        method = method.upper()
+        cand = []
+        for t in self.tables:
+            rows = t["rows"]
+            if rows[0][:1] == ["평가방법"]:
+                continue
+            nums = [_to_num(c) for r in rows for c in r if _is_num(c)]
+            if mult and not any(v is not None and abs(v - mult) < 0.006 for v in nums):
+                continue
+            # (1) 회사가 열 방향: 숫자 없는 행 중 회사명이 가장 많은 행을 헤더로
+            first_num = next((k for k, r in enumerate(rows) if any(_is_num(c) for c in r[1:])), len(rows))
+            best = []
+            for r in rows[:first_num]:
+                nm = [_clean_name(c) for c in r if _name_like(c)]
+                if len(nm) > len(best):
+                    best = nm
+            mrow = None
+            for r in rows:
+                lab = " ".join(r[:2]).upper()
+                if method in lab and not re.search("평균|적용|거래배수|최종|전체|국가별", r[0]) \
+                        and sum(_is_num(c) for c in r) >= len(best) >= 2:
+                    mrow = r
+            if len(best) >= 2 and mrow:
+                vals = [_to_num(c) for c in mrow if _is_num(c)][-len(best):]
+                cand.append([{"name": n, "ua_multiple": v} for n, v in zip(best, vals)])
+                continue
+            # (2) 회사가 행 방향: 헤더에 지표 열이 있음
+            hdr = rows[0]
+            ci = next((j for j, c in enumerate(hdr) if method in c.upper()), None)
+            if ci is not None:
+                ps = []
+                for r in rows[1:]:
+                    if r and _name_like(r[0]) and len(r) == len(hdr) and _is_num(r[ci]):
+                        ps.append({"name": _clean_name(r[0]), "ua_multiple": _to_num(r[ci])})
+                if len(ps) >= 2:
+                    cand.append(ps)
+        return cand[-1] if cand else []
+
+    def forecast(self):
+        """수요예측 일시 (정정 시 마지막 값)"""
+        found = None
+        for t in self.tables:
+            for r in t["rows"]:
+                if r and re.search(r"수요예측\s*(일시|기간|일$|예정일|접수기간)", r[0]):
+                    txt = re.sub(r"(?<=\d)\s+(?=\d)", "", " ".join(r[1:3]))
+                    ds = re.findall(r"(20\d\d)\s*[년.]\s*(\d{1,2})\s*[월.]\s*(\d{1,2})", txt)
+                    if ds:
+                        out = [f"{y}-{int(m):02d}-{int(d):02d}" for y, m, d in ds[:2]]
+                        found = out if len(out) == 2 else out * 2
+        return found
+
+    # ---------- 공모가 관련 (구버전 휴리스틱, 요약표 없을 때 보조) ----------
     def band(self):
         m = re.search(r"(?:희망\s*공모\s*가액|공모\s*희망\s*가액|희망\s*공모가)[^0-9]{0,40}"
                       rf"({NUM})\s*원?\s*[~∼-]\s*({NUM})\s*원", self.text)
@@ -201,6 +328,13 @@ class Filing:
         m = re.search(rf"공모\s*후\s*(?:발행)?\s*주식\s*(?:총)?수[^0-9]{{0,30}}({NUM})\s*주", self.text)
         return int(_to_num(m.group(1))) if m else None
 
-    def business_summary(self, n=160):
-        m = re.search(r"(?:회사의\s*개요|사업의\s*개요)\s*(.{40,600}?)(?:\.|다\.)", self.text)
-        return (m.group(1)[:n] + "…") if m else None
+    def business_summary(self, n=200):
+        """II. 사업의 내용 - 1. 사업의 개요 에서 회사 소개 문장"""
+        for m in re.finditer(r"사업의\s*개요", self.text):
+            seg = self.text[m.end():m.end() + 9000]
+            for k in re.finditer(r"(당사|동사)는\s", seg):
+                sent = re.split(r"(?<=다)\.\s|(?<=다)\.$", seg[k.start():k.start() + 600])[0]
+                if 30 <= len(sent) <= 400 and re.search("영위|전문|기업|주력|개발|제조|공급|서비스|플랫폼", sent) \
+                        and not re.search("증권신고서|정정|기재사항|용어", sent[:60]):
+                    return sent[:n] + ("…" if len(sent) > n else "")
+        return None
