@@ -33,7 +33,7 @@
     "2026-11-20",
     "2026-11-26"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -71,7 +71,7 @@
       "name": "안랩",
       "code": "053800",
       "price": 115400.0,
-      "avg61": 78203,
+      "avg61": 78200,
       "mcap_eok": 8701,
       "industry": "소프트웨어 개발 및 공급업",
       "fin_basis": "2026 3Q LTM",
@@ -115,8 +115,8 @@
       "name": "지니언스",
       "code": "263860",
       "price": 34500.0,
-      "avg61": 20214,
-      "mcap_eok": 1835,
+      "avg61": 20216,
+      "mcap_eok": 1836,
       "industry": "소프트웨어 개발 및 공급업",
       "fin_basis": "2026 3Q LTM",
       "ltm_ni_eok": 120,
@@ -187,7 +187,7 @@
     "2026-11-12",
     "2026-11-18"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": true,
    "peers_ua": [
     {
@@ -234,8 +234,8 @@
       "name": "유한양행",
       "code": "000100",
       "price": 80100.0,
-      "avg61": 79070,
-      "mcap_eok": 58208,
+      "avg61": 79067,
+      "mcap_eok": 58206,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 2371,
@@ -278,8 +278,8 @@
       "name": "종근당",
       "code": "185750",
       "price": 61400.0,
-      "avg61": 65418,
-      "mcap_eok": 9030,
+      "avg61": 65415,
+      "mcap_eok": 9029,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 795,
@@ -345,7 +345,7 @@
     "2026-10-28",
     "2026-11-03"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -426,7 +426,7 @@
       "name": "큐렉소",
       "code": "060280",
       "price": 6800.0,
-      "avg61": 7914,
+      "avg61": 7913,
       "mcap_eok": 3265,
       "industry": "기타 상품 전문 소매업",
       "fin_basis": "2026 3Q LTM",
@@ -434,10 +434,10 @@
       "ebitda_eok": 10,
       "equity_eok": 972,
       "multiples": {
-       "PER": 244.06,
+       "PER": 244.05,
        "PBR": 3.36,
        "PSR": 4.34,
-       "EV/EBITDA": 303.78
+       "EV/EBITDA": 303.77
       },
       "ua_multiple": 61.01,
       "origin": "주관사",
@@ -448,7 +448,7 @@
       "name": "씨피시스템",
       "code": "413630",
       "price": 3015.0,
-      "avg61": 3713,
+      "avg61": 3712,
       "mcap_eok": 1353,
       "industry": "플라스틱제품 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -470,7 +470,7 @@
       "name": "아진엑스텍",
       "code": "059120",
       "price": 5930.0,
-      "avg61": 6607,
+      "avg61": 6606,
       "mcap_eok": 1210,
       "industry": "반도체 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -555,7 +555,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -708,7 +708,7 @@
     "2026-10-27",
     "2026-11-02"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -754,7 +754,7 @@
       "name": "한솔아이원스",
       "code": "114810",
       "price": 10060.0,
-      "avg61": 12451,
+      "avg61": 12452,
       "mcap_eok": 3504,
       "industry": "특수 목적용 기계 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -762,7 +762,7 @@
       "ebitda_eok": 390,
       "equity_eok": 2254,
       "multiples": {
-       "PER": 14.49,
+       "PER": 14.5,
        "PBR": 1.55,
        "PSR": 1.6,
        "EV/EBITDA": 9.02
@@ -776,8 +776,8 @@
       "name": "원익QnC",
       "code": "074600",
       "price": 29950.0,
-      "avg61": 27248,
-      "mcap_eok": 7163,
+      "avg61": 27251,
+      "mcap_eok": 7164,
       "industry": "유리 및 유리제품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 483,
@@ -798,15 +798,15 @@
       "name": "코미코",
       "code": "183300",
       "price": 21100.0,
-      "avg61": 26086,
-      "mcap_eok": 13399,
+      "avg61": 26085,
+      "mcap_eok": 13398,
       "industry": "특수 목적용 기계 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 320,
       "ebitda_eok": 971,
       "equity_eok": 2867,
       "multiples": {
-       "PER": 41.9,
+       "PER": 41.89,
        "PBR": 4.67,
        "PSR": 2.04,
        "EV/EBITDA": 19.43
@@ -820,8 +820,8 @@
       "name": "하나머티리얼즈",
       "code": "166090",
       "price": 48300.0,
-      "avg61": 53051,
-      "mcap_eok": 10492,
+      "avg61": 53057,
+      "mcap_eok": 10493,
       "industry": "반도체 제조업",
       "fin_basis": "2026 3Q LTM",
       "ltm_ni_eok": 483,
@@ -881,7 +881,7 @@
     "2026-11-16",
     "2026-11-20"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "target_ltm": {
     "ni": 2944000000.0,
@@ -921,7 +921,7 @@
     "2026-11-16",
     "2026-11-20"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": true,
    "peers_ua": [
     {
@@ -999,7 +999,7 @@
       "name": "바이오에프디엔씨",
       "code": "251120",
       "price": 8120.0,
-      "avg61": 9196,
+      "avg61": 9198,
       "mcap_eok": 800,
       "industry": "기초 의약물질 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -1066,7 +1066,7 @@
     "2026-10-21",
     "2026-10-27"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -1108,8 +1108,8 @@
       "name": "LIG디펜스앤에어로스페이스",
       "code": "079550",
       "price": 357500.0,
-      "avg61": 600057,
-      "mcap_eok": 132013,
+      "avg61": 600082,
+      "mcap_eok": 132018,
       "industry": "무기 및 총포탄 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 2865,
@@ -1223,7 +1223,7 @@
     "2026-11-02",
     "2026-11-06"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -1265,8 +1265,8 @@
       "name": "한화에어로스페이스",
       "code": "012450",
       "price": 645000.0,
-      "avg61": 942082,
-      "mcap_eok": 485770,
+      "avg61": 942066,
+      "mcap_eok": 485761,
       "industry": "항공기,우주선 및 부품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 20623,
@@ -1370,7 +1370,7 @@
     "2026-11-09",
     "2026-11-13"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": null
@@ -1426,7 +1426,7 @@
       "name": "알에프에이치아이씨 (RFHIC)",
       "code": "218410",
       "price": 54600.0,
-      "avg61": 51103,
+      "avg61": 51105,
       "mcap_eok": 13582,
       "industry": "통신 및 방송 장비 제조업",
       "fin_basis": null,
@@ -1443,7 +1443,7 @@
       "name": "쏠리드",
       "code": "050890",
       "price": 8690.0,
-      "avg61": 8879,
+      "avg61": 8880,
       "mcap_eok": 5395,
       "industry": "통신 및 방송 장비 제조업",
       "fin_basis": "2026 2Q LTM",
@@ -1550,7 +1550,7 @@
     "2026-12-03",
     "2026-12-09"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -1675,7 +1675,7 @@
     "2026-12-02",
     "2026-12-08"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -1701,29 +1701,29 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 23.34,
-    "multiple_median": 26.08,
+    "multiple_mean": 23.33,
+    "multiple_median": 26.07,
     "values": {
-     "주관사 기준이익": 40116
+     "주관사 기준이익": 40110
     },
-    "value": 40116,
+    "value": 40110,
     "value_range": null,
     "peers": [
      {
       "name": "HD현대일렉트릭",
       "code": "267260",
       "price": 420000.0,
-      "avg61": 615426,
-      "mcap_eok": 221844,
+      "avg61": 615377,
+      "mcap_eok": 221826,
       "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 8508,
       "ebitda_eok": 11133,
       "equity_eok": 22550,
       "multiples": {
-       "PER": 26.08,
+       "PER": 26.07,
        "PBR": 9.84,
-       "PSR": 5.12,
+       "PSR": 5.11,
        "EV/EBITDA": 19.04
       },
       "ua_multiple": 21.14,
@@ -1779,8 +1779,8 @@
       "name": "HD현대마린솔루션",
       "code": "443060",
       "price": 175800.0,
-      "avg61": 206805,
-      "mcap_eok": 92718,
+      "avg61": 206792,
+      "mcap_eok": 92712,
       "industry": "건축기술, 엔지니어링 및 관련 기술 서비스업",
       "fin_basis": "2026 3Q LTM",
       "ltm_ni_eok": 2872,
@@ -1803,8 +1803,8 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 상장주식수, 이익 = LTM 지배주주순이익",
     "note": null,
     "band_discount": [
-     0.4267,
-     0.5264
+     0.4266,
+     0.5263
     ],
     "sig": "{\"bio_rates\": [0.3, 0.35], \"max_multiple\": 100}|5"
    }
@@ -1842,7 +1842,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -1883,7 +1883,7 @@
       "name": "나노신소재",
       "code": "121600",
       "price": 74300.0,
-      "avg61": 56244,
+      "avg61": 56246,
       "mcap_eok": 6897,
       "industry": "기타 화학제품 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -1905,7 +1905,7 @@
       "name": "신흥에스이씨",
       "code": "243840",
       "price": 5390.0,
-      "avg61": 5794,
+      "avg61": 5793,
       "mcap_eok": 2234,
       "industry": "일차전지 및 이차전지 제조업",
       "fin_basis": "2026 2Q LTM",
@@ -1990,7 +1990,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -2150,7 +2150,7 @@
     "2026-11-27",
     "2026-12-03"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": true,
    "peers_ua": [
     {
@@ -2200,7 +2200,7 @@
       "name": "동아에스티",
       "code": "170900",
       "price": 34350.0,
-      "avg61": 35619,
+      "avg61": 35620,
       "mcap_eok": 3465,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
@@ -2244,8 +2244,8 @@
       "name": "HK이노엔",
       "code": "195940",
       "price": 36250.0,
-      "avg61": 38630,
-      "mcap_eok": 10944,
+      "avg61": 38629,
+      "mcap_eok": 10943,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 858,
@@ -2266,8 +2266,8 @@
       "name": "삼진제약",
       "code": "005500",
       "price": 19760.0,
-      "avg61": 19026,
-      "mcap_eok": 2534,
+      "avg61": 19029,
+      "mcap_eok": 2535,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 233,
@@ -2310,8 +2310,8 @@
       "name": "명인제약",
       "code": "317450",
       "price": 42050.0,
-      "avg61": 42910,
-      "mcap_eok": 6265,
+      "avg61": 42907,
+      "mcap_eok": 6264,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 889,
@@ -2395,7 +2395,7 @@
     "2026-11-26",
     "2026-12-02"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": true,
    "peers_ua": [
     {
@@ -2421,8 +2421,8 @@
       "name": "유한양행",
       "code": "000100",
       "price": 80100.0,
-      "avg61": 79070,
-      "mcap_eok": 58208,
+      "avg61": 79067,
+      "mcap_eok": 58206,
       "industry": "의약품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 2371,
@@ -2521,7 +2521,7 @@
     "2026-11-19",
     "2026-11-25"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -2564,8 +2564,8 @@
       "name": "한화에어로스페이스",
       "code": "012450",
       "price": 645000.0,
-      "avg61": 942082,
-      "mcap_eok": 485770,
+      "avg61": 942066,
+      "mcap_eok": 485761,
       "industry": "항공기,우주선 및 부품 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 20623,
@@ -2586,8 +2586,8 @@
       "name": "엘아이지디펜스앤에어로스페이스 (LIG디펜스앤에어로스페이스)",
       "code": "079550",
       "price": 357500.0,
-      "avg61": 600057,
-      "mcap_eok": 132013,
+      "avg61": 600082,
+      "mcap_eok": 132018,
       "industry": "무기 및 총포탄 제조업",
       "fin_basis": "2026 2Q LTM",
       "ltm_ni_eok": 2865,
@@ -2671,7 +2671,7 @@
     "2026-12-02",
     "2026-12-08"
    ],
-   "parser_v": 4,
+   "parser_v": 5,
    "bio": false,
    "peers_ua": [
     {
@@ -2702,19 +2702,19 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 19.87,
-    "multiple_median": 18.61,
+    "multiple_mean": 19.86,
+    "multiple_median": 18.6,
     "values": {
-     "주관사 기준이익": 13375
+     "주관사 기준이익": 13372
     },
-    "value": 13375,
+    "value": 13372,
     "value_range": null,
     "peers": [
      {
       "name": "코세스",
       "code": "089890",
       "price": 36450.0,
-      "avg61": 29035,
+      "avg61": 29032,
       "mcap_eok": 4815,
       "industry": "특수 목적용 기계 제조업",
       "fin_basis": "2026 3Q LTM",
@@ -2722,7 +2722,7 @@
       "ebitda_eok": 354,
       "equity_eok": 1106,
       "multiples": {
-       "PER": 18.61,
+       "PER": 18.6,
        "PBR": 4.35,
        "PSR": 4.09,
        "EV/EBITDA": 12.09
@@ -2759,7 +2759,7 @@
       "code": "388050",
       "price": 7290.0,
       "avg61": 9169,
-      "mcap_eok": 1716,
+      "mcap_eok": 1715,
       "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
       "fin_basis": "2026 3Q LTM",
       "ltm_ni_eok": 68,
@@ -2782,8 +2782,8 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 상장주식수, 이익 = LTM 지배주주순이익",
     "note": null,
     "band_discount": [
-     0.1776,
-     0.4019
+     0.1774,
+     0.4017
     ],
     "sig": "{\"bio_rates\": [0.3, 0.35], \"max_multiple\": 100}|5"
    }
@@ -2817,7 +2817,7 @@
     "2026-11-06"
    ],
    "source": "dart",
-   "parser_v": 4,
+   "parser_v": 5,
    "market": "코스닥",
    "special": false,
    "business": "당사는 실험 자동화 스크리닝 시스템 설계 기술과 지속적으로 축적되는 대규모 암환자 임상 데이터베이스를 바탕으로 차세대 정밀의료 및 신약개발 지원 솔루션을 제공하는 바이오-엔지니어링 융합기업입니다",
@@ -2887,7 +2887,7 @@
       "name": "나노엔텍",
       "code": "039860",
       "price": 4235.0,
-      "avg61": 4235,
+      "avg61": 4234,
       "mcap_eok": 1613,
       "industry": "의료용 기기 제조업",
       "fin_basis": "2026 2Q LTM",
@@ -2896,7 +2896,7 @@
       "equity_eok": 941,
       "multiples": {
        "PER": 27.52,
-       "PBR": 1.72,
+       "PBR": 1.71,
        "PSR": 3.65,
        "EV/EBITDA": 27.06
       },
@@ -5610,6 +5610,23 @@
    "am_qty": null,
    "am_lock_qty": 51.0,
    "lock_ratio_38": null
+  }
+ ],
+ "withdrawn": [
+  {
+   "name": "SimwonAmericaCorp.",
+   "report": "철회신고서",
+   "date": "2026-10-30"
+  },
+  {
+   "name": "씨앤엠",
+   "report": "철회신고서",
+   "date": "2026-11-11"
+  },
+  {
+   "name": "제이앤티지",
+   "report": "철회신고서",
+   "date": "2026-11-11"
   }
  ]
 }
