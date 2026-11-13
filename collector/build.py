@@ -22,6 +22,7 @@ OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
 BIO_RE = r"바이오|신약|의약|제약|치료제|항체|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마"
+VALUATION_V = 2  # 재산정 로직 바꾸면 올림
 PARSER_V = 3  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
@@ -293,14 +294,18 @@ def revalue_all(state, dart, codes, manual):
             continue  # peer 표를 제대로 못 읽은 종목은 재산정하지 않음
         if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
             continue  # 상장 끝난 종목은 갱신 안 함
-        if (ipo.get("our_valuation") or {}).get("as_of") == date.today().isoformat():
-            continue  # 오늘 이미 계산함
-        print(f"  재산정: {ipo['name']}", flush=True)
         m = dict((manual.get(ipo["name"]) or {}).get("valuation") or {})
         if (manual.get("_settings") or {}).get("bio_rates") and "bio_rates" not in m:
             m["bio_rates"] = manual["_settings"]["bio_rates"]
+        sig = json.dumps(m, sort_keys=True, ensure_ascii=False) + f"|{VALUATION_V}"
+        ov = ipo.get("our_valuation") or {}
+        if ov.get("as_of") == date.today().isoformat() and ov.get("sig") == sig:
+            continue  # 오늘 같은 조건으로 이미 계산함
+        print(f"  재산정: {ipo['name']}", flush=True)
         try:
             ipo["our_valuation"] = revalue(dart, codes, ipo, m)
+            if ipo["our_valuation"]:
+                ipo["our_valuation"]["sig"] = sig
         except Exception as e:
             WARN.append(f"[재산정 {ipo['name']}] {e}")
         save(state)
