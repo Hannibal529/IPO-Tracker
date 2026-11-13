@@ -33,7 +33,7 @@
     "2026-11-20",
     "2026-11-26"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -125,6 +125,46 @@
      ]
     }
    },
+   "ksic": "58222",
+   "ksic_name": "응용 소프트웨어 개발 및 공급업",
+   "recent_ipos": [
+    {
+     "name": "빅웨이브로보틱스",
+     "listing": "2026-09-29",
+     "inst_competition": 1109.37,
+     "lock_ratio": 0.1814,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 288,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "네오사피엔스",
+     "listing": "2026-09-21",
+     "inst_competition": 219.56,
+     "lock_ratio": 0.0898,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "레몬헬스케어",
+     "listing": "2026-07-06",
+     "inst_competition": 1238,
+     "lock_ratio": 0.08420779746143076,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "안랩",
@@ -147,8 +187,6 @@
     "ni": -1161.0,
     "basis": "2026년 3분기 LTM"
    },
-   "ksic": "58222",
-   "ksic_name": "응용 소프트웨어 개발 및 공급업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 26.21,
@@ -264,45 +302,7 @@
      0.4307
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "빅웨이브로보틱스",
-     "listing": "2026-09-29",
-     "inst_competition": 1109.37,
-     "lock_ratio": 0.1814,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 288,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "네오사피엔스",
-     "listing": "2026-09-21",
-     "inst_competition": 219.56,
-     "lock_ratio": 0.0898,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "레몬헬스케어",
-     "listing": "2026-07-06",
-     "inst_competition": 1238,
-     "lock_ratio": 0.08420779746143076,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "아델",
@@ -338,7 +338,7 @@
     "2026-11-12",
     "2026-11-18"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": true,
    "sale_shares": 0,
    "use_of_funds": [
@@ -447,6 +447,46 @@
      ]
     }
    },
+   "ksic": "70113",
+   "ksic_name": "의학 및 약학 연구개발업",
+   "recent_ipos": [
+    {
+     "name": "인벤테라",
+     "listing": "2026-04-02",
+     "inst_competition": 1328.82,
+     "lock_ratio": 0.5592103116332191,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 196,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    },
+    {
+     "name": "카나프테라퓨틱스",
+     "listing": "2026-03-16",
+     "inst_competition": 962.1,
+     "lock_ratio": 0.85202453822027,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 400,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    },
+    {
+     "name": "알지노믹스",
+     "listing": "2025-12-18",
+     "inst_competition": 848.91,
+     "lock_ratio": 0.9305051629995705,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 464,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "유한양행",
@@ -479,8 +519,6 @@
      "2030"
     ]
    },
-   "ksic": "70113",
-   "ksic_name": "의학 및 약학 연구개발업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 23.78,
@@ -598,45 +636,7 @@
      0.1498
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "인벤테라",
-     "listing": "2026-04-02",
-     "inst_competition": 1328.82,
-     "lock_ratio": 0.5592103116332191,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 196,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "listing": "2026-03-16",
-     "inst_competition": 962.1,
-     "lock_ratio": 0.85202453822027,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 400,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    },
-    {
-     "name": "알지노믹스",
-     "listing": "2025-12-18",
-     "inst_competition": 848.91,
-     "lock_ratio": 0.9305051629995705,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 464,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "에이엘로봇",
@@ -675,7 +675,7 @@
     "2026-10-28",
     "2026-11-03"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -784,6 +784,45 @@
      ]
     }
    },
+   "ksic": "29",
+   "recent_ipos": [
+    {
+     "name": "티앤이코리아",
+     "listing": "2026-10-29",
+     "inst_competition": 1041.02,
+     "lock_ratio": 0.2952,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 367,
+     "ksic": "29174",
+     "industry": "일반 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "멜콘",
+     "listing": "2026-10-15",
+     "inst_competition": 1136.84,
+     "lock_ratio": 0.3607,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 308,
+     "ksic": "292",
+     "industry": "특수 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "브릴스",
+     "listing": "2026-10-01",
+     "inst_competition": 1187.74,
+     "lock_ratio": 0.2175,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 234,
+     "ksic": "29299",
+     "industry": "특수 목적용 기계 제조업",
+     "same": false
+    }
+   ],
    "final_price": 17600.0,
    "peers_ua": [
     {
@@ -819,7 +858,6 @@
      "2028"
     ]
    },
-   "ksic": "29",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 29.91,
@@ -986,45 +1024,7 @@
      0.1544
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "티앤이코리아",
-     "listing": "2026-10-29",
-     "inst_competition": 1041.02,
-     "lock_ratio": 0.2952,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 367,
-     "ksic": "29174",
-     "industry": "일반 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "멜콘",
-     "listing": "2026-10-15",
-     "inst_competition": 1136.84,
-     "lock_ratio": 0.3607,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 308,
-     "ksic": "292",
-     "industry": "특수 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "브릴스",
-     "listing": "2026-10-01",
-     "inst_competition": 1187.74,
-     "lock_ratio": 0.2175,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 234,
-     "ksic": "29299",
-     "industry": "특수 목적용 기계 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "다비오",
@@ -1059,7 +1059,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -1162,6 +1162,46 @@
      ]
     }
    },
+   "ksic": "58222",
+   "ksic_name": "응용 시스템 소프트웨어 개발 및 공급업",
+   "recent_ipos": [
+    {
+     "name": "빅웨이브로보틱스",
+     "listing": "2026-09-29",
+     "inst_competition": 1109.37,
+     "lock_ratio": 0.1814,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 288,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "네오사피엔스",
+     "listing": "2026-09-21",
+     "inst_competition": 219.56,
+     "lock_ratio": 0.0898,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "레몬헬스케어",
+     "listing": "2026-07-06",
+     "inst_competition": 1238,
+     "lock_ratio": 0.08420779746143076,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "비아이매트릭스",
@@ -1192,8 +1232,6 @@
     "ni": -27941084141.0,
     "basis": "2026년 3분기 LTM"
    },
-   "ksic": "58222",
-   "ksic_name": "응용 시스템 소프트웨어 개발 및 공급업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 23.3,
@@ -1305,45 +1343,7 @@
      0.1222
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "빅웨이브로보틱스",
-     "listing": "2026-09-29",
-     "inst_competition": 1109.37,
-     "lock_ratio": 0.1814,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 288,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "네오사피엔스",
-     "listing": "2026-09-21",
-     "inst_competition": 219.56,
-     "lock_ratio": 0.0898,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "레몬헬스케어",
-     "listing": "2026-07-06",
-     "inst_competition": 1238,
-     "lock_ratio": 0.08420779746143076,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "영광와이케이엠씨",
@@ -1382,7 +1382,7 @@
     "2026-10-27",
     "2026-11-02"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -1496,6 +1496,45 @@
      ]
     }
    },
+   "ksic": "25929",
+   "recent_ipos": [
+    {
+     "name": "티앤이코리아",
+     "listing": "2026-10-29",
+     "inst_competition": 1041.02,
+     "lock_ratio": 0.2952,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 367,
+     "ksic": "29174",
+     "industry": "일반 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "멜콘",
+     "listing": "2026-10-15",
+     "inst_competition": 1136.84,
+     "lock_ratio": 0.3607,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 308,
+     "ksic": "292",
+     "industry": "특수 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "진코스텍",
+     "listing": "2026-10-15",
+     "inst_competition": 1097.62,
+     "lock_ratio": 0.0529,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "20423",
+     "industry": "기타 화학제품 제조업",
+     "same": false
+    }
+   ],
    "final_price": 11000.0,
    "peers_ua": [
     {
@@ -1515,7 +1554,6 @@
      "ua_multiple": 16.24
     }
    ],
-   "ksic": "25929",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 15.55,
@@ -1648,45 +1686,7 @@
      0.0922
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "티앤이코리아",
-     "listing": "2026-10-29",
-     "inst_competition": 1041.02,
-     "lock_ratio": 0.2952,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 367,
-     "ksic": "29174",
-     "industry": "일반 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "멜콘",
-     "listing": "2026-10-15",
-     "inst_competition": 1136.84,
-     "lock_ratio": 0.3607,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 308,
-     "ksic": "292",
-     "industry": "특수 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "진코스텍",
-     "listing": "2026-10-15",
-     "inst_competition": 1097.62,
-     "lock_ratio": 0.0529,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "20423",
-     "industry": "기타 화학제품 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "제논",
@@ -1708,8 +1708,8 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 40.96,
-   "ua_value": 14332500.0,
-   "discount": "29.83% ~ 11.74%",
+   "ua_value": 13823.0,
+   "discount": "11.74% ~ 29.83%",
    "total_shares_after": null,
    "market": "코스닥",
    "special": false,
@@ -1719,7 +1719,7 @@
     "2026-12-03",
     "2026-12-09"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "float_schedule": [
@@ -1793,10 +1793,6 @@
      ]
     }
    },
-   "target_ltm": {
-    "ni": 2944000000.0,
-    "basis": "2026년 반기 LTM"
-   },
    "ksic": "6202",
    "recent_ipos": [
     {
@@ -1835,7 +1831,91 @@
      "industry": "소프트웨어 개발 및 공급업",
      "same": false
     }
-   ]
+   ],
+   "ua_base": 4995000000.0,
+   "ua_shares": 14799500.0,
+   "peers_ua": [
+    {
+     "name": "와이즈넛",
+     "ua_multiple": 18.29
+    },
+    {
+     "name": "비아이매트릭스",
+     "ua_multiple": 50.05
+    },
+    {
+     "name": "BrainsTechnology",
+     "ua_multiple": 54.52
+    }
+   ],
+   "target_ltm": {
+    "ni": 2944000000.0,
+    "basis": "2026년 반기 LTM"
+   },
+   "our_valuation": {
+    "method": "PER",
+    "peers": [
+     {
+      "name": "와이즈넛",
+      "code": "096250",
+      "price": 4460.0,
+      "avg61": 5275,
+      "mcap_eok": 623,
+      "industry": "소프트웨어 개발 및 공급업",
+      "fin_basis": "2026 2Q LTM",
+      "ltm_ni_eok": 32,
+      "ebitda_eok": 17,
+      "equity_eok": 582,
+      "multiples": {
+       "PBR": 1.07,
+       "PSR": 1.74,
+       "EV/EBITDA": 32.05,
+       "PER_LTM": 19.25,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": -10
+      },
+      "ua_multiple": 18.29,
+      "origin": "주관사",
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+     },
+     {
+      "name": "비아이매트릭스",
+      "code": "413640",
+      "price": 5350.0,
+      "avg61": 5683,
+      "mcap_eok": 410,
+      "industry": "소프트웨어 개발 및 공급업",
+      "fin_basis": "2026 3Q LTM",
+      "ltm_ni_eok": 16,
+      "ebitda_eok": 5,
+      "equity_eok": 319,
+      "multiples": {
+       "PBR": 1.28,
+       "PSR": 1.2,
+       "EV/EBITDA": 88.13,
+       "PER_LTM": 25.34,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": -8
+      },
+      "ua_multiple": 50.05,
+      "origin": "주관사",
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+     },
+     {
+      "name": "BrainsTechnology",
+      "ua_multiple": 54.52,
+      "origin": "주관사",
+      "multiples": {},
+      "kept": false,
+      "reason": "해외·비상장 등 국내 시세 없음 → 재산정 제외"
+     }
+    ],
+    "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
+    "value": null,
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+   }
   },
   {
    "name": "케이엠에프",
@@ -1870,7 +1950,7 @@
     "2026-11-16",
     "2026-11-20"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": true,
    "sale_shares": 0,
    "use_of_funds": [
@@ -1963,6 +2043,45 @@
      ]
     }
    },
+   "ksic": "108",
+   "recent_ipos": [
+    {
+     "name": "삼진식품",
+     "listing": "2025-12-22",
+     "inst_competition": 1303.874,
+     "lock_ratio": 0.42725766850119334,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 152,
+     "ksic": "10211",
+     "industry": "수산물 가공 및 저장 처리업",
+     "same": false
+    },
+    {
+     "name": "기도산업",
+     "listing": "2026-08-21",
+     "inst_competition": 213.31,
+     "lock_ratio": null,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "14199",
+     "industry": "봉제의복 제조업",
+     "same": false
+    },
+    {
+     "name": "래블업",
+     "listing": "2026-11-03",
+     "inst_competition": 284.53,
+     "lock_ratio": 0.0209,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 414,
+     "ksic": "58221",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "셀로맥스사이언스",
@@ -1981,7 +2100,6 @@
     "ni": 15812667077.0,
     "basis": "2026년 반기 LTM"
    },
-   "ksic": "108",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 15.22,
@@ -2089,45 +2207,7 @@
      0.354
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "삼진식품",
-     "listing": "2025-12-22",
-     "inst_competition": 1303.874,
-     "lock_ratio": 0.42725766850119334,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 152,
-     "ksic": "10211",
-     "industry": "수산물 가공 및 저장 처리업",
-     "same": false
-    },
-    {
-     "name": "기도산업",
-     "listing": "2026-08-21",
-     "inst_competition": 213.31,
-     "lock_ratio": null,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "14199",
-     "industry": "봉제의복 제조업",
-     "same": false
-    },
-    {
-     "name": "래블업",
-     "listing": "2026-11-03",
-     "inst_competition": 284.53,
-     "lock_ratio": 0.0209,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 414,
-     "ksic": "58221",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "옵토닉스",
@@ -2166,7 +2246,7 @@
     "2026-10-21",
     "2026-10-27"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -2279,6 +2359,46 @@
      ]
     }
    },
+   "ksic": "27301",
+   "ksic_name": "광학렌즈 및 광학요소 제조업",
+   "recent_ipos": [
+    {
+     "name": "그린광학",
+     "listing": "2025-11-17",
+     "inst_competition": 962.34,
+     "lock_ratio": 0.835465369405106,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 320,
+     "ksic": "273",
+     "industry": "사진장비 및 광학기기 제조업",
+     "same": true
+    },
+    {
+     "name": "큐리오시스",
+     "listing": "2025-11-13",
+     "inst_competition": 1031.39,
+     "lock_ratio": 0.8637067112491044,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 264,
+     "ksic": "273",
+     "industry": "사진장비 및 광학기기 제조업",
+     "same": true
+    },
+    {
+     "name": "스카이랩스",
+     "listing": "2026-09-04",
+     "inst_competition": 63.41,
+     "lock_ratio": 0.0017000000000000001,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": false
+    }
+   ],
    "final_price": 12000.0,
    "peers_ua": [
     {
@@ -2294,8 +2414,6 @@
      "ua_multiple": 19.95
     }
    ],
-   "ksic": "27301",
-   "ksic_name": "광학렌즈 및 광학요소 제조업",
    "our_valuation": {
     "method": "EV/EBITDA",
     "multiple_mean": 35.65,
@@ -2407,45 +2525,7 @@
      0.5084
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "그린광학",
-     "listing": "2025-11-17",
-     "inst_competition": 962.34,
-     "lock_ratio": 0.835465369405106,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 320,
-     "ksic": "273",
-     "industry": "사진장비 및 광학기기 제조업",
-     "same": true
-    },
-    {
-     "name": "큐리오시스",
-     "listing": "2025-11-13",
-     "inst_competition": 1031.39,
-     "lock_ratio": 0.8637067112491044,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 264,
-     "ksic": "273",
-     "industry": "사진장비 및 광학기기 제조업",
-     "same": true
-    },
-    {
-     "name": "스카이랩스",
-     "listing": "2026-09-04",
-     "inst_competition": 63.41,
-     "lock_ratio": 0.0017000000000000001,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "하나에어로다이내믹스",
@@ -2484,7 +2564,7 @@
     "2026-11-02",
     "2026-11-06"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": 25.0
@@ -2522,7 +2602,7 @@
     {
      "label": "2개월",
      "shares": 7238378.0,
-     "ratio": 40.83
+     "ratio": 0.4083
     },
     {
      "label": "3개월",
@@ -2589,6 +2669,46 @@
      ]
     }
    },
+   "ksic": "31322",
+   "ksic_name": "항공기용 부품 제조업",
+   "recent_ipos": [
+    {
+     "name": "비츠로넥스텍",
+     "listing": "2025-11-21",
+     "inst_competition": 1015.93,
+     "lock_ratio": 0.38778777653340885,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 304,
+     "ksic": "31322",
+     "industry": "항공기,우주선 및 부품 제조업",
+     "same": true
+    },
+    {
+     "name": "덕산넵코어스",
+     "listing": "2026-09-30",
+     "inst_competition": 868.64,
+     "lock_ratio": 0.0405,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 438,
+     "ksic": "313",
+     "industry": "항공기,우주선 및 부품 제조업",
+     "same": true
+    },
+    {
+     "name": "나라스페이스테크놀로지",
+     "listing": "2025-12-17",
+     "inst_competition": 879.08,
+     "lock_ratio": 0.09454277597355887,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 284,
+     "ksic": "31311",
+     "industry": "항공기,우주선 및 부품 제조업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "한화에어로스페이스",
@@ -2603,8 +2723,6 @@
     "ni": 3050000000.0,
     "basis": "2026년 반기 LTM"
    },
-   "ksic": "31322",
-   "ksic_name": "항공기용 부품 제조업",
    "final_price": 5700.0,
    "our_valuation": {
     "method": "EV/EBITDA",
@@ -2701,45 +2819,7 @@
      0.1986
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "비츠로넥스텍",
-     "listing": "2025-11-21",
-     "inst_competition": 1015.93,
-     "lock_ratio": 0.38778777653340885,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 304,
-     "ksic": "31322",
-     "industry": "항공기,우주선 및 부품 제조업",
-     "same": true
-    },
-    {
-     "name": "덕산넵코어스",
-     "listing": "2026-09-30",
-     "inst_competition": 868.64,
-     "lock_ratio": 0.0405,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 438,
-     "ksic": "313",
-     "industry": "항공기,우주선 및 부품 제조업",
-     "same": true
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "listing": "2025-12-17",
-     "inst_competition": 879.08,
-     "lock_ratio": 0.09454277597355887,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 284,
-     "ksic": "31311",
-     "industry": "항공기,우주선 및 부품 제조업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "유캐스트",
@@ -2775,7 +2855,7 @@
     "2026-11-09",
     "2026-11-13"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "demand_stats": {
     "am_lock_qty": null
@@ -2896,6 +2976,46 @@
      ]
     }
    },
+   "ksic": "26429",
+   "ksic_name": "기타 무선 통신장비 제조업",
+   "recent_ipos": [
+    {
+     "name": "케이앤에스아이앤씨",
+     "listing": "2026-08-13",
+     "inst_competition": 938.24,
+     "lock_ratio": 0.0078000000000000005,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "26429",
+     "industry": "통신 및 방송 장비 제조업",
+     "same": true
+    },
+    {
+     "name": "세나테크놀로지",
+     "listing": "2025-11-14",
+     "inst_competition": 946.92,
+     "lock_ratio": 0.27616052257537727,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 318,
+     "ksic": "26429",
+     "industry": "통신 및 방송 장비 제조업",
+     "same": true
+    },
+    {
+     "name": "해치텍",
+     "listing": "2026-08-25",
+     "inst_competition": 101.91,
+     "lock_ratio": 0.1508,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "26112",
+     "industry": "반도체 제조업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "알에프에이치아이씨",
@@ -2930,8 +3050,6 @@
     "ni": -3132999000.0,
     "basis": "2026년 반기 LTM"
    },
-   "ksic": "26429",
-   "ksic_name": "기타 무선 통신장비 제조업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 17.57,
@@ -3070,45 +3188,7 @@
      0.3787
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "케이앤에스아이앤씨",
-     "listing": "2026-08-13",
-     "inst_competition": 938.24,
-     "lock_ratio": 0.0078000000000000005,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "26429",
-     "industry": "통신 및 방송 장비 제조업",
-     "same": true
-    },
-    {
-     "name": "세나테크놀로지",
-     "listing": "2025-11-14",
-     "inst_competition": 946.92,
-     "lock_ratio": 0.27616052257537727,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 318,
-     "ksic": "26429",
-     "industry": "통신 및 방송 장비 제조업",
-     "same": true
-    },
-    {
-     "name": "해치텍",
-     "listing": "2026-08-25",
-     "inst_competition": 101.91,
-     "lock_ratio": 0.1508,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "26112",
-     "industry": "반도체 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "태석광학",
@@ -3143,7 +3223,7 @@
     "2026-12-03",
     "2026-12-09"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 826000.0,
    "use_of_funds": [
@@ -3235,6 +3315,45 @@
      ]
     }
    },
+   "ksic": "27195",
+   "recent_ipos": [
+    {
+     "name": "스카이랩스",
+     "listing": "2026-09-04",
+     "inst_competition": 63.41,
+     "lock_ratio": 0.0017000000000000001,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": true
+    },
+    {
+     "name": "코스모로보틱스",
+     "listing": "2026-05-11",
+     "inst_competition": 1140.11,
+     "lock_ratio": 0.821911500681002,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 250,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": true
+    },
+    {
+     "name": "리센스메디컬",
+     "listing": "2026-03-31",
+     "inst_competition": 1352.62,
+     "lock_ratio": 0.7971034361015075,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 154,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "에이유브랜즈",
@@ -3257,7 +3376,6 @@
     "ni": 8497000000.0,
     "basis": "2026년 3분기 LTM"
    },
-   "ksic": "27195",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 16.25,
@@ -3333,45 +3451,7 @@
      0.0483
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "스카이랩스",
-     "listing": "2026-09-04",
-     "inst_competition": 63.41,
-     "lock_ratio": 0.0017000000000000001,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": true
-    },
-    {
-     "name": "코스모로보틱스",
-     "listing": "2026-05-11",
-     "inst_competition": 1140.11,
-     "lock_ratio": 0.821911500681002,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 250,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": true
-    },
-    {
-     "name": "리센스메디컬",
-     "listing": "2026-03-31",
-     "inst_competition": 1352.62,
-     "lock_ratio": 0.7971034361015075,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 154,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "KTE",
@@ -3406,7 +3486,7 @@
     "2026-12-02",
     "2026-12-08"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -3489,6 +3569,46 @@
      ]
     }
    },
+   "ksic": "28123",
+   "ksic_name": "배전반 및 전기 자동제어반 제조업",
+   "recent_ipos": [
+    {
+     "name": "져스텍",
+     "listing": "2026-06-29",
+     "inst_competition": 1294.99,
+     "lock_ratio": 0.6303453644054948,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "28111",
+     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
+     "same": true
+    },
+    {
+     "name": "채비",
+     "listing": "2026-04-29",
+     "inst_competition": 55.23,
+     "lock_ratio": 0.13447746826304074,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 1107,
+     "ksic": "28119",
+     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
+     "same": true
+    },
+    {
+     "name": "폴레드",
+     "listing": "2026-05-14",
+     "inst_competition": 1486.66,
+     "lock_ratio": 0.8398661146833436,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 130,
+     "ksic": "28519",
+     "industry": "가정용 기기 제조업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "HD현대일렉트릭",
@@ -3511,8 +3631,6 @@
     "ni": 19371000000.0,
     "basis": "2026년 반기 LTM"
    },
-   "ksic": "28123",
-   "ksic_name": "현대일렉트릭, 효성중공업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 18.07,
@@ -3645,45 +3763,7 @@
      0.3883
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "져스텍",
-     "listing": "2026-06-29",
-     "inst_competition": 1294.99,
-     "lock_ratio": 0.6303453644054948,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "28111",
-     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
-     "same": true
-    },
-    {
-     "name": "채비",
-     "listing": "2026-04-29",
-     "inst_competition": 55.23,
-     "lock_ratio": 0.13447746826304074,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 1107,
-     "ksic": "28119",
-     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
-     "same": true
-    },
-    {
-     "name": "폴레드",
-     "listing": "2026-05-14",
-     "inst_competition": 1486.66,
-     "lock_ratio": 0.8398661146833436,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 130,
-     "ksic": "28519",
-     "industry": "가정용 기기 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "씨아이에스케미칼",
@@ -3718,7 +3798,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -3811,6 +3891,46 @@
      ]
     }
    },
+   "ksic": "24212",
+   "ksic_name": "알루미늄 제련, 정련 및 합금 제조업",
+   "recent_ipos": [
+    {
+     "name": "티앤이코리아",
+     "listing": "2026-10-29",
+     "inst_competition": 1041.02,
+     "lock_ratio": 0.2952,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 367,
+     "ksic": "29174",
+     "industry": "일반 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "멜콘",
+     "listing": "2026-10-15",
+     "inst_competition": 1136.84,
+     "lock_ratio": 0.3607,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 308,
+     "ksic": "292",
+     "industry": "특수 목적용 기계 제조업",
+     "same": false
+    },
+    {
+     "name": "진코스텍",
+     "listing": "2026-10-15",
+     "inst_competition": 1097.62,
+     "lock_ratio": 0.0529,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "20423",
+     "industry": "기타 화학제품 제조업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "나노신소재",
@@ -3840,8 +3960,6 @@
      "2028"
     ]
    },
-   "ksic": "24212",
-   "ksic_name": "알루미늄 제련, 정련 및 합금 제조업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 25.24,
@@ -3959,45 +4077,7 @@
      0.4833
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "티앤이코리아",
-     "listing": "2026-10-29",
-     "inst_competition": 1041.02,
-     "lock_ratio": 0.2952,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 367,
-     "ksic": "29174",
-     "industry": "일반 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "멜콘",
-     "listing": "2026-10-15",
-     "inst_competition": 1136.84,
-     "lock_ratio": 0.3607,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 308,
-     "ksic": "292",
-     "industry": "특수 목적용 기계 제조업",
-     "same": false
-    },
-    {
-     "name": "진코스텍",
-     "listing": "2026-10-15",
-     "inst_competition": 1097.62,
-     "lock_ratio": 0.0529,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "20423",
-     "industry": "기타 화학제품 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "인터엑스",
@@ -4032,7 +4112,7 @@
     "2026-11-30",
     "2026-12-04"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -4129,6 +4209,46 @@
      ]
     }
    },
+   "ksic": "58222",
+   "ksic_name": "응용 소프트웨어 개발 및 공급업",
+   "recent_ipos": [
+    {
+     "name": "빅웨이브로보틱스",
+     "listing": "2026-09-29",
+     "inst_competition": 1109.37,
+     "lock_ratio": 0.1814,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 288,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "네오사피엔스",
+     "listing": "2026-09-21",
+     "inst_competition": 219.56,
+     "lock_ratio": 0.0898,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    },
+    {
+     "name": "레몬헬스케어",
+     "listing": "2026-07-06",
+     "inst_competition": 1238,
+     "lock_ratio": 0.08420779746143076,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "58222",
+     "industry": "소프트웨어 개발 및 공급업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "엠아이큐브솔루션",
@@ -4155,8 +4275,6 @@
      "2029"
     ]
    },
-   "ksic": "58222",
-   "ksic_name": "응용 소프트웨어 개발 및 공급업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 23.3,
@@ -4268,45 +4386,7 @@
      0.4791
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "빅웨이브로보틱스",
-     "listing": "2026-09-29",
-     "inst_competition": 1109.37,
-     "lock_ratio": 0.1814,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 288,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "네오사피엔스",
-     "listing": "2026-09-21",
-     "inst_competition": 219.56,
-     "lock_ratio": 0.0898,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    },
-    {
-     "name": "레몬헬스케어",
-     "listing": "2026-07-06",
-     "inst_competition": 1238,
-     "lock_ratio": 0.08420779746143076,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "58222",
-     "industry": "소프트웨어 개발 및 공급업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "신영해피투모로우제12호기업인수목적",
@@ -4363,7 +4443,7 @@
     "2026-11-27",
     "2026-12-03"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": true,
    "sale_shares": 500000.0,
    "use_of_funds": [
@@ -4451,6 +4531,46 @@
      ]
     }
    },
+   "ksic": "21212",
+   "ksic_name": "합성의약품 및 기타 완제 의약품 제조업",
+   "recent_ipos": [
+    {
+     "name": "에이치엘지노믹스",
+     "listing": "2026-07-24",
+     "inst_competition": 714.52,
+     "lock_ratio": 0.012580891362686853,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 551,
+     "ksic": "211",
+     "industry": "기초 의약물질 제조업",
+     "same": true
+    },
+    {
+     "name": "인벤테라",
+     "listing": "2026-04-02",
+     "inst_competition": 1328.82,
+     "lock_ratio": 0.5592103116332191,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 196,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    },
+    {
+     "name": "카나프테라퓨틱스",
+     "listing": "2026-03-16",
+     "inst_competition": 962.1,
+     "lock_ratio": 0.85202453822027,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 400,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "동아에스티",
@@ -4485,8 +4605,6 @@
     "ni": 19316000000.0,
     "basis": "2026년 3분기 LTM"
    },
-   "ksic": "21212",
-   "ksic_name": "합성의약품 및 기타 완제 의약품 제조업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 12.89,
@@ -4694,45 +4812,7 @@
      0.3441
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "에이치엘지노믹스",
-     "listing": "2026-07-24",
-     "inst_competition": 714.52,
-     "lock_ratio": 0.012580891362686853,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 551,
-     "ksic": "211",
-     "industry": "기초 의약물질 제조업",
-     "same": true
-    },
-    {
-     "name": "인벤테라",
-     "listing": "2026-04-02",
-     "inst_competition": 1328.82,
-     "lock_ratio": 0.5592103116332191,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 196,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "listing": "2026-03-16",
-     "inst_competition": 962.1,
-     "lock_ratio": 0.85202453822027,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 400,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "이노보테라퓨틱스",
@@ -4767,7 +4847,7 @@
     "2026-11-26",
     "2026-12-02"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": true,
    "sale_shares": 0,
    "use_of_funds": [
@@ -4870,6 +4950,46 @@
      ]
     }
    },
+   "ksic": "70113",
+   "ksic_name": "의학 및 약학 연구개발업",
+   "recent_ipos": [
+    {
+     "name": "인벤테라",
+     "listing": "2026-04-02",
+     "inst_competition": 1328.82,
+     "lock_ratio": 0.5592103116332191,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 196,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    },
+    {
+     "name": "카나프테라퓨틱스",
+     "listing": "2026-03-16",
+     "inst_competition": 962.1,
+     "lock_ratio": 0.85202453822027,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 400,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    },
+    {
+     "name": "알지노믹스",
+     "listing": "2025-12-18",
+     "inst_competition": 848.91,
+     "lock_ratio": 0.9305051629995705,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 464,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": true
+    }
+   ],
    "peers_ua": [
     {
      "name": "유한양행",
@@ -4880,8 +5000,6 @@
      "ua_multiple": 28.36
     }
    ],
-   "ksic": "70113",
-   "ksic_name": "의학 및 약학 연구개발업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 28.51,
@@ -4958,45 +5076,7 @@
      0.5082
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "인벤테라",
-     "listing": "2026-04-02",
-     "inst_competition": 1328.82,
-     "lock_ratio": 0.5592103116332191,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 196,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "listing": "2026-03-16",
-     "inst_competition": 962.1,
-     "lock_ratio": 0.85202453822027,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 400,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    },
-    {
-     "name": "알지노믹스",
-     "listing": "2025-12-18",
-     "inst_competition": 848.91,
-     "lock_ratio": 0.9305051629995705,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 464,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": true
-    }
-   ]
+   }
   },
   {
    "name": "우리투자제1호기업인수목적",
@@ -5053,7 +5133,7 @@
     "2026-11-19",
     "2026-11-25"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -5136,6 +5216,46 @@
      ]
     }
    },
+   "ksic": "72129",
+   "ksic_name": "기타 엔지니어링 서비스업",
+   "recent_ipos": [
+    {
+     "name": "세미파이브",
+     "listing": "2025-12-29",
+     "inst_competition": 436.89,
+     "lock_ratio": 0.578793000658315,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 1296,
+     "ksic": "721",
+     "industry": "건축기술, 엔지니어링 및 관련 기술 서비스업",
+     "same": true
+    },
+    {
+     "name": "매드업",
+     "listing": "2026-07-01",
+     "inst_competition": 1396.29,
+     "lock_ratio": 0.3289261017941308,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 160,
+     "ksic": "713",
+     "industry": "광고업",
+     "same": false
+    },
+    {
+     "name": "인벤테라",
+     "listing": "2026-04-02",
+     "inst_competition": 1328.82,
+     "lock_ratio": 0.5592103116332191,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 196,
+     "ksic": "70113",
+     "industry": "자연과학 및 공학 연구개발업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "한화에어로스페이스",
@@ -5166,8 +5286,6 @@
     "ni": -7633732770.0,
     "basis": "2026년 3분기 LTM"
    },
-   "ksic": "72129",
-   "ksic_name": "기타 엔지니어링 서비스업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 35.3,
@@ -5285,45 +5403,7 @@
      0.4011
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "세미파이브",
-     "listing": "2025-12-29",
-     "inst_competition": 436.89,
-     "lock_ratio": 0.578793000658315,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 1296,
-     "ksic": "721",
-     "industry": "건축기술, 엔지니어링 및 관련 기술 서비스업",
-     "same": true
-    },
-    {
-     "name": "매드업",
-     "listing": "2026-07-01",
-     "inst_competition": 1396.29,
-     "lock_ratio": 0.3289261017941308,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 160,
-     "ksic": "713",
-     "industry": "광고업",
-     "same": false
-    },
-    {
-     "name": "인벤테라",
-     "listing": "2026-04-02",
-     "inst_competition": 1328.82,
-     "lock_ratio": 0.5592103116332191,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 196,
-     "ksic": "70113",
-     "industry": "자연과학 및 공학 연구개발업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "데스틴파워",
@@ -5358,7 +5438,7 @@
     "2026-12-02",
     "2026-12-08"
    ],
-   "parser_v": 7,
+   "parser_v": 9,
    "bio": false,
    "sale_shares": 0,
    "use_of_funds": [
@@ -5456,6 +5536,45 @@
      ]
     }
    },
+   "ksic": "2811",
+   "recent_ipos": [
+    {
+     "name": "져스텍",
+     "listing": "2026-06-29",
+     "inst_competition": 1294.99,
+     "lock_ratio": 0.6303453644054948,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 200,
+     "ksic": "28111",
+     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
+     "same": true
+    },
+    {
+     "name": "채비",
+     "listing": "2026-04-29",
+     "inst_competition": 55.23,
+     "lock_ratio": 0.13447746826304074,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 1107,
+     "ksic": "28119",
+     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
+     "same": true
+    },
+    {
+     "name": "폴레드",
+     "listing": "2026-05-14",
+     "inst_competition": 1486.66,
+     "lock_ratio": 0.8398661146833436,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 130,
+     "ksic": "28519",
+     "industry": "가정용 기기 제조업",
+     "same": false
+    }
+   ],
    "peers_ua": [
     {
      "name": "코세스",
@@ -5486,7 +5605,6 @@
     "ni": 15611000000.0,
     "basis": "2026년 반기 LTM"
    },
-   "ksic": "2811",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 14.23,
@@ -5604,45 +5722,7 @@
      0.1648
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "져스텍",
-     "listing": "2026-06-29",
-     "inst_competition": 1294.99,
-     "lock_ratio": 0.6303453644054948,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 200,
-     "ksic": "28111",
-     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
-     "same": true
-    },
-    {
-     "name": "채비",
-     "listing": "2026-04-29",
-     "inst_competition": 55.23,
-     "lock_ratio": 0.13447746826304074,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 1107,
-     "ksic": "28119",
-     "industry": "전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",
-     "same": true
-    },
-    {
-     "name": "폴레드",
-     "listing": "2026-05-14",
-     "inst_competition": 1486.66,
-     "lock_ratio": 0.8398661146833436,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 130,
-     "ksic": "28519",
-     "industry": "가정용 기기 제조업",
-     "same": false
-    }
-   ]
+   }
   },
   {
    "name": "엠비디",
@@ -5673,7 +5753,7 @@
     "2026-11-06"
    ],
    "source": "dart",
-   "parser_v": 7,
+   "parser_v": 9,
    "market": "코스닥",
    "special": false,
    "business": "당사는 실험 자동화 스크리닝 시스템 설계 기술과 지속적으로 축적되는 대규모 암환자 임상 데이터베이스를 바탕으로 차세대 정밀의료 및 신약개발 지원 솔루션을 제공하는 바이오-엔지니어링 융합기업입니다",
@@ -5802,6 +5882,46 @@
      ]
     }
    },
+   "ksic": "27213",
+   "ksic_name": "물질 검사, 측정 및 분석기구 제조업",
+   "recent_ipos": [
+    {
+     "name": "스카이랩스",
+     "listing": "2026-09-04",
+     "inst_competition": 63.41,
+     "lock_ratio": 0.0017000000000000001,
+     "final_price": null,
+     "band": null,
+     "amount_eok": null,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": false
+    },
+    {
+     "name": "레메디",
+     "listing": "2026-07-13",
+     "inst_competition": 1146.41,
+     "lock_ratio": 0.21811548463655414,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 248,
+     "ksic": "27111",
+     "industry": "의료용 기기 제조업",
+     "same": false
+    },
+    {
+     "name": "코스모로보틱스",
+     "listing": "2026-05-11",
+     "inst_competition": 1140.11,
+     "lock_ratio": 0.821911500681002,
+     "final_price": null,
+     "band": null,
+     "amount_eok": 250,
+     "ksic": "27199",
+     "industry": "의료용 기기 제조업",
+     "same": false
+    }
+   ],
    "final_price": 7000.0,
    "peers_ua": [
     {
@@ -5837,8 +5957,6 @@
      "2029"
     ]
    },
-   "ksic": "27213",
-   "ksic_name": "물질 검사, 측정 및 분석기구 제조업",
    "our_valuation": {
     "method": "PER",
     "multiple_mean": 19.91,
@@ -5952,45 +6070,7 @@
      -0.0698
     ],
     "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
-   },
-   "recent_ipos": [
-    {
-     "name": "스카이랩스",
-     "listing": "2026-09-04",
-     "inst_competition": 63.41,
-     "lock_ratio": 0.0017000000000000001,
-     "final_price": null,
-     "band": null,
-     "amount_eok": null,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": false
-    },
-    {
-     "name": "레메디",
-     "listing": "2026-07-13",
-     "inst_competition": 1146.41,
-     "lock_ratio": 0.21811548463655414,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 248,
-     "ksic": "27111",
-     "industry": "의료용 기기 제조업",
-     "same": false
-    },
-    {
-     "name": "코스모로보틱스",
-     "listing": "2026-05-11",
-     "inst_competition": 1140.11,
-     "lock_ratio": 0.821911500681002,
-     "final_price": null,
-     "band": null,
-     "amount_eok": 250,
-     "ksic": "27199",
-     "industry": "의료용 기기 제조업",
-     "same": false
-    }
-   ]
+   }
   }
  ],
  "lockups": [
