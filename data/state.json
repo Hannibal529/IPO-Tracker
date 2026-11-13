@@ -149,23 +149,23 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 22.35,
-    "multiple_median": 19.44,
-    "multiple_ex_top": 17.36,
-    "top_peer": "라온시큐어",
-    "value": 19476,
+    "multiple_mean": 26.21,
+    "multiple_median": 30.09,
+    "multiple_ex_top": 23.86,
+    "top_peer": "안랩",
+    "value": 22837,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 9901000000.0,
     "sens": [
      {
       "rate": null,
-      "all": 19476,
-      "ex_top": 15132
+      "all": 22837,
+      "ex_top": 20796
      }
     ],
     "values": {
-     "기본": 19476
+     "기본": 22837
     },
     "value_range": null,
     "peers": [
@@ -185,9 +185,9 @@
        "PSR": 2.96,
        "EV/EBITDA": 20.33,
        "PER_LTM": 19.44,
-       "PER": 19.435098154882187,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 448
+       "PER": 30.89115319638096,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 282
       },
       "ua_multiple": 25.47,
       "origin": "주관사",
@@ -210,9 +210,9 @@
        "PSR": 2.38,
        "EV/EBITDA": 36.38,
        "PER_LTM": 32.32,
-       "PER": 32.31787891876902,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 45
+       "PER": 30.089384199916317,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 48
       },
       "ua_multiple": 15.32,
       "origin": "주관사",
@@ -235,9 +235,9 @@
        "PSR": 3.28,
        "EV/EBITDA": 14.44,
        "PER_LTM": 15.29,
-       "PER": 15.293017054960917,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 120
+       "PER": 17.636337604696113,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 104
       },
       "ua_multiple": 29.47,
       "origin": "주관사",
@@ -258,10 +258,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.1528,
-     0.3325
+     0.2775,
+     0.4307
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -441,33 +441,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 22.27,
-    "multiple_median": 24.55,
-    "multiple_ex_top": 17.96,
-    "top_peer": "한미약품",
-    "value": 19828,
+    "multiple_mean": 23.78,
+    "multiple_median": 17.1,
+    "multiple_ex_top": 15.72,
+    "top_peer": "유한양행",
+    "value": 21172,
     "rate_base": 0.35,
     "pv_base": 20172079407.12633,
     "pv_ua": 32962000000.0,
     "sens": [
      {
       "rate": 0.25,
-      "all": 25051,
-      "ex_top": 20196
+      "all": 26750,
+      "ex_top": 17678
      },
      {
       "rate": 0.35,
-      "all": 19828,
-      "ex_top": 15985
+      "all": 21172,
+      "ex_top": 13992
      },
      {
       "rate": 0.45,
-      "all": 16007,
-      "ex_top": 12905
+      "all": 17093,
+      "ex_top": 11296
      }
     ],
     "values": {
-     "기본": 19828
+     "기본": 21172
     },
     "value_range": null,
     "peers": [
@@ -487,9 +487,9 @@
        "PSR": 2.55,
        "EV/EBITDA": 28.31,
        "PER_LTM": 24.55,
-       "PER": 24.552122661768973,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 2371
+       "PER": 39.91526054898586,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 1458
       },
       "ua_multiple": 22.6,
       "origin": "주관사",
@@ -512,9 +512,9 @@
        "PSR": 3.5,
        "EV/EBITDA": 14.86,
        "PER_LTM": 30.91,
-       "PER": 30.90784437267417,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 1892
+       "PER": 17.10243459487621,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 3418
       },
       "ua_multiple": 28.96,
       "origin": "주관사",
@@ -537,9 +537,9 @@
        "PSR": 0.51,
        "EV/EBITDA": 14.76,
        "PER_LTM": 11.36,
-       "PER": 11.361748105525248,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 795
+       "PER": 14.333845778077903,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 630
       },
       "ua_multiple": 11.15,
       "origin": "주관사",
@@ -552,10 +552,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "바이오 추정이익: 주관사 할인율 15% 대신 35% 적용 (미체결 기술이전 비중·특례상장사 추정 달성률 반영)",
     "band_discount": [
-     -0.2608,
-     0.0922
+     -0.1808,
+     0.1498
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -741,33 +741,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 30.24,
-    "multiple_median": 28.69,
-    "multiple_ex_top": 26.39,
+    "multiple_mean": 29.91,
+    "multiple_median": 27.43,
+    "multiple_ex_top": 25.67,
     "top_peer": "고영",
-    "value": 18771,
+    "value": 18567,
     "rate_base": 0.2,
     "pv_base": 7751029651.757926,
     "pv_ua": 7751000000.0,
     "sens": [
      {
       "rate": 0.1,
-      "all": 22830,
-      "ex_top": 19922
+      "all": 22582,
+      "ex_top": 19382
      },
      {
       "rate": 0.2,
-      "all": 18771,
-      "ex_top": 16380
+      "all": 18567,
+      "ex_top": 15936
      },
      {
       "rate": 0.3,
-      "all": 15677,
-      "ex_top": 13680
+      "all": 15507,
+      "ex_top": 13310
      }
     ],
     "values": {
-     "기본": 18771
+     "기본": 18567
     },
     "value_range": null,
     "peers": [
@@ -787,9 +787,9 @@
        "PSR": 6.84,
        "EV/EBITDA": 54.36,
        "PER_LTM": 41.79,
-       "PER": 41.78737144063307,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 477
+       "PER": 42.62295081967213,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 467
       },
       "ua_multiple": 39.43,
       "origin": "주관사",
@@ -812,14 +812,13 @@
        "PSR": 4.34,
        "EV/EBITDA": 303.77,
        "PER_LTM": 244.05,
-       "PER": 244.0515856603696,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 13
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": -5
       },
       "ua_multiple": 61.01,
       "origin": "주관사",
       "kept": false,
-      "reason": "244배 — 100배 초과(이익 미미)로 제외"
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
      },
      {
       "name": "씨피시스템",
@@ -837,9 +836,9 @@
        "PSR": 5.97,
        "EV/EBITDA": 27.42,
        "PER_LTM": 33.72,
-       "PER": 33.7183834575591,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 40
+       "PER": 28.23432385273863,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 48
       },
       "ua_multiple": 35.36,
       "origin": "주관사",
@@ -862,9 +861,9 @@
        "PSR": 3.46,
        "EV/EBITDA": 16.81,
        "PER_LTM": 21.77,
-       "PER": 21.770759973743367,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 56
+       "PER": 22.140736804344023,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 55
       },
       "ua_multiple": 23.28,
       "origin": "주관사",
@@ -887,9 +886,9 @@
        "PSR": 1.82,
        "EV/EBITDA": 21.18,
        "PER_LTM": 23.67,
-       "PER": 23.666444578027495,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 56
+       "PER": 26.635239041594808,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 50
       },
       "ua_multiple": 26.78,
       "origin": "주관사",
@@ -902,10 +901,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 20% 유지",
     "band_discount": [
-     0.0624,
-     0.1636
+     0.0521,
+     0.1544
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -1076,33 +1075,30 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 20.03,
-    "multiple_median": 19.25,
-    "multiple_ex_top": 17.38,
-    "top_peer": "비아이매트릭스",
-    "value": 12048,
+    "multiple_mean": 23.3,
+    "multiple_median": 23.3,
+    "multiple_ex_top": null,
+    "top_peer": null,
+    "value": 14013,
     "rate_base": 0.15,
     "pv_base": 5455904030.029245,
     "pv_ua": 5456000000.0,
     "sens": [
      {
       "rate": 0.05,
-      "all": 14785,
-      "ex_top": 12827
+      "all": 17196
      },
      {
       "rate": 0.15,
-      "all": 12048,
-      "ex_top": 10453
+      "all": 14013
      },
      {
       "rate": 0.25,
-      "all": 9987,
-      "ex_top": 8665
+      "all": 11616
      }
     ],
     "values": {
-     "기본": 12048
+     "기본": 14013
     },
     "value_range": null,
     "peers": [
@@ -1122,14 +1118,13 @@
        "PSR": 1.2,
        "EV/EBITDA": 88.13,
        "PER_LTM": 25.34,
-       "PER": 25.340699873856313,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 16
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": -8
       },
       "ua_multiple": 52.74,
       "origin": "주관사",
-      "kept": true,
-      "reason": "유지"
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
      },
      {
       "name": "슈어소프트테크",
@@ -1146,9 +1141,9 @@
        "PBR": 1.88,
        "EV/EBITDA": 12.31,
        "PER_LTM": 15.51,
-       "PER": 15.514981084687678,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 138
+       "PER": 23.300787246239125,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 92
       },
       "ua_multiple": 19.7,
       "origin": "주관사",
@@ -1171,14 +1166,13 @@
        "PSR": 1.74,
        "EV/EBITDA": 32.05,
        "PER_LTM": 19.25,
-       "PER": 19.245090747174366,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 32
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": -10
       },
       "ua_multiple": 20.18,
       "origin": "주관사",
-      "kept": true,
-      "reason": "유지"
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
      }
     ],
     "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
@@ -1186,10 +1180,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 15% 유지",
     "band_discount": [
-     -0.3778,
-     -0.0209
+     -0.1846,
+     0.1222
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -1364,23 +1358,23 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 23.23,
-    "multiple_median": 18.26,
-    "multiple_ex_top": 17.01,
+    "multiple_mean": 15.55,
+    "multiple_median": 13.49,
+    "multiple_ex_top": 12.46,
     "top_peer": "코미코",
-    "value": 15468,
+    "value": 10355,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 9974000000.0,
     "sens": [
      {
       "rate": null,
-      "all": 15468,
-      "ex_top": 11324
+      "all": 10355,
+      "ex_top": 8297
      }
     ],
     "values": {
-     "기본": 15468
+     "기본": 10355
     },
     "value_range": null,
     "peers": [
@@ -1400,9 +1394,9 @@
        "PSR": 1.6,
        "EV/EBITDA": 9.02,
        "PER_LTM": 14.5,
-       "PER": 14.49618324748285,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 242
+       "PER": 12.96033925808857,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 270
       },
       "ua_multiple": 17.37,
       "origin": "주관사",
@@ -1425,9 +1419,9 @@
        "PSR": 0.71,
        "EV/EBITDA": 18.43,
        "PER_LTM": 14.82,
-       "PER": 14.816873712410361,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 483
+       "PER": 10.405047602951948,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 688
       },
       "ua_multiple": 14.47,
       "origin": "주관사",
@@ -1450,9 +1444,9 @@
        "PSR": 2.04,
        "EV/EBITDA": 19.44,
        "PER_LTM": 41.9,
-       "PER": 41.89978078681381,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 320
+       "PER": 24.822105410927925,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 540
       },
       "ua_multiple": 43.55,
       "origin": "주관사",
@@ -1475,9 +1469,9 @@
        "PSR": 2.92,
        "EV/EBITDA": 11.18,
        "PER_LTM": 21.71,
-       "PER": 21.708997151495932,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 483
+       "PER": 14.017151395716482,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 749
       },
       "ua_multiple": 16.24,
       "origin": "주관사",
@@ -1490,10 +1484,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.2889,
-     0.3923
+     -0.0623,
+     0.0922
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -1752,23 +1746,23 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 19.79,
-    "multiple_median": 14.88,
-    "multiple_ex_top": 14.64,
+    "multiple_mean": 15.22,
+    "multiple_median": 11.44,
+    "multiple_ex_top": 11.27,
     "top_peer": "아미노로직스",
-    "value": 30199,
+    "value": 23220,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 13018901267.0,
     "sens": [
      {
       "rate": null,
-      "all": 30199,
-      "ex_top": 22334
+      "all": 23220,
+      "ex_top": 17200
      }
     ],
     "values": {
-     "기본": 30199
+     "기본": 23220
     },
     "value_range": null,
     "peers": [
@@ -1788,9 +1782,9 @@
        "PSR": 2.33,
        "EV/EBITDA": 19.64,
        "PER_LTM": 14.88,
-       "PER": 14.879041932241766,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 31
+       "PER": 11.438756273775791,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 40
       },
       "ua_multiple": 14.81,
       "origin": "주관사",
@@ -1813,9 +1807,9 @@
        "PSR": 3.64,
        "EV/EBITDA": 16.1,
        "PER_LTM": 30.1,
-       "PER": 30.104035762398965,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 32
+       "PER": 23.111715396570705,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 41
       },
       "ua_multiple": 28.78,
       "origin": "주관사",
@@ -1838,9 +1832,9 @@
        "PSR": 4.27,
        "EV/EBITDA": 12.07,
        "PER_LTM": 14.4,
-       "PER": 14.398127983403734,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 56
+       "PER": 11.108735249861407,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 72
       },
       "ua_multiple": 12.0,
       "origin": "주관사",
@@ -1853,10 +1847,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.4106,
-     0.5033
+     0.2334,
+     0.354
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -2062,9 +2056,9 @@
        "PSR": 2.79,
        "EV/EBITDA": 36.59,
        "PER_LTM": 46.08,
-       "PER": 46.084160615052674,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 2865
+       "PER": 46.48682009882545,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 2840
       },
       "ua_multiple": 30.5,
       "origin": "주관사",
@@ -2087,9 +2081,9 @@
        "PSR": 6.53,
        "EV/EBITDA": 21.02,
        "PER_LTM": 27.74,
-       "PER": 27.73860892647096,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 140
+       "PER": 30.35435056746532,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 128
       },
       "ua_multiple": 25.35,
       "origin": "주관사",
@@ -2112,9 +2106,9 @@
        "PSR": 2.96,
        "EV/EBITDA": 49.35,
        "PER_LTM": 33.2,
-       "PER": 33.20188908478875,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 46
+       "PER": 58.763389504494135,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 26
       },
       "ua_multiple": 19.95,
       "origin": "주관사",
@@ -2134,7 +2128,7 @@
      0.4101,
      0.5084
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -2326,9 +2320,9 @@
        "PSR": 1.62,
        "EV/EBITDA": 15.12,
        "PER_LTM": 23.55,
-       "PER": 23.554241827798375,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 20623
+       "PER": 27.905271540672828,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 17408
       },
       "ua_multiple": 15.5,
       "origin": "주관사",
@@ -2350,8 +2344,9 @@
        "PBR": 1.08,
        "PSR": 1.23,
        "EV/EBITDA": 397.18,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": -20
+       "PER": 44.49547004145559,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 27
       },
       "ua_multiple": 20.3,
       "origin": "주관사",
@@ -2364,22 +2359,22 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = LTM",
     "note": "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체",
     "per_check": {
-     "value": 4052,
-     "multiple_mean": 23.55,
+     "value": 6227,
+     "multiple_mean": 36.2,
      "ni": 3050000000.0,
      "basis": "2026년 반기 LTM",
      "peers": [
       {
        "name": "한화에어로스페이스",
-       "PER": 23.554241827798375,
+       "PER": 27.905271540672828,
        "kept": true,
        "reason": "유지"
       },
       {
        "name": "신화프리텍",
-       "PER": null,
-       "kept": false,
-       "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+       "PER": 44.49547004145559,
+       "kept": true,
+       "reason": "유지"
       }
      ]
     },
@@ -2387,7 +2382,7 @@
      0.0281,
      0.1986
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -2581,33 +2576,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 11.57,
-    "multiple_median": 9.9,
-    "multiple_ex_top": 9.89,
-    "top_peer": "인텔리안테크놀로지스 (인텔리안테크)",
-    "value": 20139,
+    "multiple_mean": 17.57,
+    "multiple_median": 14.8,
+    "multiple_ex_top": 14.2,
+    "top_peer": "알에프에이치아이씨 (RFHIC)",
+    "value": 30582,
     "rate_base": 0.2,
     "pv_base": 10400389211.145552,
     "pv_ua": 10401000000.0,
     "sens": [
      {
       "rate": 0.1,
-      "all": 25032,
-      "ex_top": 21397
+      "all": 38013,
+      "ex_top": 30734
      },
      {
       "rate": 0.2,
-      "all": 20139,
-      "ex_top": 17214
+      "all": 30582,
+      "ex_top": 24725
      },
      {
       "rate": 0.3,
-      "all": 16486,
-      "ex_top": 14092
+      "all": 25036,
+      "ex_top": 20241
      }
     ],
     "values": {
-     "기본": 20139
+     "기본": 30582
     },
     "value_range": null,
     "peers": [
@@ -2623,13 +2618,14 @@
       "ebitda_eok": null,
       "equity_eok": null,
       "multiples": {
-       "_per_basis": null,
-       "_per_ni_eok": null
+       "PER": 27.65772478887233,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 491
       },
       "ua_multiple": 37.65,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      },
      {
       "name": "쏠리드",
@@ -2638,18 +2634,18 @@
       "avg61": 8880,
       "mcap_eok": 5395,
       "industry": "통신 및 방송 장비 제조업",
-      "fin_basis": "2026 2Q LTM",
-      "ltm_ni_eok": 545,
-      "ebitda_eok": 394,
-      "equity_eok": 3752,
+      "fin_basis": "2026 3Q LTM",
+      "ltm_ni_eok": 399,
+      "ebitda_eok": 420,
+      "equity_eok": 3582,
       "multiples": {
-       "PBR": 1.44,
-       "PSR": 1.7,
-       "EV/EBITDA": 14.62,
-       "PER_LTM": 9.9,
-       "PER": 9.898561315755927,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 545
+       "PBR": 1.51,
+       "PSR": 1.72,
+       "EV/EBITDA": 13.93,
+       "PER_LTM": 13.53,
+       "PER": 13.002184192208913,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 415
       },
       "ua_multiple": 9.66,
       "origin": "주관사",
@@ -2663,18 +2659,18 @@
       "avg61": 61004,
       "mcap_eok": 6550,
       "industry": "통신 및 방송 장비 제조업",
-      "fin_basis": "2026 2Q LTM",
-      "ltm_ni_eok": 439,
-      "ebitda_eok": 300,
-      "equity_eok": 2860,
+      "fin_basis": "2026 3Q LTM",
+      "ltm_ni_eok": 161,
+      "ebitda_eok": 248,
+      "equity_eok": 2604,
       "multiples": {
-       "PBR": 2.29,
-       "PSR": 1.8,
-       "EV/EBITDA": 25.82,
-       "PER_LTM": 14.93,
-       "PER": 14.927365567021921,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 439
+       "PBR": 2.52,
+       "PSR": 1.81,
+       "EV/EBITDA": 32.33,
+       "PER_LTM": 40.58,
+       "PER": 16.341842582549084,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 401
       },
       "ua_multiple": 15.42,
       "origin": "주관사",
@@ -2697,9 +2693,9 @@
        "PSR": 0.82,
        "EV/EBITDA": 11.71,
        "PER_LTM": 9.88,
-       "PER": 9.876678781070131,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 62
+       "PER": 13.26242573258672,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 46
       },
       "ua_multiple": 9.16,
       "origin": "주관사",
@@ -2712,10 +2708,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 20% 유지",
     "band_discount": [
-     -0.1421,
-     0.0566
+     0.2479,
+     0.3787
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -2867,17 +2863,17 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 15.07,
-    "multiple_median": 15.07,
+    "multiple_mean": 16.25,
+    "multiple_median": 16.25,
     "multiple_ex_top": null,
     "top_peer": null,
-    "value": 17058,
+    "value": 18389,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 9418000000.0,
     "sens": null,
     "values": {
-     "기본": 17058
+     "기본": 18389
     },
     "value_range": null,
     "peers": [
@@ -2897,9 +2893,9 @@
        "PSR": 2.14,
        "EV/EBITDA": 10.21,
        "PER_LTM": 15.07,
-       "PER": 15.070988407521433,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 141
+       "PER": 16.247008951960257,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 131
       },
       "ua_multiple": 14.5,
       "origin": "주관사",
@@ -2936,10 +2932,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     -0.1842,
-     -0.0259
+     -0.0985,
+     0.0483
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -3082,23 +3078,23 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 18.9,
-    "multiple_median": 18.86,
-    "multiple_ex_top": 14.44,
+    "multiple_mean": 18.07,
+    "multiple_median": 18.48,
+    "multiple_ex_top": 14.24,
     "top_peer": "HD현대마린솔루션",
-    "value": 32484,
+    "value": 31063,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 19371000000.0,
     "sens": [
      {
       "rate": null,
-      "all": 32484,
-      "ex_top": 24816
+      "all": 31063,
+      "ex_top": 24485
      }
     ],
     "values": {
-     "기본": 32484
+     "기본": 31063
     },
     "value_range": null,
     "peers": [
@@ -3118,9 +3114,9 @@
        "PSR": 5.12,
        "EV/EBITDA": 19.04,
        "PER_LTM": 26.08,
-       "PER": 26.076917142063657,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 8508
+       "PER": 25.575201043621608,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 8675
       },
       "ua_multiple": 21.14,
       "origin": "주관사",
@@ -3143,9 +3139,9 @@
        "PSR": 1.42,
        "EV/EBITDA": 7.5,
        "PER_LTM": 11.65,
-       "PER": 11.651479293456399,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 179
+       "PER": 11.390810206000785,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 183
       },
       "ua_multiple": 11.22,
       "origin": "주관사",
@@ -3168,9 +3164,9 @@
        "PSR": 0.69,
        "EV/EBITDA": 3.43,
        "PER_LTM": 5.58,
-       "PER": 5.579672484056038,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 295
+       "PER": 5.764853643688059,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 286
       },
       "ua_multiple": 5.28,
       "origin": "주관사",
@@ -3193,9 +3189,9 @@
        "PSR": 3.99,
        "EV/EBITDA": 23.23,
        "PER_LTM": 32.28,
-       "PER": 32.27945412378248,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 2872
+       "PER": 29.54918618350631,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 3138
       },
       "ua_multiple": 27.95,
       "origin": "주관사",
@@ -3208,10 +3204,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.292,
-     0.4151
+     0.2596,
+     0.3883
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -3371,33 +3367,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 23.02,
-    "multiple_median": 13.65,
-    "multiple_ex_top": 12.56,
+    "multiple_mean": 25.24,
+    "multiple_median": 22.81,
+    "multiple_ex_top": 19.82,
     "top_peer": "나노신소재",
-    "value": 9530,
+    "value": 10450,
     "rate_base": 0.2,
     "pv_base": 13295649955.462795,
     "pv_ua": 13296000000.0,
     "sens": [
      {
       "rate": 0.1,
-      "all": 11296,
-      "ex_top": 6163
+      "all": 12388,
+      "ex_top": 9727
      },
      {
       "rate": 0.2,
-      "all": 9530,
-      "ex_top": 5199
+      "all": 10450,
+      "ex_top": 8206
      },
      {
       "rate": 0.3,
-      "all": 8162,
-      "ex_top": 4453
+      "all": 8950,
+      "ex_top": 7028
      }
     ],
     "values": {
-     "기본": 9530
+     "기본": 10450
     },
     "value_range": null,
     "peers": [
@@ -3417,9 +3413,9 @@
        "PSR": 4.91,
        "EV/EBITDA": 23.19,
        "PER_LTM": 43.93,
-       "PER": 43.93409579258257,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 157
+       "PER": 36.07819219970768,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 191
       },
       "ua_multiple": 48.18,
       "origin": "주관사",
@@ -3442,9 +3438,9 @@
        "PSR": 0.49,
        "EV/EBITDA": 38.66,
        "PER_LTM": 11.47,
-       "PER": 11.465587075256161,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 195
+       "PER": 22.81076545759649,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 98
       },
       "ua_multiple": 12.01,
       "origin": "주관사",
@@ -3467,9 +3463,9 @@
        "PSR": 1.27,
        "EV/EBITDA": 35.41,
        "PER_LTM": 13.65,
-       "PER": 13.646478186974697,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 83
+       "PER": 16.826199288229244,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 67
       },
       "ua_multiple": 11.98,
       "origin": "주관사",
@@ -3482,10 +3478,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 20% 유지",
     "band_discount": [
-     0.2865,
-     0.4334
+     0.3493,
+     0.4833
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -3646,33 +3642,30 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 19.77,
-    "multiple_median": 19.25,
-    "multiple_ex_top": 17.38,
-    "top_peer": "엠아이큐브솔루션",
-    "value": 16288,
+    "multiple_mean": 23.3,
+    "multiple_median": 23.3,
+    "multiple_ex_top": null,
+    "top_peer": null,
+    "value": 19199,
     "rate_base": 0.15,
     "pv_base": 12152732885.061886,
     "pv_ua": 12153000000.0,
     "sens": [
      {
       "rate": 0.05,
-      "all": 21891,
-      "ex_top": 19247
+      "all": 25804
      },
      {
       "rate": 0.15,
-      "all": 16288,
-      "ex_top": 14321
+      "all": 19199
      },
      {
       "rate": 0.25,
-      "all": 12421,
-      "ex_top": 10921
+      "all": 14642
      }
     ],
     "values": {
-     "기본": 16288
+     "기본": 19199
     },
     "value_range": null,
     "peers": [
@@ -3692,14 +3685,13 @@
        "PSR": 1.12,
        "EV/EBITDA": 44.9,
        "PER_LTM": 24.54,
-       "PER": 24.541438506432648,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 11
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": -9
       },
       "ua_multiple": 19.31,
       "origin": "주관사",
-      "kept": true,
-      "reason": "유지"
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
      },
      {
       "name": "슈어소프트테크",
@@ -3716,9 +3708,9 @@
        "PBR": 1.88,
        "EV/EBITDA": 12.31,
        "PER_LTM": 15.51,
-       "PER": 15.514981084687678,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 138
+       "PER": 23.300787246239125,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 92
       },
       "ua_multiple": 18.87,
       "origin": "주관사",
@@ -3741,14 +3733,13 @@
        "PSR": 1.74,
        "EV/EBITDA": 32.05,
        "PER_LTM": 19.25,
-       "PER": 19.245090747174366,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 32
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": -10
       },
       "ua_multiple": 18.79,
       "origin": "주관사",
-      "kept": true,
-      "reason": "유지"
+      "kept": false,
+      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
      }
     ],
     "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
@@ -3756,10 +3747,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 15% 유지",
     "band_discount": [
-     0.2019,
-     0.3861
+     0.3229,
+     0.4791
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -3941,23 +3932,23 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 15.79,
-    "multiple_median": 10.89,
-    "multiple_ex_top": 11.78,
-    "top_peer": "동아에스티",
-    "value": 20553,
+    "multiple_mean": 12.89,
+    "multiple_median": 12.83,
+    "multiple_ex_top": 10.71,
+    "top_peer": "경보제약",
+    "value": 16771,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 19316000000.0,
     "sens": [
      {
       "rate": null,
-      "all": 20553,
-      "ex_top": 15328
+      "all": 16771,
+      "ex_top": 13939
      }
     ],
     "values": {
-     "기본": 20553
+     "기본": 16771
     },
     "value_range": null,
     "peers": [
@@ -3977,9 +3968,9 @@
        "PSR": 0.4,
        "EV/EBITDA": 27.28,
        "PER_LTM": 39.88,
-       "PER": 39.87563547647349,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 87
+       "PER": 8.876683565298027,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 390
       },
       "ua_multiple": 38.65,
       "origin": "주관사",
@@ -4002,9 +3993,9 @@
        "PSR": 0.45,
        "EV/EBITDA": 104.56,
        "PER_LTM": 25.13,
-       "PER": 25.132704412033394,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 50
+       "PER": 25.939724870196617,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 49
       },
       "ua_multiple": 24.29,
       "origin": "주관사",
@@ -4027,9 +4018,9 @@
        "PSR": 1.01,
        "EV/EBITDA": 10.88,
        "PER_LTM": 12.75,
-       "PER": 12.7486106132109,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 858
+       "PER": 12.830550277398173,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 853
       },
       "ua_multiple": 11.3,
       "origin": "주관사",
@@ -4052,9 +4043,9 @@
        "PSR": 0.81,
        "EV/EBITDA": 13.89,
        "PER_LTM": 10.89,
-       "PER": 10.893208979624884,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 233
+       "PER": 16.909771491244182,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 150
       },
       "ua_multiple": 11.19,
       "origin": "주관사",
@@ -4068,18 +4059,18 @@
       "avg61": 5031,
       "mcap_eok": 1548,
       "industry": "의약품 제조업",
-      "fin_basis": "2026 2Q LTM",
-      "ltm_ni_eok": 178,
-      "ebitda_eok": 157,
-      "equity_eok": 2314,
+      "fin_basis": "2026 3Q LTM",
+      "ltm_ni_eok": 116,
+      "ebitda_eok": 166,
+      "equity_eok": 2287,
       "multiples": {
-       "PBR": 0.67,
-       "PSR": 0.77,
-       "EV/EBITDA": 10.61,
-       "PER_LTM": 8.68,
-       "PER": 8.680875820425282,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 178
+       "PBR": 0.68,
+       "PSR": 0.75,
+       "EV/EBITDA": 9.98,
+       "PER_LTM": 13.34,
+       "PER": 13.318601337518752,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 116
       },
       "ua_multiple": 8.48,
       "origin": "주관사",
@@ -4102,9 +4093,9 @@
        "PSR": 2.14,
        "EV/EBITDA": 6.1,
        "PER_LTM": 7.05,
-       "PER": 7.05067628407806,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 889
+       "PER": 6.657182946950085,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 941
       },
       "ua_multiple": 6.58,
       "origin": "주관사",
@@ -4127,9 +4118,9 @@
        "PSR": 0.7,
        "EV/EBITDA": 12.26,
        "PER_LTM": 6.15,
-       "PER": 6.152198296311747,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 1206
+       "PER": 5.663538322127801,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 1310
       },
       "ua_multiple": 5.92,
       "origin": "주관사",
@@ -4142,10 +4133,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.2945,
-     0.4648
+     0.1354,
+     0.3441
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -4296,17 +4287,17 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 27.73,
-    "multiple_median": 27.73,
+    "multiple_mean": 28.51,
+    "multiple_median": 28.51,
     "multiple_ex_top": null,
     "top_peer": null,
-    "value": 39557,
+    "value": 40668,
     "rate_base": null,
     "pv_base": null,
     "pv_ua": 20559000000.0,
     "sens": null,
     "values": {
-     "기본": 39557
+     "기본": 40668
     },
     "value_range": null,
     "peers": [
@@ -4326,9 +4317,9 @@
        "PSR": 2.55,
        "EV/EBITDA": 28.31,
        "PER_LTM": 24.55,
-       "PER": 24.552122661768973,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 2371
+       "PER": 39.91526054898586,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 1458
       },
       "ua_multiple": 22.7,
       "origin": "주관사",
@@ -4351,9 +4342,9 @@
        "PSR": 3.5,
        "EV/EBITDA": 14.86,
        "PER_LTM": 30.91,
-       "PER": 30.90784437267417,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 1892
+       "PER": 17.10243459487621,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 3418
       },
       "ua_multiple": 28.36,
       "origin": "주관사",
@@ -4366,10 +4357,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": null,
     "band_discount": [
-     0.3933,
-     0.4944
+     0.4099,
+     0.5082
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -4542,33 +4533,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 29.52,
-    "multiple_median": 23.55,
-    "multiple_ex_top": 21.24,
+    "multiple_mean": 35.3,
+    "multiple_median": 31.49,
+    "multiple_ex_top": 29.7,
     "top_peer": "엘아이지디펜스앤에어로스페이스 (LIG디펜스앤에어로스페이스)",
-    "value": 15642,
+    "value": 18700,
     "rate_base": 0.2,
     "pv_base": 5670951072.896336,
     "pv_ua": 5671088407.0,
     "sens": [
      {
       "rate": 0.1,
-      "all": 19025,
-      "ex_top": 13689
+      "all": 22744,
+      "ex_top": 19138
      },
      {
       "rate": 0.2,
-      "all": 15642,
-      "ex_top": 11255
+      "all": 18700,
+      "ex_top": 15735
      },
      {
       "rate": 0.3,
-      "all": 13064,
-      "ex_top": 9400
+      "all": 15618,
+      "ex_top": 13142
      }
     ],
     "values": {
-     "기본": 15642
+     "기본": 18700
     },
     "value_range": null,
     "peers": [
@@ -4588,9 +4579,9 @@
        "PSR": 1.62,
        "EV/EBITDA": 15.12,
        "PER_LTM": 23.55,
-       "PER": 23.554241827798375,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 20623
+       "PER": 27.905271540672828,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 17408
       },
       "ua_multiple": 29.4,
       "origin": "주관사",
@@ -4613,9 +4604,9 @@
        "PSR": 2.79,
        "EV/EBITDA": 36.59,
        "PER_LTM": 46.08,
-       "PER": 46.084160615052674,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 2865
+       "PER": 46.48682009882545,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 2840
       },
       "ua_multiple": 34.26,
       "origin": "주관사",
@@ -4638,9 +4629,9 @@
        "PSR": 0.78,
        "EV/EBITDA": 13.29,
        "PER_LTM": 18.93,
-       "PER": 18.929925110520266,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 145
+       "PER": 31.493085883122472,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 87
       },
       "ua_multiple": 34.53,
       "origin": "주관사",
@@ -4653,10 +4644,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 20% 유지",
     "band_discount": [
-     0.1305,
-     0.284
+     0.2727,
+     0.4011
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -4822,33 +4813,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 19.87,
-    "multiple_median": 18.61,
-    "multiple_ex_top": 17.16,
+    "multiple_mean": 14.23,
+    "multiple_median": 14.26,
+    "multiple_ex_top": 12.85,
     "top_peer": "지투파워",
-    "value": 13375,
+    "value": 9578,
     "rate_base": 0.2,
     "pv_base": 9869149045.41716,
     "pv_ua": 9869000000.0,
     "sens": [
      {
       "rate": 0.1,
-      "all": 16625,
-      "ex_top": 14360
+      "all": 11905,
+      "ex_top": 10752
      },
      {
       "rate": 0.2,
-      "all": 13375,
-      "ex_top": 11552
+      "all": 9578,
+      "ex_top": 8650
      },
      {
       "rate": 0.3,
-      "all": 10949,
-      "ex_top": 9457
+      "all": 7841,
+      "ex_top": 7081
      }
     ],
     "values": {
-     "기본": 13375
+     "기본": 9578
     },
     "value_range": null,
     "peers": [
@@ -4868,9 +4859,9 @@
        "PSR": 4.09,
        "EV/EBITDA": 12.09,
        "PER_LTM": 18.61,
-       "PER": 18.60818895219438,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 259
+       "PER": 11.441176090635457,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 421
       },
       "ua_multiple": 34.78,
       "origin": "주관사",
@@ -4893,9 +4884,9 @@
        "PSR": 2.21,
        "EV/EBITDA": 13.33,
        "PER_LTM": 15.71,
-       "PER": 15.711065635992185,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 844
+       "PER": 14.25642970133956,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 930
       },
       "ua_multiple": 14.26,
       "origin": "주관사",
@@ -4918,9 +4909,9 @@
        "PSR": 2.09,
        "EV/EBITDA": 15.24,
        "PER_LTM": 25.28,
-       "PER": 25.280701858267275,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 68
+       "PER": 16.981785063752277,
+       "_per_basis": "2026(E) 컨센서스 EPS",
+       "_per_ni_eok": 101
       },
       "ua_multiple": 19.49,
       "origin": "주관사",
@@ -4933,10 +4924,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 20% 유지",
     "band_discount": [
-     0.1776,
-     0.4019
+     -0.1485,
+     0.1648
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   },
   {
@@ -5134,30 +5125,30 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 21.07,
-    "multiple_median": 21.07,
+    "multiple_mean": 19.91,
+    "multiple_median": 19.91,
     "multiple_ex_top": null,
     "top_peer": null,
-    "value": 9500,
+    "value": 8974,
     "rate_base": 0.35,
     "pv_base": 6797712641.635428,
     "pv_ua": 8730000000.0,
     "sens": [
      {
       "rate": 0.25,
-      "all": 12200
+      "all": 11524
      },
      {
       "rate": 0.35,
-      "all": 9500
+      "all": 8974
      },
      {
       "rate": 0.45,
-      "all": 7531
+      "all": 7114
      }
     ],
     "values": {
-     "기본": 9500
+     "기본": 8974
     },
     "value_range": null,
     "peers": [
@@ -5177,9 +5168,9 @@
        "PSR": 3.65,
        "EV/EBITDA": 27.06,
        "PER_LTM": 27.52,
-       "PER": 27.516236221929873,
-       "_per_basis": "2026 2Q LTM",
-       "_per_ni_eok": 59
+       "PER": 22.6283572312796,
+       "_per_basis": "2026 반기 누적×2",
+       "_per_ni_eok": 71
       },
       "ua_multiple": 23.65,
       "origin": "주관사",
@@ -5202,9 +5193,9 @@
        "PSR": 3.7,
        "EV/EBITDA": 13.97,
        "PER_LTM": 14.63,
-       "PER": 14.629373887202842,
-       "_per_basis": "2026 3Q LTM",
-       "_per_ni_eok": 47
+       "PER": 17.18324009524029,
+       "_per_basis": "2026 3Q 누적×4/3",
+       "_per_ni_eok": 40
       },
       "ua_multiple": 11.2,
       "origin": "주관사",
@@ -5241,10 +5232,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "바이오 추정이익: 주관사 할인율 25% 대신 35% 적용 (미체결 기술이전 비중·특례상장사 추정 달성률 반영)",
     "band_discount": [
-     -0.2316,
-     -0.0105
+     -0.3038,
+     -0.0698
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|6"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
    }
   }
  ],
