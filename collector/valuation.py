@@ -13,6 +13,7 @@
 """
 import json
 import os
+import re
 import statistics
 from datetime import date
 from pathlib import Path
@@ -213,39 +214,88 @@ def pv_at(est, rate):
     return fv[0] / (1 + rate) ** t[0]
 
 
+def _norm(n):
+    return re.sub(r"\(주\)|㈜|주식회사|\s|[.,&-]", "", str(n)).upper()
+
+
+_BY_CODE = None
+_BY_NORM = None
+
+
+def find_row(codes, name):
+    """비교기업 찾기: ① DART 고유번호 목록의 종목코드 ② 거래소 종목명 ③ 공백·대소문자 무시 이름"""
+    global _BY_CODE, _BY_NORM
+    lst = listing()
+    if _BY_CODE is None:
+        _BY_CODE = {str(c): n for n, c in zip(lst.index, lst["Code"])}
+        _BY_NORM = {_norm(n): n for n in lst.index}
+    sc = (codes.get(name) or {}).get("stock_code")
+    if not sc:
+        k = _norm(name)
+        sc = next((v["stock_code"] for n, v in codes.items() if v.get("stock_code") and _norm(n) == k), None)
+    if sc and sc in _BY_CODE:
+        return _BY_CODE[sc]
+    if name in lst.index:
+        return name
+    k = _norm(name)
+    if k in _BY_NORM:
+        return _BY_NORM[k]
+    for ko, en in _LETTER_PREFIX:  # 엘아이지디펜스… → LIG디펜스…
+        if k.startswith(ko) and en + k[len(ko):] in _BY_NORM:
+            return _BY_NORM[en + k[len(ko):]]
+    return None
+
+
+_LETTER_PREFIX = sorted([("엘아이지", "LIG"), ("에스케이", "SK"), ("엘지", "LG"), ("케이티앤지", "KT&G".replace("&", "")),
+                         ("케이티", "KT"), ("씨제이", "CJ"), ("에이치디", "HD"), ("지에스", "GS"), ("에이치엘", "HL"),
+                         ("디엘", "DL"), ("엘에스", "LS"), ("비지에프", "BGF"), ("케이씨씨", "KCC"), ("에스디", "SD"),
+                         ("에이치케이", "HK"), ("에이치에스", "HS"), ("디비", "DB"), ("비엔케이", "BNK"), ("제이비", "JB"),
+                         ("케이지", "KG"), ("에스씨", "SC"), ("티와이", "TY"), ("에이피", "AP"), ("오씨아이", "OCI"),
+                         ("에이알", "AR"), ("알에프", "RF"), ("엔에이치", "NH"), ("아이에스", "IS"), ("에스엔", "SN")],
+                        key=lambda x: -len(x[0]))
+
+
 def peer_data(dart, codes, name):
     lst = listing()
-    if name not in lst.index:
+    lname = find_row(codes, name)
+    if not lname:
         return None
-    row = lst.loc[name]
+    row = lst.loc[lname]
     if getattr(row, "ndim", 1) > 1:  # 동명 종목이 여럿이면 시총 큰 쪽
         row = row.sort_values("Marcap", ascending=False).iloc[0]
-    cc = codes.get(name, {}).get("corp_code")
-    f = ltm(dart, cc) if cc else None
     code = str(row.get("Code", ""))
+    cc = (codes.get(name) or {}).get("corp_code") or (codes.get(lname) or {}).get("corp_code") \
+        or next((v["corp_code"] for v in codes.values() if v.get("stock_code") == code), None)
+    f = ltm(dart, cc) if cc else None
     shares = float(row["Marcap"]) / float(row["Close"]) if float(row["Close"]) else 0
     avg = avg_close(code)
     price = avg or float(row["Close"])
     mcap = price * shares
-    return {"name": name, "code": code, "price": float(row["Close"]), "avg61": avg and round(avg),
+    return {"name": name if name == lname else f"{name} ({lname})", "code": code, "price": float(row["Close"]), "avg61": avg and round(avg),
             "mcap_eok": round(mcap / 1e8),
             "industry": row.get("Industry"), "fin_basis": f and f.get("basis"),
             "multiples": multiples(mcap, f)}
 
 
 # ---------------- 적합성 판단 ----------------
-def rule_filter(peers, method):
-    vals = [p["multiples"].get(method) for p in peers if p["multiples"].get(method)]
+MAX_MULTIPLE = 100  # 이보다 큰 배수는 이익이 0에 가까운 경우라 무조건 제외 (manual.json _settings.max_multiple)
+
+
+def rule_filter(peers, method, cap=MAX_MULTIPLE):
+    vals = [p["multiples"].get(method) for p in peers
+            if p["multiples"].get(method) and p["multiples"][method] <= cap]
     med = statistics.median(vals) if vals else None
     for p in peers:
         m = p["multiples"].get(method)
         if m is None:
             p["kept"], p["reason"] = False, f"{method} 산출 불가(적자 또는 데이터 없음)"
-        elif med and (m > med * 2.5 or m < med * 0.4):
+        elif m > cap:
+            p["kept"], p["reason"] = False, f"{m:.0f}배 — {cap}배 초과(이익 미미)로 제외"
+        elif med and len(vals) >= 3 and (m > med * 2.5 or m < med * 0.4):
             p["kept"], p["reason"] = False, f"이상치 (중앙값 {med:.1f}배 대비 {m:.1f}배)"
         else:
             p["kept"], p["reason"] = True, "유지"
-    return method, "규칙 기반: 적자·이상치(중앙값의 2.5배 초과/0.4배 미만) 제외 후 평균 적용"
+    return method, f"규칙 기반: 적자, {cap}배 초과, 이상치(3개사 이상일 때 중앙값의 2.5배 초과/0.4배 미만) 제외 후 평균 적용"
 
 
 def claude_review(target, peers, candidates, method):
@@ -329,7 +379,7 @@ def revalue(dart, codes, ipo, manual=None):
                 peers.append({**c, "origin": "추가", "kept": True, "reason": a["reason"]})
         rationale = "Claude 검토: " + review.get("rationale", "")
     else:
-        method, rationale = rule_filter(peers, method)
+        method, rationale = rule_filter(peers, method, manual.get("max_multiple") or MAX_MULTIPLE)
 
     # 수동 제외/추가 (manual.json) 최우선
     for n in manual.get("drop_peers", []):
@@ -343,6 +393,12 @@ def revalue(dart, codes, ipo, manual=None):
                           "reason": "수동 추가"})
 
     peers += outside
+    if not ipo.get("bio") and manual.get("bio") is None:
+        inds = [str(p.get("industry") or "") for p in peers if p.get("industry")]
+        if inds and sum(bool(re.search("의약|의료|바이오|생물|제약", i)) for i in inds) * 2 > len(inds):
+            ipo["bio"] = True
+    if manual.get("bio") is not None:
+        ipo["bio"] = bool(manual["bio"])
     kept = [p["multiples"][method] for p in peers if p["kept"]]
     if not kept:
         return {"method": method, "peers": peers, "rationale": rationale, "value": None}

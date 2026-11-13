@@ -196,6 +196,59 @@ class Filing:
                 best = {"rate": float(m.group(1)) / 100, "fv": fvs, "t": exps}
         return best
 
+    def demand_result(self):
+        """의무보유확약기간별 수요예측 참여내역 (국내 표 + 외국/합계 표) → 엑셀 '경쟁률추이' 항목"""
+        PERIODS = ("15일", "1개월", "3개월", "6개월")
+        groups_data = {}  # 그룹명 → {행라벨: (건수, 수량)}
+        for t in self.tables:
+            rows = t["rows"]
+            if not any(r and r[0].replace(" ", "") == "미확약" for r in rows):
+                continue
+            if not any("확약" in r[0] for r in rows if r):
+                continue
+            # 그룹 행: 운용사/합계/외국 등이 들어 있는 행, 그 다음 '건수, 수량, 신청가격' 반복 행
+            ti = next((k for k, r in enumerate(rows) if r and r[0] == "건수"), None)
+            if ti is None or ti == 0:
+                continue
+            n = max(1, rows[ti].count("건수"))
+            per = max(2, len(rows[ti]) // n)
+
+            def _g(r):
+                return [c for c in r if c and not re.fullmatch(r"구\s*분|(국내|해외|외국)\s*기관투자자", c)]
+            grow = _g(rows[ti - 1])
+            if grow and all(c.replace(" ", "") in ("공모", "사모") for c in grow) and ti >= 2:
+                parent = _g(rows[ti - 2])  # '운용사(집합)' 아래에 '공모/사모'가 따로 있는 양식
+                grow = [parent[0] + c for c in grow] + parent[1:]
+            if len(grow) < n and ti >= 2:  # 3단 헤더: 상위 행의 '합 계' 등을 뒤에 붙임
+                grow += _g(rows[ti - 2])[-(n - len(grow)):]
+            for r in rows[ti + 1:]:
+                if not r:
+                    continue
+                lab = r[0].replace(" ", "")
+                vals = r[1:]
+                for gi, g in enumerate(grow):
+                    seg = vals[gi * per: gi * per + per]
+                    if len(seg) < 2:
+                        continue
+                    cnt = _to_num(seg[0]) if seg[0] not in ("-", "") else 0
+                    qty = _to_num(seg[1]) if seg[1] not in ("-", "") else 0
+                    groups_data.setdefault(g.replace(" ", ""), {})[lab] = (cnt or 0, qty or 0)
+        if not groups_data:
+            return {}
+        am = [g for g in groups_data if g.startswith("운용사(집합)")]
+        tot = groups_data.get("합계")
+        out = {}
+        if tot and "합계" in tot:
+            out["inst_count"], out["total_qty"] = tot["합계"]
+            out["lock_by_period_applied"] = {p: tot.get(f"{p}확약", (0, 0))[1] for p in PERIODS}
+            lk = sum(out["lock_by_period_applied"].values())
+            out["lock_ratio_applied"] = lk / out["total_qty"] if out["total_qty"] else None
+        if am:
+            out["am_count"] = sum(groups_data[g].get("합계", (0, 0))[0] for g in am)
+            out["am_qty"] = sum(groups_data[g].get("합계", (0, 0))[1] for g in am)
+            out["am_lock_qty"] = sum(groups_data[g].get(f"{p}확약", (0, 0))[1] for g in am for p in PERIODS)
+        return out
+
     def forecast(self):
         """수요예측 일시 (정정 시 마지막 값)"""
         found = None

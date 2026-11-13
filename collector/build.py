@@ -21,8 +21,8 @@ MANUAL = DATA / "manual.json"
 OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
-BIO_RE = r"바이오|신약|의약|제약|치료제|항체|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마"
-VALUATION_V = 2  # 재산정 로직 바꾸면 올림
+BIO_RE = r"바이오|신약|의약|제약|치료제|치료|항체|항암|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마|단백질|파이프라인|기술이전|퇴행성|치매"
+VALUATION_V = 3  # 재산정 로직 바꾸면 올림
 PARSER_V = 3  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
@@ -201,14 +201,13 @@ def demand_from_dart(state, dart):
             except Exception as e:
                 WARN.append(f"[수요예측 원문 {ipo['name']}] {e}")
                 continue
-            ds, ls = doc.demand_stats(), doc.lockup_stats()
-            if ds or ls:
-                ipo["demand_stats"] = {**ds, **{k: v for k, v in ls.items() if k != "lock_by_period"}}
-                ipo["lock_by_period"] = ls.get("lock_by_period") or {}
+            dr = doc.demand_result()
+            if dr.get("total_qty"):
+                ipo["demand_stats"] = {k: v for k, v in dr.items() if k != "lock_by_period_applied"}
+                ipo["lock_applied"] = dr.get("lock_by_period_applied")
                 ipo["float_lock"] = doc.float_table()
-                ipo["total_shares_after"] = ipo.get("total_shares_after") or doc.total_shares_after()
-                ipo["final_price"] = ipo.get("final_price") or doc.final_price()
                 ipo["demand_parsed"] = r["rcept_no"]
+                print(f"  수요예측 결과: {ipo['name']}", flush=True)
                 break
 
 
@@ -257,7 +256,7 @@ def roll_forward(state):
             rec = {"name": ipo["name"], "listing": ipo.get("listing"), "inst_competition": comp,
                    "amount_eok": amt, **{k: ds.get(k) for k in
                    ("inst_count", "am_count", "total_qty", "am_qty", "am_lock_qty")},
-                   "lock_ratio_38": ipo.get("lock_ratio_38")}
+                   "lock_ratio_38": ipo.get("lock_ratio_38") or ds.get("lock_ratio_applied")}
             if rec.get("am_qty") and rec.get("am_lock_qty"):
                 rec["am_lock_ratio"] = rec["am_lock_qty"] / rec["am_qty"]
             if rec.get("am_qty") and rec.get("total_qty"):
@@ -295,8 +294,9 @@ def revalue_all(state, dart, codes, manual):
         if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
             continue  # 상장 끝난 종목은 갱신 안 함
         m = dict((manual.get(ipo["name"]) or {}).get("valuation") or {})
-        if (manual.get("_settings") or {}).get("bio_rates") and "bio_rates" not in m:
-            m["bio_rates"] = manual["_settings"]["bio_rates"]
+        for k in ("bio_rates", "max_multiple"):
+            if (manual.get("_settings") or {}).get(k) and k not in m:
+                m[k] = manual["_settings"][k]
         sig = json.dumps(m, sort_keys=True, ensure_ascii=False) + f"|{VALUATION_V}"
         ov = ipo.get("our_valuation") or {}
         if ov.get("as_of") == date.today().isoformat() and ov.get("sig") == sig:
