@@ -118,10 +118,11 @@ class Filing:
             if re.search(r"공모\s*가\s*산정|공모가액\s*밴드|확정\s*공모\s*가", lab):
                 nums = list(dict.fromkeys(int(x.replace(",", "")) for x in
                                           re.findall(r"\d{1,3}(?:,\d{3})+|\d{4,6}", " ".join(r[1:3]))))
-                if "확정" in joined or "결정" in joined:
-                    if len(nums) == 1 or "확정" in lab:
-                        out["final_price"] = nums[-1] if nums else None
-                        continue
+                done = "확정" in lab or ("밴드" not in lab and len(nums) == 1
+                                          and re.search(r"결정\s*하였|으로\s*결정|확정\s*하였", joined))
+                if done and nums:
+                    out["final_price"] = nums[-1]
+                    continue
                 if len(nums) >= 2:
                     out["band"] = nums[:2]
         return out
@@ -167,6 +168,33 @@ class Filing:
                 if len(ps) >= 2:
                     cand.append(ps)
         return cand[-1] if cand else []
+
+    def estimate_info(self):
+        """추정이익 현가 계산표: 미래 추정이익(원), 주관사 연할인율, 할인기간(지수) → 할인율 바꿔 재계산용"""
+        best = None
+        for t in self.tables:
+            rows = t["rows"]
+            if rows[0][:1] == ["평가방법"]:
+                continue
+            rate_rows = [r for r in rows if r and re.search(r"할인율", r[0]) and "평가가액" not in r[0]]
+            pv_rows = [r for r in rows if any("^" in c for c in r)]
+            if not rate_rows or not pv_rows:
+                continue
+            m = re.search(r"(\d+(?:\.\d+)?)\s*%", " ".join(rate_rows[0][1:]))
+            if not m:
+                continue
+            fvs = []
+            for r in rows:
+                if r and re.search(r"20\d\d.*추정", r[0]) and "현재가치" not in r[0] and "현가" not in r[0]:
+                    cells = " ".join(r[1:2])
+                    unit = 1e6 if "백만원" in cells else (1e3 if "천원" in cells else 1)
+                    v = _to_num(r[1]) if len(r) > 1 else None
+                    if v:
+                        fvs.append(v * unit)
+            exps = [float(x) for x in re.findall(r"\^\s*\(?\s*(\d+(?:\.\d+)?)", " ".join(" ".join(r) for r in pv_rows))]
+            if fvs and exps:
+                best = {"rate": float(m.group(1)) / 100, "fv": fvs, "t": exps}
+        return best
 
     def forecast(self):
         """수요예측 일시 (정정 시 마지막 값)"""

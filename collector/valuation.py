@@ -186,6 +186,31 @@ def multiples(mcap, f):
     return {k: round(v, 2) for k, v in out.items()}
 
 
+_AVG = {}
+
+
+def avg_close(code, n=61):
+    """최근 61영업일 종가 평균 (약 3개월) — IPO 보고서 기준"""
+    if code in _AVG:
+        return _AVG[code]
+    try:
+        from datetime import timedelta
+        df = fdr.DataReader(code, (date.today() - timedelta(days=130)).isoformat())
+        v = float(df["Close"].dropna().tail(n).mean()) if len(df) else None
+    except Exception:
+        v = None
+    _AVG[code] = v
+    return v
+
+
+def pv_at(est, rate):
+    """추정이익 현가를 다른 할인율로 재계산 (여러 연도면 평균)"""
+    fv, t = est["fv"], est["t"]
+    if len(fv) == len(t):
+        return sum(a / (1 + rate) ** b for a, b in zip(fv, t)) / len(fv)
+    return fv[0] / (1 + rate) ** t[0]
+
+
 def peer_data(dart, codes, name):
     lst = listing()
     if name not in lst.index:
@@ -195,9 +220,13 @@ def peer_data(dart, codes, name):
         row = row.sort_values("Marcap", ascending=False).iloc[0]
     cc = codes.get(name, {}).get("corp_code")
     f = ltm(dart, cc) if cc else None
-    mcap = float(row["Marcap"])
-    return {"name": name, "code": str(row.get("Code", "")),
-            "price": float(row["Close"]), "mcap_eok": round(mcap / 1e8),
+    code = str(row.get("Code", ""))
+    shares = float(row["Marcap"]) / float(row["Close"]) if float(row["Close"]) else 0
+    avg = avg_close(code)
+    price = avg or float(row["Close"])
+    mcap = price * shares
+    return {"name": name, "code": code, "price": float(row["Close"]), "avg61": avg and round(avg),
+            "mcap_eok": round(mcap / 1e8),
             "industry": row.get("Industry"), "fin_basis": f and f.get("basis"),
             "multiples": multiples(mcap, f)}
 
@@ -214,7 +243,7 @@ def rule_filter(peers, method):
             p["kept"], p["reason"] = False, f"이상치 (중앙값 {med:.1f}배 대비 {m:.1f}배)"
         else:
             p["kept"], p["reason"] = True, "유지"
-    return method, "규칙 기반: 적자/이상치 제외 후 중앙값 적용"
+    return method, "규칙 기반: 적자·이상치(중앙값의 2.5배 초과/0.4배 미만) 제외 후 평균 적용"
 
 
 def claude_review(target, peers, candidates, method):
@@ -315,25 +344,45 @@ def revalue(dart, codes, ipo, manual=None):
     kept = [p["multiples"][method] for p in peers if p["kept"]]
     if not kept:
         return {"method": method, "peers": peers, "rationale": rationale, "value": None}
-    med = statistics.median(kept)
     avg = statistics.mean(kept)
-    basis = (manual.get("target_basis") or {}).get(method)
-    value = None
-    same = method == ipo.get("ua_method") and ipo.get("ua_value") and ipo.get("ua_multiple")
-    if basis is not None:
-        value = round(med * basis)
-    elif same and method == "EV/EBITDA" and ipo.get("ua_base") and ipo.get("ua_shares"):
-        # 주관사 평가가액에서 멀티플 차이만큼만 조정 (순차입금·공모유입자금 등은 주관사 값 유지)
-        value = round(ipo["ua_value"] + ipo["ua_base"] * (med - ipo["ua_multiple"]) / ipo["ua_shares"])
-        basis = ipo["ua_base"] / ipo["ua_shares"]
-    elif same:
-        basis = ipo["ua_value"] / ipo["ua_multiple"]
-        value = round(med * basis)
-    out = {"method": method, "multiple_median": round(med, 2), "multiple_mean": round(avg, 2),
-           "per_share_basis": basis and round(basis, 1), "value": value, "peers": peers,
-           "rationale": rationale, "as_of": date.today().isoformat(),
-           "note": "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체" if method == "EV/EBITDA" else None}
-    if value and ipo.get("band"):
+    med = statistics.median(kept)
+    m_ua, v_ua = ipo.get("ua_multiple"), ipo.get("ua_value")
+    base, shares, est = ipo.get("ua_base"), ipo.get("ua_shares"), ipo.get("ua_est")
+    same = method == ipo.get("ua_method")
+    scen = {}  # 시나리오별 기준이익
+    basis_note = None
+    tb = (manual.get("target_basis") or {}).get(method)
+    if tb is not None:
+        scen["수동 입력"] = ("ps", tb)
+    elif not same:
+        return {"method": method, "peers": peers, "rationale": rationale, "value": None,
+                "note": "주관사와 다른 지표 — manual.json 의 target_basis 필요"}
+    elif method == "EV/EBITDA":
+        if base and shares and v_ua and m_ua:
+            scen["주관사 EBITDA"] = ("ev", None)
+            basis_note = "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체"
+    elif est and ipo.get("bio") and shares:
+        for r in (0.20, 0.25):
+            scen[f"할인율 {int(r * 100)}%"] = ("ps", pv_at(est, r) / shares)
+        basis_note = (f"바이오 추정이익: 주관사 할인율 {est['rate'] * 100:.0f}% 대신 20%·25%로 현가 재계산")
+    elif base and shares:
+        scen["주관사 기준이익"] = ("ps", base / shares)
+    elif v_ua and m_ua:
+        scen["주관사 기준이익"] = ("ps", v_ua / m_ua)
+    values = {}
+    for k, (kind, ps) in scen.items():
+        if kind == "ps":
+            values[k] = round(avg * ps)
+        else:
+            values[k] = round(v_ua + base * (avg - m_ua) / shares)
+    vs = sorted(values.values())
+    out = {"method": method, "multiple_mean": round(avg, 2), "multiple_median": round(med, 2),
+           "values": values, "value": round(sum(vs) / len(vs)) if vs else None,
+           "value_range": [vs[0], vs[-1]] if len(vs) > 1 else None,
+           "peers": peers, "rationale": rationale, "as_of": date.today().isoformat(),
+           "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 상장주식수, 이익 = LTM 지배주주순이익",
+           "note": basis_note}
+    if out["value"] and ipo.get("band"):
         lo, hi = ipo["band"]
-        out["band_discount"] = [round(1 - hi / value, 4), round(1 - lo / value, 4)]
+        out["band_discount"] = [round(1 - hi / out["value"], 4), round(1 - lo / out["value"], 4)]
     return out

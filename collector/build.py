@@ -21,7 +21,8 @@ MANUAL = DATA / "manual.json"
 OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
-PARSER_V = 2  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
+BIO_RE = r"바이오|신약|의약|제약|치료제|항체|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마"
+PARSER_V = 3  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
@@ -135,7 +136,7 @@ def from_dart(state, dart, codes):
             continue
         if not spac:
             # 최신 제출본부터 거슬러 올라가며 필요한 값을 채움 (정정신고서는 바뀐 부분만 있어서)
-            summ, peers, fc, full = {}, [], None, None
+            summ, peers, fc, full, est = {}, [], None, None, None
             for f in list(reversed(fs))[:4]:
                 try:
                     d = Filing(dart.document(f["rcept_no"]))
@@ -143,6 +144,7 @@ def from_dart(state, dart, codes):
                     WARN.append(f"[원문 {name}] {e}")
                     continue
                 sm = d.summary()
+                est = est or d.estimate_info()
                 for k, v in sm.items():
                     summ.setdefault(k, v)
                 fc = fc or d.forecast()
@@ -161,7 +163,12 @@ def from_dart(state, dart, codes):
                 "ua_value": summ.get("value"), "discount": summ.get("discount"),
                 "ua_base": summ.get("base"), "ua_shares": summ.get("shares"),
                 "peers_ua": peers, "forecast": fc, "source": "dart", "parser_v": PARSER_V,
+                "ua_est": est,
             })
+            # 파서가 다시 읽은 값은 비어 있어도 덮어씀 (이전 잘못된 값 제거)
+            if ex:
+                for k in ("peers_ua", "final_price", "ua_est", "our_valuation"):
+                    ex.pop(k, None)
             doc = full
             if doc is not None:
                 head = doc.text[:60000]
@@ -169,6 +176,7 @@ def from_dart(state, dart, codes):
                 rec["special"] = bool(re.search("기술성장기업|기술특례|성장성\\s*특례", head))
                 rec["business"] = doc.business_summary()
                 rec["total_shares_after"] = doc.total_shares_after()
+            rec["bio"] = bool(re.search(BIO_RE, name + " " + (rec.get("business") or "")))
         upsert(state["pipeline"], rec)
 
 
@@ -258,7 +266,7 @@ def roll_forward(state):
             total = ipo.get("total_shares_after")
             rel = []
             for p in ("15일", "1개월", "3개월", "6개월"):
-                sh = (ipo.get("lock_by_period") or {}).get(p, 0) + (ipo.get("float_lock") or {}).get(p, 0)
+                sh = ((ipo.get("lock_by_period") or {}).get(p) or 0) + ((ipo.get("float_lock") or {}).get(p) or 0)
                 if sh:
                     rel.append({"period": p, "date": release_date(ipo["listing"], p), "shares": sh,
                                 "ratio": sh / total if total else None})
