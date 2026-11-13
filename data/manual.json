@@ -1,0 +1,6 @@
+{
+ "_설명": "자동 수집값을 덮어쓸 때만 사용. 종목명 키 아래 필드를 지정하면 그 값이 우선합니다.",
+ "_예시": {"listing": "2026-10-23", "special": true,
+           "valuation": {"drop_peers": ["A사"], "add_peers": ["B사"], "method": "PER",
+                         "target_basis": {"PER": 850}}}
+}
