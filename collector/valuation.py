@@ -186,6 +186,8 @@ def multiples(mcap, f):
     return {k: round(v, 2) for k, v in out.items()}
 
 
+# 바이오 추정이익 현가 할인율 (data/manual.json 의 "_settings": {"bio_rates": [...]} 로 변경 가능)
+BIO_RATES = (0.30, 0.35)
 _AVG = {}
 
 
@@ -362,9 +364,11 @@ def revalue(dart, codes, ipo, manual=None):
             scen["주관사 EBITDA"] = ("ev", None)
             basis_note = "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체"
     elif est and ipo.get("bio") and shares:
-        for r in (0.20, 0.25):
-            scen[f"할인율 {int(r * 100)}%"] = ("ps", pv_at(est, r) / shares)
-        basis_note = (f"바이오 추정이익: 주관사 할인율 {est['rate'] * 100:.0f}% 대신 20%·25%로 현가 재계산")
+        rates = manual.get("bio_rates") or BIO_RATES
+        for r in rates:
+            scen[f"할인율 {r * 100:.0f}%"] = ("ps", pv_at(est, r) / shares)
+        basis_note = (f"바이오 추정이익: 주관사 할인율 {est['rate'] * 100:.0f}% 대신 "
+                      + "·".join(f"{r * 100:.0f}%" for r in rates) + "로 현가 재계산")
     elif base and shares:
         scen["주관사 기준이익"] = ("ps", base / shares)
     elif v_ua and m_ua:

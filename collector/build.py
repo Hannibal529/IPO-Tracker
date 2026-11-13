@@ -296,7 +296,9 @@ def revalue_all(state, dart, codes, manual):
         if (ipo.get("our_valuation") or {}).get("as_of") == date.today().isoformat():
             continue  # 오늘 이미 계산함
         print(f"  재산정: {ipo['name']}", flush=True)
-        m = (manual.get(ipo["name"]) or {}).get("valuation")
+        m = dict((manual.get(ipo["name"]) or {}).get("valuation") or {})
+        if (manual.get("_settings") or {}).get("bio_rates") and "bio_rates" not in m:
+            m["bio_rates"] = manual["_settings"]["bio_rates"]
         try:
             ipo["our_valuation"] = revalue(dart, codes, ipo, m)
         except Exception as e:

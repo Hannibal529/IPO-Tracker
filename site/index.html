@@ -130,7 +130,7 @@ function rPipe(){
    <td class="${p.up>0?"pos":p.up<0?"neg":""}">${p.up==null?"–":(p.up>0?"+":"")+pct(p.up)}</td>
    <td>${p.comp?fmt(p.comp,1)+":1":"–"}</td><td>${pct(p.lock_ratio_38)}</td></tr>`).join("")}
   </tbody></table></div>
-  <p class="meta">재산정 적정가: 비교기업 시가총액은 최근 61영업일 종가 평균, 이익은 LTM 지배주주순이익으로 멀티플을 다시 계산(적자·이상치 제외 후 평균)하고, 주관사 기준이익에 적용. 바이오 추정이익은 할인율 20%·25%로 현가를 다시 계산해 범위로 표시. 밴드상단 대비 = 적정가(중간값) ÷ 밴드 상단 − 1.</p>`;
+  <p class="meta">재산정 적정가: 비교기업 시가총액은 최근 61영업일 종가 평균, 이익은 LTM 지배주주순이익으로 멀티플을 다시 계산(적자·이상치 제외 후 평균)하고, 주관사 기준이익에 적용. 바이오 추정이익은 할인율 30%·35%로 현가를 다시 계산해 범위로 표시. 밴드상단 대비 = 적정가(중간값) ÷ 밴드 상단 − 1.</p>`;
   $("#q").oninput=e=>{pf.q=e.target.value;rPipe();$("#q").focus();$("#q").setSelectionRange(99,99)};
   $("#all").onchange=e=>{pf.all=e.target.checked;rPipe()};$("#spac").onchange=e=>{pf.spac=e.target.checked;rPipe()};
   document.querySelectorAll("th[data-c]").forEach(th=>th.onclick=()=>{const c=th.dataset.c;psort=[c,psort[0]===c?-psort[1]:1];rPipe()});
