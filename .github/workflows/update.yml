@@ -5,6 +5,11 @@ on:
     - cron: "17 23 * * 0-4"   # 평일 08:17 KST
     - cron: "47 8 * * 1-5"    # 평일 17:47 KST (장 마감·공시 반영)
   workflow_dispatch:           # Actions 탭에서 수동 실행
+    inputs:
+      dump:
+        description: "파서 점검용 원문 표 추출 (종목명, 쉼표 구분). 비우면 일반 수집"
+        required: false
+        default: ""
   push:
     paths: ["site/**", "data/manual.json", "collector/**"]
 
@@ -24,7 +29,24 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
+      - uses: actions/cache@v4      # DART 고유번호·원문 캐시 (매 실행 재다운로드 방지)
+        with:
+          path: data/cache
+          key: dart-${{ github.run_id }}
+          restore-keys: dart-
+      - name: 원문 표 추출(점검용)
+        if: ${{ github.event.inputs.dump != '' && github.event.inputs.dump != null }}
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          DUMP_NAMES: ${{ github.event.inputs.dump }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -m collector.dump
+          git config user.name "ipo-bot"
+          git config user.email "ipo-bot@users.noreply.github.com"
+          git add debug && git commit -m "debug dump" && git push
       - name: 수집
+        if: ${{ github.event.inputs.dump == '' || github.event.inputs.dump == null }}
         continue-on-error: true   # 수집이 실패해도 기존 데이터로 사이트는 배포
         timeout-minutes: 22
         env:
@@ -33,6 +55,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: python -m collector.build
       - name: 상태 저장
+        if: ${{ github.event.inputs.dump == '' || github.event.inputs.dump == null }}
         run: |
           git config user.name "ipo-bot"
           git config user.email "ipo-bot@users.noreply.github.com"

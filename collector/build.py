@@ -269,8 +269,8 @@ def revalue_all(state, dart, codes, manual):
         if time.time() - start > REVALUE_BUDGET_SEC:
             WARN.append("[재산정] 시간 예산 초과 — 나머지 종목은 다음 실행에서 계산")
             break
-        if ipo.get("spac") or not ipo.get("peers_ua"):
-            continue
+        if ipo.get("spac") or not (2 <= len(ipo.get("peers_ua") or []) <= 15):
+            continue  # peer 표를 제대로 못 읽은 종목은 재산정하지 않음
         if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
             continue  # 상장 끝난 종목은 갱신 안 함
         if (ipo.get("our_valuation") or {}).get("as_of") == date.today().isoformat():
