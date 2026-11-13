@@ -183,9 +183,10 @@ class Filing:
             m = re.search(r"(\d+(?:\.\d+)?)\s*%", " ".join(rate_rows[0][1:]))
             if not m:
                 continue
-            fvs = []
+            fvs, yrs = [], []
             for r in rows:
                 if r and re.search(r"20\d\d.*추정", r[0]) and "현재가치" not in r[0] and "현가" not in r[0]:
+                    yrs.append(re.search(r"20\d\d", r[0]).group())
                     cells = " ".join(r[1:2])
                     unit = 1e6 if "백만원" in cells else (1e3 if "천원" in cells else 1)
                     v = _to_num(r[1]) if len(r) > 1 else None
@@ -193,7 +194,7 @@ class Filing:
                         fvs.append(v * unit)
             exps = [float(x) for x in re.findall(r"\^\s*\(?\s*(\d+(?:\.\d+)?)", " ".join(" ".join(r) for r in pv_rows))]
             if fvs and exps:
-                best = {"rate": float(m.group(1)) / 100, "fv": fvs, "t": exps}
+                best = {"rate": float(m.group(1)) / 100, "fv": fvs, "t": exps, "years": yrs[:len(fvs)]}
         return best
 
     def demand_result(self):
@@ -299,6 +300,115 @@ class Filing:
             ltm = (vals[0] + vals[1] - vals[2]) * unit
             return {"ni": ltm, "basis": f"{cy}년 {dict(H='반기', **{'3Q': '3분기', '1Q': '1분기'})[ct]} LTM"}
         return None
+
+    def float_schedule(self):
+        """상장 후 기간별 누적 유통가능주식수·비율 (공모 후 기준)"""
+        lab_re = re.compile(r"상장\s*(일|직후)|상장\s*후\s*(\d+)\s*(개월|년)")
+        for t in self.tables:
+            rows = [r for r in t["rows"] if r and lab_re.search(r[0])]
+            if len(rows) < 3 or "유통" not in " ".join(" ".join(r) for r in t["rows"][:3]):
+                continue
+            width = min(len(r) for r in rows) - 1
+            pick = None
+            for k in range(width):
+                vals = [_to_num(r[k + 1]) if r[k + 1] not in ("-", "") else None for r in rows]
+                nums = [x for x in vals if x is not None]
+                if len(nums) >= len(rows) - 1 and all(x >= 1000 for x in nums) \
+                        and all(b >= a for a, b in zip(nums, nums[1:])):
+                    pick = k
+                    break
+            if pick is None:
+                continue
+            out = []
+            for r in rows:
+                m = lab_re.search(r[0])
+                lab = "상장일" if m.group(1) else f"{m.group(2)}{m.group(3)}"
+                sh = _to_num(r[pick + 1]) if r[pick + 1] not in ("-", "") else (out[-1]["shares"] if out else None)
+                ratio = None
+                if pick + 2 < len(r) and r[pick + 2] not in ("-", ""):
+                    v = _to_num(r[pick + 2])
+                    ratio = v / 100 if v is not None and v > 1 else v
+                out.append({"label": lab, "shares": sh, "ratio": ratio})
+            return out
+        return []
+
+    def fin_summary(self):
+        """요약 재무: 최근 분기·반기 + 직전 2개 연도 × 주요 계정 (억원). BS·IS 각각 가장 충실한 표에서 추출"""
+        from datetime import date as _d
+        cy = _d.today().year
+        bs_keys = {"자산총계": r"^자산총계", "부채총계": r"^부채총계", "자본금": r"^자본금", "자본총계": r"^자본총계"}
+        is_keys = {"매출액": r"^(매출액|영업수익)", "영업이익": r"^영업이익",
+                   "당기순이익": r"^(당기|반기|분기)순이익"}
+
+        def periods(hdr):
+            ns = [int(x) for c in hdr for x in re.findall(r"제\s*(\d+)\s*기", c)]
+            top = max(ns) if ns else None
+            out = []
+            for c in hdr:
+                c2 = c.replace(" ", "")
+                if re.search(r"\(E\)|추정|예상", c2):
+                    out.append(None)
+                    continue
+                m = re.search(r"(20\d\d)", c2)
+                y = int(m.group(1)) if m else None
+                if y is None:
+                    k = re.search(r"제(\d+)기", c2)
+                    y = cy - (top - int(k.group(1))) if (k and top) else None
+                if y is None or y > cy:
+                    out.append(None)
+                    continue
+                q = ".3Q" if "3분기" in c2 else (".2Q" if "반기" in c2 else (".1Q" if "1분기" in c2 else ""))
+                if q and re.search(r"전\s*(반|분)기|누적\)?$", c2) and False:
+                    q = q
+                out.append(f"{y}{q}")
+            return out
+
+        def scan(keys):
+            best, best_score = None, None
+            for i, t in enumerate(self.tables):
+                rows = t["rows"]
+                if len(rows) < 3 or len(rows[0]) < 3:
+                    continue
+                per = periods(rows[0][1:])
+                if sum(1 for x in per if x) < 2:
+                    continue
+                near = " ".join(" ".join(" ".join(x) for x in self.tables[j]["rows"][:2]) for j in range(max(0, i - 2), i + 1))
+                got = {}
+                for r in rows[1:]:
+                    lab = re.sub(r"[\s\[\]]", "", r[0] if r else "")
+                    key = next((k for k, pat in keys.items() if re.match(pat, lab)), None)
+                    if not key or key in got:
+                        continue
+                    vals = [_to_num(c.replace("△", "-")) if c not in ("-", "") else None for c in r[1:]]
+                    if not any(v is not None for v in vals):
+                        continue
+                    big = max(abs(v) for v in vals if v is not None)
+                    um = re.findall(r"단위\s*[:：]?\s*(백만원|천원|원)", near)
+                    if um:
+                        unit = {"백만원": 1e6, "천원": 1e3, "원": 1}[um[-1]]
+                    else:
+                        unit = 1 if big >= 1e8 else (1e6 if ("백만원" in near or big < 1e7) else 1e3)
+                    got[key] = {p: v * unit / 1e8 for p, v in zip(per, vals) if p and v is not None}
+                if not got:
+                    continue
+                latest = max(p for d in got.values() for p in d)
+                score = (len(got), latest)
+                if best_score is None or score >= best_score:
+                    best, best_score = got, score
+            return best or {}
+        bs, is_ = scan(bs_keys), scan(is_keys)
+        allp = {p for d in list(bs.values()) + list(is_.values()) for p in d}
+        if not allp:
+            return {}
+        interim = sorted([p for p in allp if "." in p], reverse=True)[:1]
+        fys = sorted([p for p in allp if "." not in p], reverse=True)[:2]
+        cols = interim + fys
+        rows = {}
+        for k in list(bs_keys) + list(is_keys):
+            src = bs.get(k) or is_.get(k)
+            if src:
+                rows[k] = [src.get(c) for c in cols]
+        return {"cols": cols, "rows": rows}
 
     def forecast(self):
         """수요예측 일시 (정정 시 마지막 값)"""

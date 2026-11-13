@@ -22,8 +22,8 @@ OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
 BIO_RE = r"바이오|신약|의약|제약|치료제|치료|항체|항암|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마|단백질|파이프라인|기술이전|퇴행성|치매"
-VALUATION_V = 5  # 재산정 로직 바꾸면 올림
-PARSER_V = 5  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
+VALUATION_V = 6  # 재산정 로직 바꾸면 올림
+PARSER_V = 6  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
@@ -134,6 +134,11 @@ def from_dart(state, dart, codes):
             kinds = g.get("증권의종류") or []
             if kinds:
                 rec["shares_offered"] = _n(kinds[-1].get("stkcnt"))
+            sale = sum(_n(v) or 0 for it in g.get("매출인에관한사항") or [] for k, v in it.items() if k == "slstk")
+            rec["sale_shares"] = sale or 0
+            uof = [(it.get("se"), _n(it.get("amt"))) for it in g.get("자금의사용목적") or [] if it.get("se")]
+            if uof:
+                rec["use_of_funds"] = [{"label": a, "amount": b} for a, b in uof if b]
             und = [u.get("actnmn") for u in g.get("인수인정보") or [] if "대표" in (u.get("actsen") or "")]
             if und:
                 rec["underwriter"] = ", ".join(dict.fromkeys(und))
@@ -144,7 +149,7 @@ def from_dart(state, dart, codes):
             continue
         if not spac:
             # 최신 제출본부터 거슬러 올라가며 필요한 값을 채움 (정정신고서는 바뀐 부분만 있어서)
-            summ, peers, fc, full, est, tni = {}, [], None, None, None, None
+            summ, peers, fc, full, est, tni, fl, fin = {}, [], None, None, None, None, None, None
             for f in list(reversed(fs))[:4]:
                 try:
                     d = Filing(dart.document(f["rcept_no"]))
@@ -154,6 +159,8 @@ def from_dart(state, dart, codes):
                 sm = d.summary()
                 est = est or d.estimate_info()
                 tni = tni or d.target_ltm_ni()
+                fl = fl or d.float_schedule()
+                fin = fin or d.fin_summary()
                 for k, v in sm.items():
                     summ.setdefault(k, v)
                 fc = fc or d.forecast()
@@ -162,7 +169,7 @@ def from_dart(state, dart, codes):
                         d.peer_table(summ.get("method"), sm.get("multiple"))
                 if full is None and len(d.tables) > 500:
                     full = d
-                if summ.get("band") and peers and fc and full is not None and tni:
+                if summ.get("band") and peers and fc and full is not None and tni and fl and fin:
                     break
             if not summ:
                 WARN.append(f"[원문 {name}] 공모가 산정 요약표를 찾지 못함")
@@ -172,7 +179,7 @@ def from_dart(state, dart, codes):
                 "ua_value": summ.get("value"), "discount": summ.get("discount"),
                 "ua_base": summ.get("base"), "ua_shares": summ.get("shares"),
                 "peers_ua": peers, "forecast": fc, "source": "dart", "parser_v": PARSER_V,
-                "ua_est": est, "target_ltm": tni,
+                "ua_est": est, "target_ltm": tni, "float_schedule": fl, "fin": fin,
             })
             # 파서가 다시 읽은 값은 비어 있어도 덮어씀 (이전 잘못된 값 제거)
             if ex:
@@ -302,7 +309,7 @@ def revalue_all(state, dart, codes, manual):
         if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
             continue  # 상장 끝난 종목은 갱신 안 함
         m = dict((manual.get(ipo["name"]) or {}).get("valuation") or {})
-        for k in ("bio_rates", "max_multiple"):
+        for k in ("bio_rate", "bio_sens", "max_multiple"):
             if (manual.get("_settings") or {}).get(k) and k not in m:
                 m[k] = manual["_settings"][k]
         sig = json.dumps(m, sort_keys=True, ensure_ascii=False) + f"|{VALUATION_V}"

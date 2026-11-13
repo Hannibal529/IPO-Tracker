@@ -1,6 +1,9 @@
-"""종목별 '적정가 산출 근거' PDF 생성 → site/reports/<corp_code>.pdf
+"""종목별 IPO 밸류에이션 보고서 PDF (팀 IPO 보고서 양식) → site/reports/<corp_code>.pdf
 
-실행: python -m collector.report   (data/state.json 을 읽어서 생성)
+양식: 요약 → 공모개요 → 일정 → 수요예측 결과 → 투자포인트/리스크 → 기업개요 → 회사 추정 손익
+      → 수급 → 밸류에이션(주관사) → 밸류에이션(당사)·민감도 → 최근 IPO 비교 → 재무 현황
+판단이 필요한 칸(투자포인트, 산업매력도 등)은 '작성 필요'로 남긴다. 참여 의견은 넣지 않는다.
+실행: python -m collector.report
 """
 import html
 import json
@@ -10,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "data" / "state.json"
 OUT_DIR = ROOT / "site" / "reports"
+TODO = "<span class='todo'>작성 필요</span>"
 
 
 def e(x):
@@ -18,141 +22,283 @@ def e(x):
 
 def n(v, d=0):
     if v is None or v == "":
-        return "–"
+        return "-"
     try:
-        return f"{float(v):,.{d}f}"
+        x = float(v)
+        x = x + (1e-9 if x >= 0 else -1e-9)  # 0.5 반올림(엑셀과 동일)
+        q = 10 ** d
+        x = int(abs(x) * q + 0.5) / q * (1 if x >= 0 else -1)
+        return f"{x:,.{d}f}"
     except (TypeError, ValueError):
         return e(v)
 
 
+def eok(won, d=0):
+    return "-" if won is None else f"{won / 1e8:,.{d}f}억원"
+
+
 def pct(v, d=1):
-    return "–" if v is None else f"{v * 100:.{d}f}%"
+    return "-" if v is None else f"{v * 100:.{d}f}%"
+
+
+def ymd(s):
+    return s.replace("-", ".") if s else "-"
 
 
 def rng(a):
     if not a:
-        return "–"
-    return a[0][5:].replace("-", "/") + (" ~ " + a[1][5:].replace("-", "/") if a[1] != a[0] else "")
+        return "-"
+    return ymd(a[0]) + ("~" + ymd(a[1]) if a[1] != a[0] else "")
+
+
+def table(head, rows, cls=""):
+    h = "".join(f"<th>{c}</th>" for c in head) if head else ""
+    body = "".join("<tr>" + "".join(f"<td class='{'lab' if i == 0 else ''}'>{c}</td>" for i, c in enumerate(r)) + "</tr>"
+                   for r in rows)
+    return f"<table class='{cls}'>{'<tr>' + h + '</tr>' if h else ''}{body}</table>"
+
+
+def kv(rows):
+    return "<table class='kv'>" + "".join(f"<tr><td class='lab'>{k}</td><td>{v}</td></tr>" for k, v in rows) + "</table>"
 
 
 CSS = """
-@page { size: A4; margin: 16mm 14mm 16mm 14mm;
-  @bottom-right { content: counter(page) " / " counter(pages); font-size: 8pt; color: #888; } }
-body { font-family: "NanumGothic", "Noto Sans CJK KR", sans-serif; font-size: 9pt; color: #111; line-height: 1.45; }
-h1 { font-size: 16pt; margin: 0 0 2px; }
-.sub { color: #666; font-size: 8.5pt; margin-bottom: 12px; }
-h2 { font-size: 11pt; margin: 16px 0 6px; padding-bottom: 3px; border-bottom: 1.5px solid #111; }
-table { width: 100%; border-collapse: collapse; margin: 4px 0; }
-th, td { border-bottom: 0.5px solid #ccc; padding: 4px 5px; text-align: right; vertical-align: top; }
-th { background: #f3f3f1; font-weight: bold; font-size: 8.5pt; }
-td.l, th.l { text-align: left; }
-.kv td { text-align: left; } .kv td.k { color: #555; width: 18%; background: #fafaf8; }
-.hero { display: flex; gap: 10px; margin: 6px 0; }
-.box { flex: 1; border: 1px solid #ddd; border-radius: 4px; padding: 7px 9px; }
-.box b { display: block; font-size: 7.5pt; color: #666; font-weight: normal; }
-.box span { font-size: 13pt; font-weight: bold; }
-.ex { color: #999; }
-.note { font-size: 8pt; color: #444; background: #f6f6f4; padding: 6px 8px; border-radius: 3px; margin-top: 6px; }
-.f { font-family: monospace; font-size: 8.5pt; background: #f6f6f4; padding: 5px 8px; margin: 4px 0; }
+@page { size: A4; margin: 15mm 16mm 15mm 16mm; }
+body { font-family: "NanumGothic", "Noto Sans CJK KR", sans-serif; font-size: 9.5pt; color: #000; line-height: 1.5; }
+h1 { text-align: center; font-size: 15pt; margin: 0; }
+.date { text-align: right; font-weight: bold; font-size: 10pt; margin-bottom: 4px; }
+h2 { font-size: 10.5pt; margin: 14px 0 4px; }
+h2:before { content: "● "; }
+ul { margin: 2px 0 2px 0; padding-left: 18px; } li { list-style: "-  "; margin: 1px 0; }
+table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 9pt; page-break-inside: avoid; }
+th { background: #dce6f1; border: 0.6px solid #555; padding: 3px 4px; font-weight: bold; text-align: center; }
+td { border: 0.6px solid #555; padding: 3px 5px; text-align: center; vertical-align: middle; }
+td.lab { background: #fbe5d6; }
+table.kv td.lab { background: #dce6f1; font-weight: bold; width: 32%; }
+table.sum td { border-left: 0; border-right: 0; } table.sum td.lab { background: #dce6f1; font-weight: bold; width: 18%; }
+.small { font-size: 7.5pt; color: #333; margin: 0; }
+.todo { color: #c00; font-size: 8.5pt; }
+.bold { font-weight: bold; }
+td.b { font-weight: bold; }
 """
 
 
-def formula(p, v):
-    m = v["method"]
-    if m == "EV/EBITDA":
-        return (f"주당가치 = 주관사 주당평가가액 {n(p.get('ua_value'))}원 + 적용 EBITDA {n((p.get('ua_base') or 0) / 1e8)}억원"
-                f" × (재산정 {v['multiple_mean']}배 − 주관사 {p.get('ua_multiple')}배) ÷ {n(p.get('ua_shares'))}주")
-    return f"주당가치 = 적용 이익(현가) × 비교기업 평균 {m} {v['multiple_mean']}배 ÷ 적용주식수 {n(p.get('ua_shares'))}주"
+def grade_price(v, band):
+    if not v or not band:
+        return "-", "-"
+    lo, hi = band
+    if v >= hi:
+        return "적정", "밴드 상단 이상"
+    if v >= lo:
+        return "상단 기준 고평가", "하단~중단 적정"
+    return "고평가", "밴드 하단 미만"
 
 
-def render(p):
+def grade_float(r):
+    if r is None:
+        return "-"
+    return "다소 부담" if r > 0.35 else ("보통" if r > 0.25 else "양호")
+
+
+def render(p, state):
     v = p.get("our_valuation") or {}
     m = v.get("method") or p.get("ua_method") or "PER"
     band = p.get("band")
-    parts = [f"<h1>{e(p['name'])} 공모가 적정성 검토</h1>",
-             f"<div class='sub'>작성 기준일 {date.today().isoformat()} · 자료: DART 증권신고서(접수번호 {e(p.get('rcept_no'))}), "
-             f"비교기업 주가 네이버금융, 재무 DART · 자동 산출 자료이므로 원문과 함께 확인 바랍니다</div>"]
-
-    # 1. 공모 개요
-    parts.append("<h2>1. 공모 개요</h2><table class='kv'>")
-    rows = [("시장 / 특례", f"{e(p.get('market') or '–')} / {'특례상장' if p.get('special') else '일반'}"),
-            ("대표주관사", e(p.get("underwriter") or "–")),
-            ("일정", f"수요예측 {rng(p.get('forecast'))} · 청약 {rng(p.get('subscription'))} · 상장 {e((p.get('listing') or '–')[5:])}"),
-            ("희망밴드 / 확정가", f"{n(band[0]) + ' ~ ' + n(band[1]) + '원' if band else '–'} / {n(p.get('final_price'))}원"),
-            ("공모주식수", f"{n(p.get('shares_offered'))}주"),
-            ("사업 내용", e(p.get("business") or "–"))]
-    parts += [f"<tr><td class='k'>{k}</td><td>{val}</td></tr>" for k, val in rows] + ["</table>"]
-
-    # 2. 주관사 평가
-    est = p.get("ua_est")
-    parts.append("<h2>2. 주관사 평가 (증권신고서 공모가 산정 요약표)</h2><table class='kv'>")
-    rows = [("평가 지표", f"{e(p.get('ua_method'))} {n(p.get('ua_multiple'), 2)}배"),
-            ("적용 이익(①)", f"{n((p.get('ua_base') or 0) / 1e8, 1)}억원"
-             + (f" — 추정이익 {', '.join(n(x / 1e8) + '억' for x in est['fv'])}을 연 {est['rate'] * 100:.0f}%로 현가 할인" if est else " (실적 기준)")),
-            ("적용 주식수", f"{n(p.get('ua_shares'))}주"),
-            ("주당 평가가액", f"{n(p.get('ua_value'))}원"),
-            ("공모가 할인율", e(p.get("discount") or "–"))]
-    parts += [f"<tr><td class='k'>{k}</td><td>{val}</td></tr>" for k, val in rows] + ["</table>"]
-
-    if not v.get("peers"):
-        parts.append("<div class='note'>비교기업 표를 읽지 못해 재산정하지 않았습니다.</div>")
-        return "".join(parts)
-
-    # 3. 재산정 결과
+    lo, hi = band if band else (None, None)
+    shares = p.get("ua_shares")
+    listed = p.get("total_shares_after") or (p["float_schedule"][-1]["shares"] if p.get("float_schedule") else None)
+    fl = p.get("float_schedule") or []
+    fl0 = fl[0] if fl else {}
     val = v.get("value")
-    vr = v.get("value_range")
-    up = (val / band[1] - 1) if val and band else None
-    parts.append("<h2>3. 재산정 결과</h2><div class='hero'>"
-                 f"<div class='box'><b>재산정 주당가치</b><span>{n(vr[0]) + ' ~ ' + n(vr[1]) if vr else n(val)}원</span></div>"
-                 f"<div class='box'><b>적용 {e(m)} (평균 / 중앙값)</b><span>{v.get('multiple_mean')}배</span> / {v.get('multiple_median')}배</div>"
-                 f"<div class='box'><b>희망밴드 상단 대비</b><span>{'–' if up is None else f'{up:+.1%}'}</span></div>"
-                 f"<div class='box'><b>밴드의 할인율(상단~하단)</b><span>{pct(v['band_discount'][0]) + ' ~ ' + pct(v['band_discount'][1]) if v.get('band_discount') else '–'}</span></div></div>")
-    parts.append(f"<div class='f'>{e(formula(p, v))}</div>")
-    if v.get("values") and len(v["values"]) > 1 and est:
-        parts.append("<table><tr><th class='l'>시나리오</th><th>추정이익 현가</th><th>주당가치</th></tr>")
-        shares = p.get("ua_shares") or 1
-        for k, x in v["values"].items():
-            pvv = x / v["multiple_mean"] * shares if v.get("multiple_mean") else None
-            parts.append(f"<tr><td class='l'>{e(k)}</td><td>{n((pvv or 0) / 1e8, 1)}억원</td><td>{n(x)}원</td></tr>")
-        parts.append(f"<tr><td class='l ex'>(참고) 주관사 {est['rate'] * 100:.0f}%</td><td class='ex'>{n((p.get('ua_base') or 0) / 1e8, 1)}억원</td>"
-                     f"<td class='ex'>{n(v['multiple_mean'] * (p.get('ua_base') or 0) / shares)}원</td></tr></table>")
+    est = p.get("ua_est")
+    peers_names = "·".join(q["name"].split(" (")[0] for q in (p.get("peers_ua") or []))
+    out = [f"<h1>{e(p['name'])} IPO 밸류에이션</h1><div class='date'>{date.today().strftime('%Y.%m.%d')}</div>"]
 
-    # 4. 비교기업
-    key = {"PER": "ltm_ni_eok", "EV/EBITDA": "ebitda_eok", "PBR": "equity_eok"}.get(m)
-    lab = {"PER": "LTM 지배순이익", "EV/EBITDA": "LTM EBITDA", "PBR": "자본"}.get(m, "기준값")
-    parts.append(f"<h2>4. 비교기업 재검토</h2><table><tr><th class='l'>기업</th><th>구분</th><th>61일 평균가</th>"
-                 f"<th>시가총액(억)</th><th>{lab}(억)</th><th>기준기간</th><th>주관사 {e(m)}</th><th>재산정 {e(m)}</th><th class='l'>판단</th></tr>")
-    for q in v["peers"]:
-        cls = "" if q.get("kept") else " class='ex'"
-        parts.append(f"<tr{cls}><td class='l'>{e(q['name'])}</td><td>{e(q.get('origin'))}</td><td>{n(q.get('avg61'))}</td>"
-                     f"<td>{n(q.get('mcap_eok'))}</td><td>{n(q.get(key)) if key else '–'}</td><td>{e(q.get('fin_basis') or '–')}</td>"
-                     f"<td>{n(q.get('ua_multiple'), 2)}</td><td>{n((q.get('multiples') or {}).get(m), 2)}</td>"
-                     f"<td class='l'>{'✓ ' if q.get('kept') else '✕ '}{e(q.get('reason'))}</td></tr>")
-    parts.append("</table>")
+    # 요약
+    g, gtxt = grade_price(val, band)
+    fin = p.get("fin") or {}
+    fr = fin.get("rows") or {}
+    fin_txt = (f"자본총계 {n(fr['자본총계'][0])}억원, 부채총계 {n(fr['부채총계'][0])}억원 ({fin['cols'][0]})"
+               if fr.get("자본총계") and fr.get("부채총계") else "")
+    out.append("<h2>요약</h2>" + table(None, [
+        ["공모가격", e(g), f"적정가 {n(val)}원 (밴드 {n(lo)}~{n(hi)}원)" if val else "재산정 불가"],
+        ["수급", e(grade_float(fl0.get("ratio"))), f"상장일 유통 {pct(fl0.get('ratio'), 0)}" if fl0 else "-"],
+        ["산업매력도", TODO, ""],
+        ["성장성", TODO, ""],
+        ["재무", TODO, e(fin_txt)],
+    ], "sum"))
+    if val:
+        out.append(f"<ul><li class='bold'>당사 적정가 {n(val)}원 (공모밴드 {n(lo)}~{n(hi)}원 / 주관사 평가가액 {n(p.get('ua_value'))}원)</li></ul>")
 
-    # 5. PER 병행
-    pc = v.get("per_check")
-    if pc:
-        parts.append("<h2>5. PER 기준 병행 산정</h2>")
-        if pc.get("value"):
-            parts.append(f"<div class='f'>주당가치 = {e(pc['basis'])} 지배순이익 {n(pc['ni'] / 1e8, 1)}억원 × 비교기업 평균 PER "
-                         f"{pc['multiple_mean']}배 ÷ {n(p.get('ua_shares'))}주 = <b>{n(pc['value'])}원</b></div><table>"
-                         "<tr><th class='l'>기업</th><th>PER</th><th class='l'>판단</th></tr>")
-            for q in pc["peers"]:
-                cls = "" if q.get("kept") else " class='ex'"
-                parts.append(f"<tr{cls}><td class='l'>{e(q['name'])}</td><td>{n(q.get('PER'), 2)}</td>"
-                             f"<td class='l'>{'✓ ' if q['kept'] else '✕ '}{e(q.get('reason'))}</td></tr>")
-            parts.append("</table>")
-        else:
-            parts.append(f"<div class='note'>{e(pc.get('reason'))}</div>")
+    # 공모 개요
+    off = p.get("shares_offered")
+    sale = p.get("sale_shares") or 0
+    method_txt = (f"신주 {pct((off - sale) / off, 0)}" + (f" / 구주매출 {pct(sale / off, 0)}" if sale else "")) if off else "-"
+    uof = p.get("use_of_funds") or []
+    uof_txt = ", ".join(f"{e(u['label'])} {u['amount'] / 1e8:,.0f}억원" for u in uof) if uof else TODO
+    out.append("<h2>공모 개요</h2>" + kv([
+        ("대표주관사", e(p.get("underwriter") or "-")),
+        ("공모주식수", f"{n(off)}주"),
+        ("공모방법", method_txt),
+        ("밴드가", f"{n(lo)}원(하단) ~ {n(hi)}원(상단)" if band else "-"),
+        ("공모금액", f"{n(off * lo / 1e8)}억원 ~ {n(off * hi / 1e8)}억원" if off and band else "-"),
+        ("예상시가총액", f"{n(listed * lo / 1e8)}억원 ~ {n(listed * hi / 1e8)}억원" if listed and band else "-"),
+        (f"단기 유통가능금액<br>({pct(fl0.get('ratio'), 2)})" if fl0 else "단기 유통가능금액",
+         f"{n(fl0['shares'] * lo / 1e8)}억원 ~ {n(fl0['shares'] * hi / 1e8)}억원" if fl0 and band else "-"),
+        ("그룹별 배정", TODO),
+        ("자금 사용처", uof_txt),
+    ]))
 
-    # 6. 기준
-    parts.append("<h2>산정 기준</h2><div class='note'>"
-                 f"· {e(v.get('price_basis') or '')}<br>· {e(v.get('rationale') or '')}"
-                 + (f"<br>· {e(v.get('note'))}" if v.get("note") else "")
-                 + "<br>· 해외·비상장 비교기업은 국내 시세가 없어 재산정에서 제외"
-                 "<br>· 신고서 수치는 자동 추출값이며, 비교기업 재무는 DART 정기보고서 기준 최근 4개 분기 합산</div>")
-    return "".join(parts)
+    # 일정
+    out.append("<h2>일정</h2><ul>"
+               f"<li>수요예측 : {rng(p.get('forecast'))}</li><li>공모청약일 : {rng(p.get('subscription'))}</li>"
+               f"<li>납입일 : {ymd(p.get('payment'))}</li>"
+               f"<li>상장예정일 : {ymd(p.get('listing')) if p.get('listing') else '미정'} "
+               f"({e(p.get('market') or '')}{', 기술특례' if p.get('special') else ''})</li></ul>")
+
+    # 수요예측 결과
+    after = (p.get("forecast") or [None, None])[1]
+    pend = f"{ymd(after)[5:]} 발표 후 기재" if after and after >= date.today().isoformat() else "-"
+    lock = p.get("lock_ratio_38") or ((p.get("demand_stats") or {}).get("lock_ratio_applied"))
+    out.append("<h2>수요예측 결과 (발표 후 업데이트)</h2>" + table(["구분", "결과"], [
+        ["기관 경쟁률", e(p.get("competition") or pend)],
+        ["확정공모가", f"{n(p.get('final_price'))}원" if p.get("final_price") else "-"],
+        ["의무보유 확약 비율", pct(lock) if lock else "-"],
+        ["일반청약 경쟁률", e(p.get("retail_competition") or "-")],
+    ]))
+
+    # 투자포인트 / 리스크
+    risks = []
+    if est:
+        yrs = est.get("years") or []
+        risks.append(f"공모가가 {yrs[0] + '~' + yrs[-1] if yrs else '미래'}년 추정 순이익에 근거함 (주관사 할인율 {est['rate'] * 100:.0f}%).")
+    if fl0.get("ratio"):
+        nxt = next((x for x in fl if x["label"] in ("1개월", "2개월")), None)
+        risks.append(f"상장일 유통물량 {pct(fl0['ratio'], 2)}"
+                     + (f", {nxt['label']} 후 {pct(nxt['ratio'], 2)}까지 증가함." if nxt else "임."))
+    out.append(f"<h2>투자포인트</h2><ul><li>{TODO}</li></ul>"
+               f"<h2>리스크</h2><ul>{''.join(f'<li>{e(x)}</li>' for x in risks)}<li>{TODO}</li></ul>")
+
+    # 기업개요
+    out.append(f"<h2>기업개요</h2><ul><li>{e(p.get('business') or '')}</li><li>{TODO}</li></ul>")
+
+    # 회사 추정 손익
+    if est and est.get("years"):
+        out.append("<p class='bold'>회사 추정 순이익 (증권신고서, 단위: 억원)</p>"
+                   + table(["구분"] + [f"{y}(E)" for y in est["years"]],
+                           [["당기순이익"] + [n(x / 1e8) for x in est["fv"]]])
+                   + "<p class='small'>*추정 순이익을 공모가 산정에 사용</p>")
+
+    # 수급
+    if fl:
+        keep = {"상장일": "상장일", "1개월": "1개월 후", "2개월": "2개월 후", "3개월": "3개월 후",
+                "6개월": "6개월 후", "12개월": "1년 후", "1년": "1년 후"}
+        rows, seen = [], set()
+        for x in fl:
+            lab = keep.get(x["label"])
+            if lab and lab not in seen:
+                seen.add(lab)
+                rows.append([lab, f"{n(x['shares'])}주", pct(x["ratio"], 2)])
+        out.append("<h2>수급 (유통물량·오버행)</h2>" + table(["구분", "누적 유통가능 주식수", "비율"], rows)
+                   + f"<ul><li>{TODO} (기존주주 취득단가, 주요 해제 물량)</li></ul>")
+
+    # 밸류에이션(주관사)
+    ua_lines = []
+    if est:
+        yrs = est.get("years") or []
+        ua_lines.append(f"{yrs[0] + '~' + yrs[-1] + '년 ' if yrs else ''}추정 순이익을 {est['rate'] * 100:.0f}%로 할인하고, "
+                        f"PEER({e(peers_names)}) {e(p.get('ua_method'))} {n(p.get('ua_multiple'), 2)}배를 적용함 → 주당 {n(p.get('ua_value'))}원.")
+    else:
+        ua_lines.append(f"적용 이익 {eok(p.get('ua_base'), 1)}에 PEER({e(peers_names)}) {e(p.get('ua_method'))} "
+                        f"{n(p.get('ua_multiple'), 2)}배를 적용함 → 주당 {n(p.get('ua_value'))}원.")
+    if band and shares and p.get("ua_base") and p.get("ua_method") in ("PER", "PSR", "PBR"):
+        for lab, px in (("상단", hi), ("하단", lo)):
+            cap = px * shares
+            ua_lines.append(f"공모가 밴드 {lab} 기준 시총은 {n(cap / 1e8)}억원(주당 {n(px)}원), "
+                            f"적용 {p['ua_method']}은 {cap / p['ua_base']:.2f}배 수준임.")
+    out.append("<h2>밸류에이션 평가(주관사)</h2><ul>" + "".join(f"<li>{x}</li>" for x in ua_lines) + "</ul>")
+
+    # 밸류에이션(당사)
+    out.append("<h2>밸류에이션 평가(당사)</h2>")
+    if not v or not val:
+        out.append(f"<ul><li>{e(v.get('note') or '비교기업 표를 읽지 못해 재산정하지 않음')}</li></ul>")
+    else:
+        pb = next((q.get("multiples", {}).get("_per_basis") for q in v["peers"] if q.get("kept")), None)
+        my = []
+        my.append(f"피어 적정성: {TODO}")
+        my.append(f"{e(pb or '')} 순이익과 3개월 평균주가로 다시 산정한 {m} {v['multiple_mean']:.2f}배를 적용함."
+                  if m == "PER" else f"3개월 평균주가로 다시 산정한 {m} {v['multiple_mean']:.2f}배를 적용함.")
+        if v.get("rate_base") is not None and est:
+            my.append(f"할인율 {v['rate_base'] * 100:.0f}%를 적용함 (주관사 {est['rate'] * 100:.0f}%). {TODO}")
+        if shares:
+            my.append(f"적정 시총은 {n(val * shares / 1e8)}억원(주당 {n(val)}원)임.")
+        my.append(f"적정 평가가액은 {n(val)}원으로 {e(gtxt)}" + (", 상단 기준 고평가임." if g == "상단 기준 고평가" else "임."))
+        if v.get("multiple_ex_top") and v.get("top_peer"):
+            top = next((q for q in v["peers"] if q["name"] == v["top_peer"]), {})
+            exb = next((r.get("ex_top") for r in (v.get("sens") or []) if r["rate"] == v.get("rate_base")),
+                       (v.get("sens") or [{}])[0].get("ex_top"))
+            my.append(f"{m} 민감도: {e(v['top_peer'].split(' (')[0])}({m} {n(top.get('multiples', {}).get(m), 1)}배)을 제외하면 "
+                      f"적정가는 {n(exb)}원임(아래 민감도 표 참고).")
+        out.append("<ul>" + "".join(f"<li>{x}</li>" for x in my) + "</ul>")
+
+        cmp_rows = [["PEER 그룹", e(peers_names), "동일" if all(q.get("origin") == "주관사" for q in v["peers"]) else "변경"],
+                    [m, f"{n(p.get('ua_multiple'), 2)}배 (신고서)", f"{v['multiple_mean']:.2f}배 ({e(pb or 'LTM')}, 3개월 평균주가)"]]
+        if est and v.get("rate_base") is not None:
+            cmp_rows.append(["할인율", f"{est['rate'] * 100:.0f}%", f"{v['rate_base'] * 100:.0f}%"])
+            cmp_rows.append(["순이익 현가", eok(p.get("ua_base"), 1), eok(v.get("pv_base"), 1)])
+        if shares:
+            cmp_rows.append(["시가총액", eok((p.get("ua_value") or 0) * shares), eok(val * shares)])
+        cmp_rows.append(["<b>주당 가치</b>", f"<b>{n(p.get('ua_value'))}원</b>", f"<b>{n(val)}원</b>"])
+        if hi:
+            cmp_rows.append(["공모가 상단 대비", f"{(p.get('ua_value') or 0) / hi - 1:+.1%}", f"{val / hi - 1:+.1%}"])
+        out.append(table(["구분", "주관사", "당사"], cmp_rows)
+                   + "<p class='small'>*희석가능주식수(주식매수선택권 등) 포함된 밸류</p>"
+                   + f"<p class='small'>*적용 주가는 {v.get('as_of', '')} 기준 최근 61영업일 평균값</p>")
+        if v.get("sens"):
+            exn = e((v.get("top_peer") or "").split(" (")[0])
+            head = ["할인율 \\ " + m, f"{v['multiple_mean']:.2f}배 (주관사 {len([q for q in v['peers'] if q.get('kept')])}사)"]
+            if v.get("multiple_ex_top"):
+                head.append(f"{v['multiple_ex_top']:.2f}배 ({exn} 제외)")
+            rows = []
+            for r in v["sens"]:
+                lab = (f"{r['rate'] * 100:.0f}%" + (" (기본)" if r["rate"] == v.get("rate_base") else "")) if r["rate"] is not None else "기본"
+                rows.append([lab, f"{n(r['all'])}원"] + ([f"{n(r.get('ex_top'))}원"] if v.get("multiple_ex_top") else []))
+            out.append("<p class='small'>[밸류 민감도: 주당 적정가]</p>" + table(head, rows))
+        # 비교기업 상세
+        prow = []
+        for q in v["peers"]:
+            mm = q.get("multiples") or {}
+            prow.append([e(q["name"]), n(q.get("avg61")), n(q.get("mcap_eok")),
+                         f"{n(mm.get('_per_ni_eok'))} ({e(mm.get('_per_basis') or '-')})" if m == "PER" else n(q.get("ebitda_eok")),
+                         n(mm.get(m), 2), ("✓ " if q.get("kept") else "✕ ") + e(q.get("reason"))])
+        out.append("<p class='small'>[비교기업 산정 내역]</p>"
+                   + table(["기업", "3개월 평균가", "시총(억)", "순이익(억, 기준)" if m == "PER" else "EBITDA(억)", m, "판단"], prow))
+        pc = v.get("per_check")
+        if pc:
+            out.append("<ul><li>" + (f"PER 기준 병행: {e(pc['basis'])} 지배순이익 {eok(pc['ni'], 1)} × 평균 PER {pc['multiple_mean']}배 "
+                                     f"→ 주당 {n(pc['value'])}원" if pc.get("value") else f"PER 기준 병행: {e(pc.get('reason'))}")
+                       + "</li></ul>")
+
+    # 최근 IPO 비교
+    recent = [d for d in (state.get("demand") or []) if d.get("inst_competition") and d.get("listing")]
+    recent = sorted(recent, key=lambda d: d["listing"], reverse=True)[:3]
+    if recent:
+        rows = [[f"{e(d['name'])} ({d['listing'][2:7].replace('-', '.')})", f"{n(d['inst_competition'])}:1",
+                 n(d.get("amount_eok")) + "억원" if d.get("amount_eok") else "-",
+                 pct(d.get("am_lock_ratio") or d.get("lock_ratio_38"), 0) if (d.get("am_lock_ratio") or d.get("lock_ratio_38")) else "-",
+                 ""] for d in recent]
+        out.append("<h2>최근 IPO 비교</h2>" + table(["종목 (상장)", "기관 경쟁률", "공모금액", "확약 비율", "비고"], rows)
+                   + f"<ul><li>{TODO} (동종 업종 IPO로 교체 권장)</li></ul>")
+
+    # 재무 현황
+    if fr:
+        cols = fin["cols"]
+        out.append("<h2>재무 현황</h2><p class='small' style='text-align:right'>(단위 : 억원)</p>"
+                   + table(["구분"] + [e(c) for c in cols],
+                           [[k if k != "당기순이익" else "당기순이익"] + [n(x) for x in vals] for k, vals in fr.items()]))
+    out.append(f"<p class='small'>자료: DART 증권신고서(접수번호 {e(p.get('rcept_no'))}), 비교기업 주가 네이버금융·KRX, "
+               "컨센서스 네이버금융 · 자동 작성 초안이므로 원문 확인 후 사용</p>")
+    return "".join(out)
 
 
 def main():
@@ -163,7 +309,7 @@ def main():
     for p in state["pipeline"]:
         if p.get("spac") or not p.get("corp_code") or not p.get("ua_method"):
             continue
-        doc = f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{render(p)}</body></html>"
+        doc = f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{render(p, state)}</body></html>"
         HTML(string=doc).write_pdf(OUT_DIR / f"{p['corp_code']}.pdf")
         made += 1
     print(f"PDF {made}건 생성")

@@ -162,6 +162,11 @@ def _ltm_fetch(dart, corp_code):
             if cur is None:  # 일부 회사는 누적 칸을 비워둠(반기 등)
                 cur, prev = _pick(q, k, "thstrm_amount"), _pick(q, k, "frmtrm_amount")
             flow[k] = (a + cur - prev) if None not in (a, cur, prev) else a
+        ytd = _pick(q, "ni", "thstrm_add_amount") or _pick(q, "ni", "thstrm_amount")
+        nq = {"11013": 1, "11012": 2, "11014": 3}[rc]
+        if ytd is not None:
+            flow["ni_ann"] = ytd * 4 / nq
+            flow["ann_basis"] = f"{y} {['1Q', '반기', '3Q'][nq - 1]} 누적×{'4' if nq == 1 else ('2' if nq == 2 else '4/3')}"
         da_fy, da_cur, da_prev = _da(fy, "thstrm_amount"), _da(q, "thstrm_amount"), _da(q, "frmtrm_amount")
         flow["da"] = (da_fy + da_cur - da_prev) if None not in (da_fy, da_cur, da_prev) else da_fy
         basis = f"{y} {dict(zip(['11013', '11012', '11014'], ['1Q', '2Q', '3Q']))[rc]} LTM"
@@ -187,8 +192,9 @@ def multiples(mcap, f):
     return {k: round(v, 2) for k, v in out.items()}
 
 
-# 바이오 추정이익 현가 할인율 (data/manual.json 의 "_settings": {"bio_rates": [...]} 로 변경 가능)
-BIO_RATES = (0.30, 0.35)
+# 바이오 할인율은 data/manual.json 의 "_settings": {"bio_rate": 0.35, "bio_sens": [...]} 로 변경 가능
+BIO_RATE = 0.35                 # 바이오 추정이익 현가 할인율 기본값
+BIO_SENS = (0.25, 0.35, 0.45)   # 민감도
 _AVG = {}
 
 
@@ -204,6 +210,42 @@ def avg_close(code, n=61):
         v = None
     _AVG[code] = v
     return v
+
+
+def naver_consensus(code):
+    """네이버 금융 기업실적분석의 당해 연도 (E) 지배주주순이익(없으면 당기순이익), 단위 원"""
+    key = f"cons:{code}"
+    c = _fin_cache().get(key)
+    if c and c.get("fetched") == date.today().isoformat():
+        return c["data"]
+    data = None
+    try:
+        import io
+        import pandas as pd
+        r = requests.get(f"https://finance.naver.com/item/main.naver?code={code}",
+                         headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+        r.encoding = "euc-kr"
+        yr = date.today().year
+        for df in pd.read_html(io.StringIO(r.text)):
+            cols = [" ".join(map(str, c)) if isinstance(c, tuple) else str(c) for c in df.columns]
+            hit = [k for k, c in enumerate(cols) if f"{yr}.12(E)" in c.replace(" ", "")]
+            if not hit:
+                continue
+            ci = hit[0]  # 첫 번째 = 연간 실적 쪽
+            labels = df.iloc[:, 0].astype(str).str.replace(" ", "")
+            for lab in ("지배주주순이익", "당기순이익"):
+                idx = [k for k, v in enumerate(labels) if v.startswith(lab)]
+                if idx:
+                    v = pd.to_numeric(str(df.iat[idx[0], ci]).replace(",", ""), errors="coerce")
+                    if v == v:
+                        data = {"ni": float(v) * 1e8, "basis": f"{yr}(E) 컨센서스"}
+                        break
+            if data:
+                break
+    except Exception:
+        data = None
+    _fin_cache()[key] = {"fetched": date.today().isoformat(), "data": data}
+    return data
 
 
 def pv_at(est, rate):
@@ -284,6 +326,25 @@ _LETTER_PREFIX = sorted([("엘아이지", "LIG"), ("에스케이", "SK"), ("엘�
                         key=lambda x: -len(x[0]))
 
 
+def _with_fwd_per(mult, mcap, code, f):
+    """IPO 보고서 기준: 비교기업 이익 = 당해(E) 컨센서스 → 없으면 누적 연환산 → 없으면 LTM"""
+    cons = naver_consensus(code) if code else None
+    if cons:
+        ni, basis = cons["ni"], cons["basis"]
+    elif f and f.get("ni_ann") is not None:
+        ni, basis = f["ni_ann"], f["ann_basis"]
+    else:
+        ni, basis = (f or {}).get("ni"), (f or {}).get("basis")
+    if "PER" in mult:
+        mult["PER_LTM"] = mult["PER"]
+    mult.pop("PER", None)
+    if ni and ni > 0 and mcap:
+        mult["PER"] = mcap / ni  # 반올림하지 않음 (엑셀과 동일하게 평균)
+    mult["_per_basis"] = basis
+    mult["_per_ni_eok"] = ni and round(ni / 1e8)
+    return mult
+
+
 def peer_data(dart, codes, name):
     lst = listing()
     lname = find_row(codes, name)
@@ -306,7 +367,7 @@ def peer_data(dart, codes, name):
             "ltm_ni_eok": f and f.get("ni") and round(f["ni"] / 1e8),
             "ebitda_eok": f and round(((f.get("op") or 0) + (f.get("da") or 0)) / 1e8),
             "equity_eok": f and f.get("eq") and round(f["eq"] / 1e8),
-            "multiples": multiples(mcap, f)}
+            "multiples": _with_fwd_per(multiples(mcap, f), mcap, code, f)}
 
 
 # ---------------- 적합성 판단 ----------------
@@ -323,11 +384,10 @@ def rule_filter(peers, method, cap=MAX_MULTIPLE):
             p["kept"], p["reason"] = False, f"{method} 산출 불가(적자 또는 데이터 없음)"
         elif m > cap:
             p["kept"], p["reason"] = False, f"{m:.0f}배 — {cap}배 초과(이익 미미)로 제외"
-        elif med and len(vals) >= 3 and (m > med * 2.5 or m < med * 0.4):
-            p["kept"], p["reason"] = False, f"이상치 (중앙값 {med:.1f}배 대비 {m:.1f}배)"
         else:
             p["kept"], p["reason"] = True, "유지"
-    return method, f"규칙 기반: 적자, {cap}배 초과, 이상치(3개사 이상일 때 중앙값의 2.5배 초과/0.4배 미만) 제외 후 평균 적용"
+    _ = med
+    return method, f"주관사 비교기업 단순평균 (적자·{cap}배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시"
 
 
 def claude_review(target, peers, candidates, method):
@@ -457,48 +517,68 @@ def revalue(dart, codes, ipo, manual=None):
             ipo["bio"] = True
     if manual.get("bio") is not None:
         ipo["bio"] = bool(manual["bio"])
-    kept = [p["multiples"][method] for p in peers if p["kept"]]
+    kept_p = [p for p in peers if p["kept"]]
+    kept = [p["multiples"][method] for p in kept_p]
     if not kept:
         return {"method": method, "peers": peers, "rationale": rationale, "value": None}
     avg = statistics.mean(kept)
     med = statistics.median(kept)
+    top = max(kept_p, key=lambda p: p["multiples"][method]) if len(kept_p) >= 3 else None
+    avg_ex = statistics.mean([p["multiples"][method] for p in kept_p if p is not top]) if top else None
     m_ua, v_ua = ipo.get("ua_multiple"), ipo.get("ua_value")
     base, shares, est = ipo.get("ua_base"), ipo.get("ua_shares"), ipo.get("ua_est")
     same = method == ipo.get("ua_method")
-    scen = {}  # 시나리오별 기준이익
-    basis_note = None
     tb = (manual.get("target_basis") or {}).get(method)
-    if tb is not None:
-        scen["수동 입력"] = ("ps", tb)
-    elif not same:
+    if not same and tb is None:
         return {"method": method, "peers": peers, "rationale": rationale, "value": None,
                 "note": "주관사와 다른 지표 — manual.json 의 target_basis 필요"}
+
+    # 대상회사 기준이익(주당) — 할인율별
+    rate_base, rates, basis_note, pv = None, [None], None, {}
+    if tb is not None:
+        ps_at = lambda r: tb  # noqa: E731
     elif method == "EV/EBITDA":
-        if base and shares and v_ua and m_ua:
-            scen["주관사 EBITDA"] = ("ev", None)
-            basis_note = "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체"
-    elif est and ipo.get("bio") and shares:
-        rates = manual.get("bio_rates") or BIO_RATES
-        for r in rates:
-            scen[f"할인율 {r * 100:.0f}%"] = ("ps", pv_at(est, r) / shares)
-        basis_note = (f"바이오 추정이익: 주관사 할인율 {est['rate'] * 100:.0f}% 대신 "
-                      + "·".join(f"{r * 100:.0f}%" for r in rates) + "로 현가 재계산")
-    elif base and shares:
-        scen["주관사 기준이익"] = ("ps", base / shares)
-    elif v_ua and m_ua:
-        scen["주관사 기준이익"] = ("ps", v_ua / m_ua)
-    values = {}
-    for k, (kind, ps) in scen.items():
-        if kind == "ps":
-            values[k] = round(avg * ps)
+        ps_at = None
+        basis_note = "EV/EBITDA: 순차입금·공모유입자금은 주관사 산정치 유지, 멀티플만 교체"
+    elif est and shares:
+        if ipo.get("bio"):
+            rate_base = manual.get("bio_rate") or BIO_RATE
+            rates = list(manual.get("bio_sens") or BIO_SENS)
+            basis_note = (f"바이오 추정이익: 주관사 할인율 {est['rate'] * 100:.0f}% 대신 {rate_base * 100:.0f}% 적용 "
+                          "(미체결 기술이전 비중·특례상장사 추정 달성률 반영)")
         else:
-            values[k] = round(v_ua + base * (avg - m_ua) / shares)
-    vs = sorted(values.values())
+            rate_base = est["rate"]
+            rates = sorted({round(rate_base - 0.1, 2), rate_base, round(rate_base + 0.1, 2)})
+            basis_note = f"추정이익: 주관사 할인율 {rate_base * 100:.0f}% 유지"
+        for r in rates:
+            pv[r] = pv_at(est, r)
+        ps_at = lambda r: pv[r] / shares  # noqa: E731
+    elif base and shares:
+        ps_at = lambda r: base / shares  # noqa: E731
+    else:
+        ps_at = lambda r: v_ua / m_ua  # noqa: E731
+
+    def value(mult, r):
+        if ps_at is None:
+            return round(v_ua + base * (mult - m_ua) / shares) if (v_ua and base and shares and m_ua) else None
+        return round(mult * ps_at(r))
+
+    rb = rate_base if rate_base is not None else rates[0]
+    sens = []
+    for r in rates:
+        row = {"rate": r, "all": value(avg, r)}
+        if avg_ex:
+            row["ex_top"] = value(avg_ex, r)
+        sens.append(row)
+    val = value(avg, rb)
     out = {"method": method, "multiple_mean": round(avg, 2), "multiple_median": round(med, 2),
-           "values": values, "value": round(sum(vs) / len(vs)) if vs else None,
-           "value_range": [vs[0], vs[-1]] if len(vs) > 1 else None,
+           "multiple_ex_top": avg_ex and round(avg_ex, 2), "top_peer": top and top["name"],
+           "value": val, "rate_base": rate_base, "pv_base": pv.get(rb), "pv_ua": base,
+           "sens": sens if (len(rates) > 1 or avg_ex) else None,
+           "values": {"기본": val}, "value_range": None,
            "peers": peers, "rationale": rationale, "as_of": date.today().isoformat(),
-           "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 상장주식수, 이익 = LTM 지배주주순이익",
+           "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, "
+                          + ("이익 = 당해(E) 컨센서스(없으면 누적 연환산)" if method == "PER" else "이익 = LTM"),
            "note": basis_note}
     # PER 기준 병행 산정 (주관사가 EV/EBITDA·PSR 등을 쓴 경우)
     if method != "PER":
