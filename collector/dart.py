@@ -35,11 +35,17 @@ class Dart:
     # ---------- 공통 ----------
     def _get(self, path, **params):
         params["crtfc_key"] = self.key
-        for attempt in range(3):
-            r = self.s.get(f"{BASE}/{path}", params=params, timeout=30)
-            if r.status_code == 200:
-                break
-            time.sleep(2 * (attempt + 1))
+        r, err = None, None
+        for attempt in range(4):  # DART 응답이 느릴 때가 많아 타임아웃·오류 시 재시도
+            try:
+                r = self.s.get(f"{BASE}/{path}", params=params, timeout=(10, 60))
+                if r.status_code == 200:
+                    break
+            except requests.RequestException as e:
+                err = e
+            time.sleep(3 * (attempt + 1))
+        if r is None:
+            raise err
         r.raise_for_status()
         if path.endswith(".json"):
             j = r.json()
