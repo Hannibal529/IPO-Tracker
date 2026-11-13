@@ -243,7 +243,36 @@ def find_row(codes, name):
     for ko, en in _LETTER_PREFIX:  # 엘아이지디펜스… → LIG디펜스…
         if k.startswith(ko) and en + k[len(ko):] in _BY_NORM:
             return _BY_NORM[en + k[len(ko):]]
+    for alt in _letter_variants(k):  # 알에프에이치아이씨 → RFHIC
+        if alt in _BY_NORM:
+            return _BY_NORM[alt]
+    # 거래소 약칭이 신고서 표기의 앞부분인 경우 (인텔리안테크놀로지스 → 인텔리안테크)
+    pre = [n for n in _BY_NORM if len(n) >= 4 and k.startswith(n)]
+    if pre:
+        return _BY_NORM[max(pre, key=len)]
     return None
+
+
+_LETTERS = {"에이": "A", "비": "B", "씨": "C", "디": "D", "이": "E", "에프": "F", "지": "G", "에이치": "H",
+            "아이": "I", "제이": "J", "케이": "K", "엘": "L", "엠": "M", "엔": "N", "오": "O", "피": "P",
+            "큐": "Q", "알": "R", "에스": "S", "티": "T", "유": "U", "브이": "V", "더블유": "W", "엑스": "X",
+            "와이": "Y", "제트": "Z"}
+
+
+def _letter_variants(k, limit=20):
+    """앞에서부터 알파벳 이름으로 읽을 수 있는 모든 경우를 영문으로 바꾼 후보"""
+    out = []
+
+    def go(i, acc):
+        if len(out) >= limit:
+            return
+        if acc and len(acc) >= 2:
+            out.append(acc + k[i:])
+        for ko, en in _LETTERS.items():
+            if k.startswith(ko, i):
+                go(i + len(ko), acc + en)
+    go(0, "")
+    return sorted(set(out), key=len)
 
 
 _LETTER_PREFIX = sorted([("엘아이지", "LIG"), ("에스케이", "SK"), ("엘지", "LG"), ("케이티앤지", "KT&G".replace("&", "")),
