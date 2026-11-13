@@ -78,10 +78,12 @@ class Dart:
         return out
 
     # ---------- 공시 검색 ----------
-    def list_filings(self, bgn, end, pblntf_ty=None, detail_ty=None, corp_code=None):
+    def list_filings(self, bgn, end, pblntf_ty=None, detail_ty=None, corp_code=None, corp_cls=None):
         rows, page = [], 1
         while True:
             p = dict(bgn_de=bgn, end_de=end, page_no=page, page_count=100)
+            if corp_cls:
+                p["corp_cls"] = corp_cls
             if pblntf_ty:
                 p["pblntf_ty"] = pblntf_ty
             if detail_ty:
@@ -103,7 +105,7 @@ class Dart:
         cur = end - timedelta(days=days)
         while cur < end:
             nxt = min(cur + timedelta(days=89), end)
-            out += self.list_filings(cur.strftime("%Y%m%d"), nxt.strftime("%Y%m%d"), pblntf_ty="C")
+            out += self.list_filings(cur.strftime("%Y%m%d"), nxt.strftime("%Y%m%d"), pblntf_ty="C", corp_cls="E")
             cur = nxt + timedelta(days=1)
         out = [r for r in out if r.get("corp_cls") == "E"]
         # 철회: 마지막 증권신고서 이후에 철회신고서가 있으면 제외
