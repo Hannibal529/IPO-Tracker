@@ -411,18 +411,23 @@ class Filing:
         return {"cols": cols, "rows": rows}
 
     def ksic_name(self, code):
-        """신고서 본문에서 'OOO업(M70113)' 형태로 적힌 업종명"""
+        """신고서 본문 '당사는 ~ OOO업(M70113)에 속해' 문맥에서 업종명"""
         if not code:
             return None
-        m = re.search(r"([가-힣][가-힣·,\s및]{2,40}업)\s*\(\s*[A-Z]?\s*" + re.escape(str(code)) + r"\s*\)", self.text)
-        if m:
-            name = m.group(1)
-            for mk in ("있는 ", "속한 ", "속하는 ", "분류상 ", "상 "):
-                if mk in name:
-                    name = name.split(mk)[-1]
-            return name.strip(" '\"")
-        m = re.search(r"\(\s*[A-Z]?\s*" + re.escape(str(code)) + r"\s*\)\s*([가-힣][가-힣·,\s및]{2,40}업)", self.text)
-        return m.group(1).strip() if m else None
+        c = re.escape(str(code))
+        name_re = r"([가-힣][가-힣·,\s및]{2,40}?업)"
+        subj = r"(?:당사|동사|㈜|[가-힣A-Za-z])[는은]\s"
+        pats = [subj + r"[^.]{0,80}?" + name_re + r"\s*'?\s*\(\s*[A-Z]?\s*" + c + r"\s*\)",
+                subj + r"[^.]{0,80}?\(\s*[A-Z]?\s*" + c + r"\s*\)\s*(?!에)" + name_re]
+        for pat in pats:
+            m = re.search(pat, self.text)
+            if m:
+                name = m.group(1)
+                for mk in ("있는 ", "속한 ", "속하는 ", "분류상 ", "상 ", "'"):
+                    if mk in name:
+                        name = name.split(mk)[-1]
+                return name.strip(" '\"")
+        return None
 
     def forecast(self):
         """수요예측 일시 (정정 시 마지막 값)"""
