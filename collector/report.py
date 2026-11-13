@@ -297,7 +297,7 @@ def render(p, state):
                    + table(["구분"] + [e(c) for c in cols],
                            [[k if k != "당기순이익" else "당기순이익"] + [n(x) for x in vals] for k, vals in fr.items()]))
     out.append(f"<p class='small'>자료: DART 증권신고서(접수번호 {e(p.get('rcept_no'))}), 비교기업 주가 네이버금융·KRX, "
-               "컨센서스 네이버금융 · 자동 작성 초안이므로 원문 확인 후 사용</p>")
+               "컨센서스 네이버증권(EPS 기준) · 자동 작성 초안이므로 원문 확인 후 사용</p>")
     return "".join(out)
 
 

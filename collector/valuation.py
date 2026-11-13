@@ -119,7 +119,8 @@ def save_fin_cache():
 def ltm(dart, corp_code):
     """캐시 확인 후 없으면 DART 조회 (peer 가 여러 공모주에 겹쳐도 한 번만)"""
     c = _fin_cache().get(corp_code)
-    if c and (date.today() - date.fromisoformat(c["fetched"])).days < FIN_TTL_DAYS:
+    if c and (date.today() - date.fromisoformat(c["fetched"])).days < FIN_TTL_DAYS \
+            and (c["data"] is None or "LTM" not in str(c["data"].get("basis")) or "ni_ann" in c["data"]):
         return c["data"]
     data = _ltm_fetch(dart, corp_code)
     _fin_cache()[corp_code] = {"fetched": date.today().isoformat(), "data": data}
@@ -212,37 +213,36 @@ def avg_close(code, n=61):
     return v
 
 
-def naver_consensus(code):
-    """네이버 금융 기업실적분석의 당해 연도 (E) 지배주주순이익(없으면 당기순이익), 단위 원"""
-    key = f"cons:{code}"
+def naver_consensus(code, shares=None):
+    """네이버 증권 컨센서스(당해 연도 E): 지배주주순이익 → EPS×발행주식수 → 당기순이익 순, 단위 원"""
+    key = f"cons2:{code}"
     c = _fin_cache().get(key)
     if c and c.get("fetched") == date.today().isoformat():
         return c["data"]
     data = None
     try:
-        import io
-        import pandas as pd
-        r = requests.get(f"https://finance.naver.com/item/main.naver?code={code}",
+        r = requests.get(f"https://m.stock.naver.com/api/stock/{code}/finance/annual",
                          headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-        if (r.encoding or "").lower() in ("", "iso-8859-1"):  # 네이버는 현재 UTF-8, 예전 페이지는 EUC-KR
-            r.encoding = r.apparent_encoding
-        yr = date.today().year
-        for df in pd.read_html(io.StringIO(r.text)):
-            cols = [" ".join(map(str, c)) if isinstance(c, tuple) else str(c) for c in df.columns]
-            hit = [k for k, c in enumerate(cols) if f"{yr}.12(E)" in c.replace(" ", "")]
-            if not hit:
-                continue
-            ci = hit[0]  # 첫 번째 = 연간 실적 쪽
-            labels = df.iloc[:, 0].astype(str).str.replace(" ", "")
-            for lab in ("지배주주순이익", "당기순이익"):
-                idx = [k for k, v in enumerate(labels) if v.startswith(lab)]
-                if idx:
-                    v = pd.to_numeric(str(df.iat[idx[0], ci]).replace(",", ""), errors="coerce")
-                    if v == v:
-                        data = {"ni": float(v) * 1e8, "basis": f"{yr}(E) 컨센서스"}
-                        break
-            if data:
-                break
+        fi = (r.json() or {}).get("financeInfo") or {}
+        yr = str(date.today().year)
+        col = next((t["key"] for t in fi.get("trTitleList", [])
+                    if t.get("isConsensus") == "Y" and str(t.get("key", "")).startswith(yr)), None)
+        rows = {row.get("title"): row.get("columns", {}) for row in fi.get("rowList", [])}
+
+        def val(title):
+            v = ((rows.get(title) or {}).get(col) or {}).get("value")
+            try:
+                return float(str(v).replace(",", ""))
+            except (TypeError, ValueError):
+                return None
+        if col:
+            ctrl, eps, ni = val("지배주주순이익"), val("EPS"), val("당기순이익")
+            if ctrl is not None:
+                data = {"ni": ctrl * 1e8, "basis": f"{yr}(E) 컨센서스"}
+            elif eps is not None and shares:
+                data = {"ni": eps * shares, "basis": f"{yr}(E) 컨센서스 EPS"}
+            elif ni is not None:
+                data = {"ni": ni * 1e8, "basis": f"{yr}(E) 컨센서스(당기순이익)"}
     except Exception:
         data = None
     _fin_cache()[key] = {"fetched": date.today().isoformat(), "data": data}
@@ -327,9 +327,9 @@ _LETTER_PREFIX = sorted([("엘아이지", "LIG"), ("에스케이", "SK"), ("엘�
                         key=lambda x: -len(x[0]))
 
 
-def _with_fwd_per(mult, mcap, code, f):
+def _with_fwd_per(mult, mcap, code, f, shares=None):
     """IPO 보고서 기준: 비교기업 이익 = 당해(E) 컨센서스 → 없으면 누적 연환산 → 없으면 LTM"""
-    cons = naver_consensus(code) if code else None
+    cons = naver_consensus(code, shares) if code else None
     if cons:
         ni, basis = cons["ni"], cons["basis"]
     elif f and f.get("ni_ann") is not None:
@@ -368,7 +368,7 @@ def peer_data(dart, codes, name):
             "ltm_ni_eok": f and f.get("ni") and round(f["ni"] / 1e8),
             "ebitda_eok": f and round(((f.get("op") or 0) + (f.get("da") or 0)) / 1e8),
             "equity_eok": f and f.get("eq") and round(f["eq"] / 1e8),
-            "multiples": _with_fwd_per(multiples(mcap, f), mcap, code, f)}
+            "multiples": _with_fwd_per(multiples(mcap, f), mcap, code, f, shares)}
 
 
 # ---------------- 적합성 판단 ----------------
