@@ -16,6 +16,12 @@ OUT_DIR = ROOT / "site" / "reports"
 TODO = "<span class='todo'>작성 필요</span>"
 
 
+def obj(word):
+    """목적격 조사: 받침 있으면 '을', 없으면 '를' (영문·숫자는 '를')"""
+    c = (word or " ")[-1]
+    return "을" if "가" <= c <= "힣" and (ord(c) - 0xAC00) % 28 else "를"
+
+
 def e(x):
     return html.escape("" if x is None else str(x))
 
@@ -100,13 +106,17 @@ def grade_float(r):
     return "다소 부담" if r > 0.35 else ("보통" if r > 0.25 else "양호")
 
 
-def render(p, state):
+def render(p, state, nar=None):
+    nar = nar or {}
     v = p.get("our_valuation") or {}
     m = v.get("method") or p.get("ua_method") or "PER"
     band = p.get("band")
     lo, hi = band if band else (None, None)
     shares = p.get("ua_shares")
-    listed = p.get("total_shares_after") or (p["float_schedule"][-1]["shares"] if p.get("float_schedule") else None)
+    # 상장예정주식수: 유통가능물량 표의 마지막(전체) 주식수가 가장 정확. 신고서 요약값은 가끔 엉뚱한 숫자가 잡힘
+    offered = p.get("shares_offered") or 0
+    cands = [(p.get("float_schedule") or [{}])[-1].get("shares"), p.get("total_shares_after"), p.get("ua_shares")]
+    listed = next((c for c in cands if c and c > offered * 2), None)
     fl = p.get("float_schedule") or []
     fl0 = fl[0] if fl else {}
     val = v.get("value")
@@ -120,12 +130,17 @@ def render(p, state):
     fr = fin.get("rows") or {}
     fin_txt = (f"자본총계 {n(fr['자본총계'][0])}억원, 부채총계 {n(fr['부채총계'][0])}억원 ({fin['cols'][0]})"
                if fr.get("자본총계") and fr.get("부채총계") else "")
+    gr = nar.get("grades") or {}
+
+    def gcell(k, default_grade, default_txt):
+        x = gr.get(k)
+        return [k, e(x[0]) if x else default_grade, e(x[1]) if x else default_txt]
     out.append("<h2>요약</h2>" + table(None, [
         ["공모가격", e(g), f"적정가 {n(val)}원 (밴드 {n(lo)}~{n(hi)}원)" if val else "재산정 불가"],
-        ["수급", e(grade_float(fl0.get("ratio"))), f"상장일 유통 {pct(fl0.get('ratio'), 0)}" if fl0 else "-"],
-        ["산업매력도", TODO, ""],
-        ["성장성", TODO, ""],
-        ["재무", TODO, e(fin_txt)],
+        gcell("수급", e(grade_float(fl0.get("ratio"))), (f"상장일 유통 {pct(fl0.get('ratio'), 0)}" if fl0 else "-")),
+        gcell("산업매력도", TODO, ""),
+        gcell("성장성", TODO, ""),
+        gcell("재무", TODO, e(fin_txt)),
     ], "sum"))
     if val:
         out.append(f"<ul><li class='bold'>당사 적정가 {n(val)}원 (공모밴드 {n(lo)}~{n(hi)}원 / 주관사 평가가액 {n(p.get('ua_value'))}원)</li></ul>")
@@ -135,7 +150,8 @@ def render(p, state):
     sale = p.get("sale_shares") or 0
     method_txt = (f"신주 {pct((off - sale) / off, 0)}" + (f" / 구주매출 {pct(sale / off, 0)}" if sale else "")) if off else "-"
     uof = p.get("use_of_funds") or []
-    uof_txt = ", ".join(f"{e(u['label'])} {u['amount'] / 1e8:,.0f}억원" for u in uof) if uof else TODO
+    uof_txt = e(nar["use_of_funds"]) if nar.get("use_of_funds") else \
+        (", ".join(f"{e(u['label'])} {u['amount'] / 1e8:,.0f}억원" for u in uof) if uof else TODO)
     out.append("<h2>공모 개요</h2>" + kv([
         ("대표주관사", e(p.get("underwriter") or "-")),
         ("공모주식수", f"{n(off)}주"),
@@ -145,7 +161,7 @@ def render(p, state):
         ("예상시가총액", f"{n(listed * lo / 1e8)}억원 ~ {n(listed * hi / 1e8)}억원" if listed and band else "-"),
         (f"단기 유통가능금액<br>({pct(fl0.get('ratio'), 2)})" if fl0 else "단기 유통가능금액",
          f"{n(fl0['shares'] * lo / 1e8)}억원 ~ {n(fl0['shares'] * hi / 1e8)}억원" if fl0 and band else "-"),
-        ("그룹별 배정", TODO),
+        ("그룹별 배정", e(nar.get("allocation")) if nar.get("allocation") else TODO),
         ("자금 사용처", uof_txt),
     ]))
 
@@ -176,11 +192,20 @@ def render(p, state):
         nxt = next((x for x in fl if x["label"] in ("1개월", "2개월")), None)
         risks.append(f"상장일 유통물량 {pct(fl0['ratio'], 2)}"
                      + (f", {nxt['label']} 후 {pct(nxt['ratio'], 2)}까지 증가함." if nxt else "임."))
-    out.append(f"<h2>투자포인트</h2><ul><li>{TODO}</li></ul>"
-               f"<h2>리스크</h2><ul>{''.join(f'<li>{e(x)}</li>' for x in risks)}<li>{TODO}</li></ul>")
+    ips = nar.get("investment_points") or []
+    rks = nar.get("risks") or []
+    out.append("<h2>투자포인트</h2><ul>" + ("".join(f"<li>{e(x)}</li>" for x in ips) or f"<li>{TODO}</li>") + "</ul>"
+               + "<h2>리스크</h2><ul>" + ("".join(f"<li>{e(x)}</li>" for x in rks)
+                                       or "".join(f"<li>{e(x)}</li>" for x in risks) + f"<li>{TODO}</li>") + "</ul>")
 
     # 기업개요
-    out.append(f"<h2>기업개요</h2><ul><li>{e(p.get('business') or '')}</li><li>{TODO}</li></ul>")
+    ov = nar.get("overview") or []
+    out.append("<h2>기업개요</h2><ul>" + ("".join(f"<li>{e(x)}</li>" for x in ov)
+                                         or f"<li>{e(p.get('business') or '')}</li><li>{TODO}</li>") + "</ul>")
+    bt = nar.get("business_table")
+    if bt and bt.get("rows"):
+        out.append(f"<h2>{e(bt.get('title') or '주요 사업')}</h2>" + table([e(h) for h in bt["head"]],
+                                                                       [[e(c) for c in r] for r in bt["rows"]]))
 
     # 회사 추정 손익
     if est and est.get("years"):
@@ -188,6 +213,8 @@ def render(p, state):
                    + table(["구분"] + [f"{y}(E)" for y in est["years"]],
                            [["당기순이익"] + [n(x / 1e8) for x in est["fv"]]])
                    + "<p class='small'>*추정 순이익을 공모가 산정에 사용</p>")
+    if nar.get("est_reliability"):
+        out.append("<ul>" + "".join(f"<li>{e(x)}</li>" for x in nar["est_reliability"]) + "</ul>")
 
     # 수급
     if fl:
@@ -200,7 +227,8 @@ def render(p, state):
                 seen.add(lab)
                 rows.append([lab, f"{n(x['shares'])}주", pct(x["ratio"], 2)])
         out.append("<h2>수급 (유통물량·오버행)</h2>" + table(["구분", "누적 유통가능 주식수", "비율"], rows)
-                   + f"<ul><li>{TODO} (기존주주 취득단가, 주요 해제 물량)</li></ul>")
+                   + "<ul>" + ("".join(f"<li>{e(x)}</li>" for x in (nar.get("supply_notes") or []))
+                               or f"<li>{TODO} (기존주주 취득단가, 주요 해제 물량)</li>") + "</ul>")
 
     # 밸류에이션(주관사)
     ua_lines = []
@@ -225,11 +253,12 @@ def render(p, state):
     else:
         pb = next((q.get("multiples", {}).get("_per_basis") for q in v["peers"] if q.get("kept")), None)
         my = []
-        my.append(f"피어 적정성: {TODO}")
+        my.append(f"피어 적정성: {e(nar['peer_view'])}" if nar.get("peer_view") else f"피어 적정성: {TODO}")
         my.append(f"{e(pb or '')} 순이익과 3개월 평균주가로 다시 산정한 {m} {v['multiple_mean']:.2f}배를 적용함."
                   if m == "PER" else f"3개월 평균주가로 다시 산정한 {m} {v['multiple_mean']:.2f}배를 적용함.")
         if v.get("rate_base") is not None and est:
-            my.append(f"할인율 {v['rate_base'] * 100:.0f}%를 적용함 (주관사 {est['rate'] * 100:.0f}%). {TODO}")
+            my.append(e(nar["discount_reason"]) if nar.get("discount_reason")
+                      else f"할인율 {v['rate_base'] * 100:.0f}%를 적용함 (주관사 {est['rate'] * 100:.0f}%). {TODO}")
         if shares:
             my.append(f"적정 시총은 {n(val * shares / 1e8)}억원(주당 {n(val)}원)임.")
         my.append(f"적정 평가가액은 {n(val)}원으로 {e(gtxt)}" + (", 상단 기준 고평가임." if g == "상단 기준 고평가" else "임."))
@@ -237,7 +266,8 @@ def render(p, state):
             top = next((q for q in v["peers"] if q["name"] == v["top_peer"]), {})
             exb = next((r.get("ex_top") for r in (v.get("sens") or []) if r["rate"] == v.get("rate_base")),
                        (v.get("sens") or [{}])[0].get("ex_top"))
-            my.append(f"{m} 민감도: {e(v['top_peer'].split(' (')[0])}({m} {n(top.get('multiples', {}).get(m), 1)}배)을 제외하면 "
+            tp = v['top_peer'].split(' (')[0]
+            my.append(f"{m} 민감도: {e(tp)}({m} {n(top.get('multiples', {}).get(m), 1)}배){obj(tp)} 제외하면 "
                       f"적정가는 {n(exb)}원임(아래 민감도 표 참고).")
         out.append("<ul>" + "".join(f"<li>{x}</li>" for x in my) + "</ul>")
 
@@ -294,7 +324,8 @@ def render(p, state):
                  e(d.get("industry") or (f"KSIC {d['ksic']}" if d.get("ksic") else "-")) + ("" if d.get("same") else " <span class='small'>(업종 상이)</span>"),
                  f"{n(d['inst_competition'])}:1", pos(d), pct(d.get("lock_ratio"), 0) if d.get("lock_ratio") else "-"] for d in rec]
         out.append(f"<h2>최근 동종 IPO 비교</h2><p class='small'>공모기업 업종: {e(p.get('ksic_name') or '')} (KSIC {e(p.get('ksic') or '-')}) · 최근 1년 상장 중 업종 유사도 순</p>"
-                   + table(["종목 (상장)", "업종", "기관 경쟁률", "확정공모가", "확약 비율"], rows))
+                   + table(["종목 (상장)", "업종", "기관 경쟁률", "확정공모가", "확약 비율"], rows)
+                   + ("<ul><li>" + e(nar["recent_ipo_note"]) + "</li></ul>" if nar.get("recent_ipo_note") else ""))
 
     # 재무 현황
     if fr:
@@ -310,12 +341,14 @@ def render(p, state):
 def main():
     from weasyprint import HTML
     state = json.loads(STATE.read_text(encoding="utf-8"))
+    nf = ROOT / "data" / "narratives.json"
+    nars = json.loads(nf.read_text(encoding="utf-8")) if nf.exists() else {}
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     made = 0
     for p in state["pipeline"]:
         if p.get("spac") or not p.get("corp_code") or not p.get("ua_method"):
             continue
-        doc = f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{render(p, state)}</body></html>"
+        doc = f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{render(p, state, nars.get(p["corp_code"]))}</body></html>"
         HTML(string=doc).write_pdf(OUT_DIR / f"{p['corp_code']}.pdf")
         made += 1
     print(f"PDF {made}건 생성")

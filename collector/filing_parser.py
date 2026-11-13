@@ -31,7 +31,7 @@ def _is_num(c):
     return bool(re.fullmatch(r"\s*\(?-?\d[\d,]*(?:\.\d+)?\)?\s*(배|x|X|원|%)?\s*", c or ""))
 
 
-_SKIP = re.compile(r"^(구\s*분|산\s*식|비\s*고|단위.*|평균|합계|항목|기업명|회사명|국내|해외|통화|"
+_SKIP = re.compile(r"^(구\s*분|산\s*식|산출\s*근거|산출\s*방식|출처|비\s*고|단위.*|평균|합계|항목|기업명|회사명|국내|해외|통화|"
                    r"[A-Z]{3}|-|[A-Z]|[①-⑳]|\[.*\]|\(.*\)|.*[=÷×].*)$")
 
 
@@ -76,7 +76,7 @@ class Filing:
     def summary(self):
         """[공모가 산정 요약표] — 모든 신고서에 들어가는 표준 표. 정정신고서는 마지막 표가 정정 후."""
         tabs = [t["rows"] for t in self.tables
-                if t["rows"][0][:1] == ["평가방법"] or (len(t["rows"]) > 1 and t["rows"][1][:1] == ["평가모형"])]
+                if any(r[:1] in (["평가방법"], ["평가모형"]) for r in t["rows"][:3])]
         if not tabs:
             return {}
         out = {}
@@ -135,7 +135,7 @@ class Filing:
         cand = []
         for t in self.tables:
             rows = t["rows"]
-            if rows[0][:1] == ["평가방법"]:
+            if any(r[:1] == ["평가방법"] for r in rows[:3]):
                 continue
             nums = [_to_num(c) for r in rows for c in r if _is_num(c)]
             if mult and not any(v is not None and abs(v - mult) < 0.006 for v in nums):
@@ -174,7 +174,7 @@ class Filing:
         best = None
         for t in self.tables:
             rows = t["rows"]
-            if rows[0][:1] == ["평가방법"]:
+            if any(r[:1] == ["평가방법"] for r in rows[:3]):
                 continue
             rate_rows = [r for r in rows if r and re.search(r"할인율", r[0]) and "평가가액" not in r[0]]
             pv_rows = [r for r in rows if any("^" in c for c in r)]
@@ -329,6 +329,11 @@ class Filing:
                     v = _to_num(r[pick + 2])
                     ratio = v / 100 if v is not None and v > 1 else v
                 out.append({"label": lab, "shares": sh, "ratio": ratio})
+            # 원문 오타(예: '40,83%')로 비율이 깨지면 주식수로 다시 계산
+            total = max((x["shares"] or 0) for x in out)
+            for x in out:
+                if total and x["shares"] and (x["ratio"] is None or not 0 < x["ratio"] <= 1.0001):
+                    x["ratio"] = round(x["shares"] / total, 4)
             return out
         return []
 
