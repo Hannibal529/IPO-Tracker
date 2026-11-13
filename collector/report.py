@@ -279,16 +279,22 @@ def render(p, state):
                                      f"→ 주당 {n(pc['value'])}원" if pc.get("value") else f"PER 기준 병행: {e(pc.get('reason'))}")
                        + "</li></ul>")
 
-    # 최근 IPO 비교
-    recent = [d for d in (state.get("demand") or []) if d.get("inst_competition") and d.get("listing")]
-    recent = sorted(recent, key=lambda d: d["listing"], reverse=True)[:3]
-    if recent:
-        rows = [[f"{e(d['name'])} ({d['listing'][2:7].replace('-', '.')})", f"{n(d['inst_competition'])}:1",
-                 n(d.get("amount_eok")) + "억원" if d.get("amount_eok") else "-",
-                 pct(d.get("am_lock_ratio") or d.get("lock_ratio_38"), 0) if (d.get("am_lock_ratio") or d.get("lock_ratio_38")) else "-",
-                 ""] for d in recent]
-        out.append("<h2>최근 IPO 비교</h2>" + table(["종목 (상장)", "기관 경쟁률", "공모금액", "확약 비율", "비고"], rows)
-                   + f"<ul><li>{TODO} (동종 업종 IPO로 교체 권장)</li></ul>")
+    # 최근 동종 IPO 비교 (KSIC 업종 유사도 순)
+    rec = p.get("recent_ipos") or []
+    if rec:
+        def pos(d):
+            fp_, bd = d.get("final_price"), d.get("band")
+            if not fp_:
+                return "-"
+            if not bd:
+                return f"{n(fp_)}원"
+            tag = "상단 초과" if fp_ > bd[1] else ("상단" if fp_ == bd[1] else ("하단 미만" if fp_ < bd[0] else ("하단" if fp_ == bd[0] else "밴드 내")))
+            return f"{n(fp_)}원 ({tag})"
+        rows = [[f"{e(d['name'])} ({d['listing'][2:7].replace('-', '.')})",
+                 e(d.get("industry") or (f"KSIC {d['ksic']}" if d.get("ksic") else "-")) + ("" if d.get("same") else " <span class='small'>(업종 상이)</span>"),
+                 f"{n(d['inst_competition'])}:1", pos(d), pct(d.get("lock_ratio"), 0) if d.get("lock_ratio") else "-"] for d in rec]
+        out.append(f"<h2>최근 동종 IPO 비교</h2><p class='small'>공모기업 업종: {e(p.get('ksic_name') or '')} (KSIC {e(p.get('ksic') or '-')}) · 최근 1년 상장 중 업종 유사도 순</p>"
+                   + table(["종목 (상장)", "업종", "기관 경쟁률", "확정공모가", "확약 비율"], rows))
 
     # 재무 현황
     if fr:

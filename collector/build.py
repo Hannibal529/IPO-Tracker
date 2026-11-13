@@ -23,7 +23,7 @@ OUT = ROOT / "site" / "data" / "ipo.json"
 WARN = []
 BIO_RE = r"바이오|신약|의약|제약|치료제|치료|항체|항암|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마|단백질|파이프라인|기술이전|퇴행성|치매"
 VALUATION_V = 7  # 재산정 로직 바꾸면 올림
-PARSER_V = 6  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
+PARSER_V = 7  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
@@ -192,7 +192,10 @@ def from_dart(state, dart, codes):
                 rec["special"] = bool(re.search("기술성장기업|기술특례|성장성\\s*특례", head))
                 rec["business"] = doc.business_summary()
                 rec["total_shares_after"] = doc.total_shares_after()
-            rec["bio"] = bool(re.search(BIO_RE, name + " " + (rec.get("business") or "")))
+            rec["ksic"] = industry_code(dart, cc)
+            if doc is not None and rec["ksic"]:
+                rec["ksic_name"] = doc.ksic_name(rec["ksic"])
+            rec["bio"] = bool(re.search(BIO_RE, name + " " + (rec.get("business") or ""))) or is_bio_ksic(rec["ksic"])
         upsert(state["pipeline"], rec)
 
 
@@ -269,6 +272,7 @@ def roll_forward(state):
             fp = ipo.get("final_price")
             amt = round(fp * ipo["shares_offered"] / 1e8) if fp and ipo.get("shares_offered") else None
             rec = {"name": ipo["name"], "listing": ipo.get("listing"), "inst_competition": comp,
+                   "final_price": ipo.get("final_price"), "band": ipo.get("band"), "ksic": ipo.get("ksic"),
                    "amount_eok": amt, **{k: ds.get(k) for k in
                    ("inst_count", "am_count", "total_qty", "am_qty", "am_lock_qty")},
                    "lock_ratio_38": ipo.get("lock_ratio_38") or ds.get("lock_ratio_applied")}
@@ -339,6 +343,82 @@ def apply_manual(state, manual):
                     x[k] = v
 
 
+# ---------------- 업종(KSIC) ----------------
+IND_FILE = DATA / "industry.json"
+_IND = None
+
+
+def industry_code(dart, corp_code):
+    """DART 기업개황의 한국표준산업분류 코드 (data/industry.json 에 캐시)"""
+    global _IND
+    if _IND is None:
+        _IND = json.loads(IND_FILE.read_text(encoding="utf-8")) if IND_FILE.exists() else {}
+    if not corp_code:
+        return None
+    if corp_code not in _IND:
+        try:
+            _IND[corp_code] = (dart.company(corp_code) or {}).get("induty_code")
+        except Exception:
+            return None
+    return _IND[corp_code]
+
+
+def save_industry():
+    if _IND is not None:
+        IND_FILE.write_text(json.dumps(_IND, ensure_ascii=False), encoding="utf-8")
+
+
+def is_bio_ksic(code):
+    c = str(code or "")
+    return c.startswith("21") or c.startswith("7011")
+
+
+def ksic_score(a, b):
+    """같은 자릿수가 많을수록 유사. 바이오 그룹(의약품 제조·의학/생물 연구개발)끼리는 3자리 일치로 간주"""
+    a, b = str(a or ""), str(b or "")
+    if not a or not b:
+        return 0
+    k = 0
+    while k < min(len(a), len(b)) and a[k] == b[k]:
+        k += 1
+    if is_bio_ksic(a) and is_bio_ksic(b):
+        k = max(k, 3)
+    return k
+
+
+@step("최근 동종 IPO")
+def recent_peers(state, dart, codes):
+    """각 공모 예정 종목에 업종이 가까운 최근 1년 IPO 3건 연결"""
+    cutoff = (date.today() - timedelta(days=365)).isoformat()
+    pool = [d for d in state["demand"] if d.get("listing") and cutoff <= d["listing"] <= date.today().isoformat()
+            and d.get("inst_competition")]
+    for d in pool:
+        if not d.get("ksic"):
+            cc = (codes.get(d["name"]) or {}).get("corp_code") or \
+                next((v["corp_code"] for n, v in codes.items() if norm(n) == norm(d["name"])), None)
+            d["ksic"] = industry_code(dart, cc)
+    try:
+        from .valuation import listing
+        lst = listing()
+        ind_name = {n: i for n, i in zip(lst.index, lst["Industry"]) if isinstance(i, str)} \
+            if "Industry" in lst.columns else {}
+    except Exception:
+        ind_name = {}
+    for ipo in state["pipeline"]:
+        if ipo.get("spac") or not ipo.get("ksic"):
+            continue
+        cands = sorted(((ksic_score(ipo["ksic"], d.get("ksic")), d["listing"], d) for d in pool if d["name"] != ipo["name"]),
+                       key=lambda x: (x[0], x[1]), reverse=True)
+        out = []
+        for sc, _, d in cands[:3]:
+            out.append({"name": d["name"], "listing": d["listing"], "inst_competition": d.get("inst_competition"),
+                         "lock_ratio": d.get("am_lock_ratio") or d.get("lock_ratio_38"),
+                         "final_price": d.get("final_price"), "band": d.get("band"), "amount_eok": d.get("amount_eok"),
+                         "ksic": d.get("ksic"), "industry": ind_name.get(d["name"]), "same": sc >= 3})
+        ipo["recent_ipos"] = out
+    save_industry()
+
+
 # ---------------- 유틸 ----------------
 def _find(lst, name):
     k = norm(name)
@@ -403,6 +483,8 @@ def main():
     if dart:
         print("[4] peer 재산정", flush=True)
         revalue_all(state, dart, codes, manual)
+        print("[5] 최근 동종 IPO", flush=True)
+        recent_peers(state, dart, codes)
     save(state)
     print(f"done: pipeline {len(state['pipeline'])}, demand {len(state['demand'])}, "
           f"lockups {len(state['lockups'])}, warnings {len(WARN)}")
