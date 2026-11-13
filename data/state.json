@@ -301,7 +301,7 @@
      0.2775,
      0.4307
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -635,7 +635,7 @@
      -0.1808,
      0.1498
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -931,13 +931,14 @@
        "PSR": 4.34,
        "EV/EBITDA": 303.77,
        "PER_LTM": 244.05,
-       "_per_basis": "2026 3Q 누적×4/3",
-       "_per_ni_eok": -5
+       "PER": 244.0515856603696,
+       "_per_basis": "2026 3Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 13
       },
       "ua_multiple": 61.01,
       "origin": "주관사",
       "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "reason": "244배 — 100배 초과(이익 미미)로 제외"
      },
      {
       "name": "씨피시스템",
@@ -1023,7 +1024,7 @@
      0.0521,
      0.1544
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -1234,30 +1235,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 23.3,
+    "multiple_mean": 22.63,
     "multiple_median": 23.3,
-    "multiple_ex_top": null,
-    "top_peer": null,
-    "value": 14013,
+    "multiple_ex_top": 21.27,
+    "top_peer": "비아이매트릭스",
+    "value": 13609,
     "rate_base": 0.15,
     "pv_base": 5455904030.029245,
     "pv_ua": 5456000000.0,
     "sens": [
      {
       "rate": 0.05,
-      "all": 17196
+      "all": 16700,
+      "ex_top": 15700
      },
      {
       "rate": 0.15,
-      "all": 14013
+      "all": 13609,
+      "ex_top": 12794
      },
      {
       "rate": 0.25,
-      "all": 11616
+      "all": 11281,
+      "ex_top": 10605
      }
     ],
     "values": {
-     "기본": 14013
+     "기본": 13609
     },
     "value_range": null,
     "peers": [
@@ -1277,13 +1281,14 @@
        "PSR": 1.2,
        "EV/EBITDA": 88.13,
        "PER_LTM": 25.34,
-       "_per_basis": "2026 3Q 누적×4/3",
-       "_per_ni_eok": -8
+       "PER": 25.340699873856313,
+       "_per_basis": "2026 3Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 16
       },
       "ua_multiple": 52.74,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      },
      {
       "name": "슈어소프트테크",
@@ -1325,13 +1330,14 @@
        "PSR": 1.74,
        "EV/EBITDA": 32.05,
        "PER_LTM": 19.25,
-       "_per_basis": "2026 반기 누적×2",
-       "_per_ni_eok": -10
+       "PER": 19.245090747174366,
+       "_per_basis": "2026 2Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 32
       },
       "ua_multiple": 20.18,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      }
     ],
     "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
@@ -1339,10 +1345,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 15% 유지",
     "band_discount": [
-     -0.1846,
-     0.1222
+     -0.2198,
+     0.0962
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -1685,7 +1691,7 @@
      -0.0623,
      0.0922
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -1854,6 +1860,19 @@
    },
    "our_valuation": {
     "method": "PER",
+    "multiple_mean": 22.29,
+    "multiple_median": 22.29,
+    "multiple_ex_top": null,
+    "top_peer": null,
+    "value": 7524,
+    "rate_base": null,
+    "pv_base": null,
+    "pv_ua": 4995000000.0,
+    "sens": null,
+    "values": {
+     "기본": 7524
+    },
+    "value_range": null,
     "peers": [
      {
       "name": "와이즈넛",
@@ -1871,13 +1890,14 @@
        "PSR": 1.74,
        "EV/EBITDA": 32.05,
        "PER_LTM": 19.25,
-       "_per_basis": "2026 반기 누적×2",
-       "_per_ni_eok": -10
+       "PER": 19.245090747174366,
+       "_per_basis": "2026 2Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 32
       },
       "ua_multiple": 18.29,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      },
      {
       "name": "비아이매트릭스",
@@ -1895,13 +1915,14 @@
        "PSR": 1.2,
        "EV/EBITDA": 88.13,
        "PER_LTM": 25.34,
-       "_per_basis": "2026 3Q 누적×4/3",
-       "_per_ni_eok": -8
+       "PER": 25.340699873856313,
+       "_per_basis": "2026 3Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 16
       },
       "ua_multiple": 50.05,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      },
      {
       "name": "BrainsTechnology",
@@ -1913,8 +1934,14 @@
      }
     ],
     "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
-    "value": null,
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "as_of": "2026-11-13",
+    "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
+    "note": null,
+    "band_discount": [
+     -0.6215,
+     -0.2892
+    ],
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -2206,7 +2233,7 @@
      0.2334,
      0.354
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -2524,7 +2551,7 @@
      0.4101,
      0.5084
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -2818,7 +2845,7 @@
      0.0281,
      0.1986
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -3187,7 +3214,7 @@
      0.2479,
      0.3787
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -3450,7 +3477,7 @@
      -0.0985,
      0.0483
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -3762,7 +3789,7 @@
      0.2596,
      0.3883
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -4076,7 +4103,7 @@
      0.3493,
      0.4833
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -4277,30 +4304,33 @@
    },
    "our_valuation": {
     "method": "PER",
-    "multiple_mean": 23.3,
+    "multiple_mean": 22.36,
     "multiple_median": 23.3,
-    "multiple_ex_top": null,
-    "top_peer": null,
-    "value": 19199,
+    "multiple_ex_top": 21.27,
+    "top_peer": "엠아이큐브솔루션",
+    "value": 18426,
     "rate_base": 0.15,
     "pv_base": 12152732885.061886,
     "pv_ua": 12153000000.0,
     "sens": [
      {
       "rate": 0.05,
-      "all": 25804
+      "all": 24765,
+      "ex_top": 23558
      },
      {
       "rate": 0.15,
-      "all": 19199
+      "all": 18426,
+      "ex_top": 17528
      },
      {
       "rate": 0.25,
-      "all": 14642
+      "all": 14052,
+      "ex_top": 13368
      }
     ],
     "values": {
-     "기본": 19199
+     "기본": 18426
     },
     "value_range": null,
     "peers": [
@@ -4320,13 +4350,14 @@
        "PSR": 1.12,
        "EV/EBITDA": 44.9,
        "PER_LTM": 24.54,
-       "_per_basis": "2026 3Q 누적×4/3",
-       "_per_ni_eok": -9
+       "PER": 24.541438506432648,
+       "_per_basis": "2026 3Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 11
       },
       "ua_multiple": 19.31,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      },
      {
       "name": "슈어소프트테크",
@@ -4368,13 +4399,14 @@
        "PSR": 1.74,
        "EV/EBITDA": 32.05,
        "PER_LTM": 19.25,
-       "_per_basis": "2026 반기 누적×2",
-       "_per_ni_eok": -10
+       "PER": 19.245090747174366,
+       "_per_basis": "2026 2Q LTM (연환산 적자라 LTM 사용)",
+       "_per_ni_eok": 32
       },
       "ua_multiple": 18.79,
       "origin": "주관사",
-      "kept": false,
-      "reason": "PER 산출 불가(적자 또는 데이터 없음)"
+      "kept": true,
+      "reason": "유지"
      }
     ],
     "rationale": "주관사 비교기업 단순평균 (적자·100배 초과만 제외), 최고 배수 기업 제외는 민감도로 표시",
@@ -4382,10 +4414,10 @@
     "price_basis": "비교기업 시가총액 = 최근 61영업일 종가 평균 × 발행주식총수, 이익 = 당해(E) 컨센서스(없으면 누적 연환산)",
     "note": "추정이익: 주관사 할인율 15% 유지",
     "band_discount": [
-     0.3229,
-     0.4791
+     0.2945,
+     0.4573
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -4811,7 +4843,7 @@
      0.1354,
      0.3441
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -5075,7 +5107,7 @@
      0.4099,
      0.5082
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -5402,7 +5434,7 @@
      0.2727,
      0.4011
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -5721,7 +5753,7 @@
      -0.1485,
      0.1648
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   },
   {
@@ -6069,7 +6101,7 @@
      -0.3038,
      -0.0698
     ],
-    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|7"
+    "sig": "{\"bio_rate\": 0.35, \"bio_sens\": [0.25, 0.35, 0.45], \"max_multiple\": 100}|8"
    }
   }
  ],
