@@ -14,6 +14,10 @@ on:
         description: "네이버 실적표 점검용 종목코드 (비우면 생략)"
         required: false
         default: ""
+      brief:
+        description: "보고서 서술용 신고서 요약본 생성 (종목명 쉼표 구분, __all__ 이면 전체)"
+        required: false
+        default: ""
   push:
     paths: ["site/**", "data/manual.json", "collector/**"]
 
@@ -41,6 +45,18 @@ jobs:
       - name: 네이버 점검
         if: ${{ github.event.inputs.debug_naver != '' && github.event.inputs.debug_naver != null }}
         run: python -m collector.debug_naver ${{ github.event.inputs.debug_naver }}
+      - name: 신고서 요약본(brief)
+        if: ${{ github.event.inputs.brief != '' && github.event.inputs.brief != null }}
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          DUMP_NAMES: ${{ github.event.inputs.brief }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -m collector.brief
+          git config user.name "ipo-bot"
+          git config user.email "ipo-bot@users.noreply.github.com"
+          git checkout -b briefs
+          git add -f debug/briefs && git commit -qm "briefs" && git push -f origin briefs
       - name: 원문 표 추출(점검용)
         if: ${{ github.event.inputs.dump != '' && github.event.inputs.dump != null }}
         env:
