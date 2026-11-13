@@ -224,7 +224,8 @@ def naver_consensus(code):
         import pandas as pd
         r = requests.get(f"https://finance.naver.com/item/main.naver?code={code}",
                          headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-        r.encoding = "euc-kr"
+        if (r.encoding or "").lower() in ("", "iso-8859-1"):  # 네이버는 현재 UTF-8, 예전 페이지는 EUC-KR
+            r.encoding = r.apparent_encoding
         yr = date.today().year
         for df in pd.read_html(io.StringIO(r.text)):
             cols = [" ".join(map(str, c)) if isinstance(c, tuple) else str(c) for c in df.columns]
