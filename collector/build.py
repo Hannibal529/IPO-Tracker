@@ -81,19 +81,31 @@ def upsert(lst, rec, keep_existing=("source",)):
 @step("DART 증권신고서")
 def from_dart(state, dart, codes):
     from .filing_parser import Filing
-    filings = dart.ipo_filings(days=200)
-    print(f"DART 증권신고서(지분) {len(filings)}건")
+    filings = dart.ipo_filings(days=120)
     by_corp = {}
     for f in filings:
         by_corp.setdefault(f["corp_code"], []).append(f)
     listed = {n for n, v in codes.items() if v["stock_code"]}
+    today = date.today().isoformat()
+    cutoff = (date.today() - timedelta(days=30)).isoformat()
+    todo = []
     for cc, fs in by_corp.items():
         fs.sort(key=lambda r: r["rcept_no"])
         name = fs[0]["corp_name"]
+        ex = _find(state["pipeline"], name)
+        # 이미 상장했거나, 상장 정보에 이미 올라가 있거나(상장 완료), 청약이 한 달 넘게 지난 종목은 건너뜀
+        if name in listed or (ex and ex.get("listing") and ex["listing"] < today):
+            continue
+        if ex and ex.get("subscription") and ex["subscription"][-1] < cutoff:
+            continue
+        todo.append((cc, fs, name, ex))
+    print(f"DART 증권신고서 {len(by_corp)}개사 중 진행 중 {len(todo)}개사 처리", flush=True)
+    for cc, fs, name, ex in todo:
+        print(f"  - {name}", flush=True)
         spac = "스팩" in name or "기업인수목적" in name
         orig = [f for f in fs if "정정" not in f["report_nm"]]
         amends = [f for f in fs if "정정" in f["report_nm"]]
-        rec = {"name": name, "corp_code": cc, "spac": spac, "source": "dart",
+        rec = {"name": name, "corp_code": cc, "spac": spac,
                "rcept_no": fs[-1]["rcept_no"],
                "first_filed": _iso(orig[0]["rcept_dt"]) if orig else _iso(fs[0]["rcept_dt"]),
                "last_amended": _iso(amends[-1]["rcept_dt"]) if amends else None}
@@ -114,6 +126,9 @@ def from_dart(state, dart, codes):
                 rec["underwriter"] = ", ".join(dict.fromkeys(und))
         except Exception as e:
             WARN.append(f"[estkRs {name}] {e}")
+        if not spac and ex and ex.get("rcept_no") == fs[-1]["rcept_no"] and ex.get("source") == "dart":
+            upsert(state["pipeline"], rec)  # 원문 변경 없음 → 일정만 갱신
+            continue
         if not spac:
             doc = None
             for f in reversed(fs):  # 최신 원문이 없으면 이전 제출본으로
@@ -138,6 +153,7 @@ def from_dart(state, dart, codes):
             })
             if not rec.get("business"):
                 rec["business"] = doc.business_summary()
+            rec["source"] = "dart"
         upsert(state["pipeline"], rec)
 
 
@@ -150,7 +166,7 @@ def demand_from_dart(state, dart):
         fc = ipo.get("forecast")
         if not ipo.get("corp_code") or not fc or fc[-1] > today or ipo.get("spac"):
             continue
-        if ipo.get("demand_parsed"):
+        if ipo.get("demand_parsed") or fc[-1] < (date.today() - timedelta(days=60)).isoformat():
             continue
         reps = [r for r in dart.company_filings(ipo["corp_code"], days=120)
                 if any(k in r["report_nm"] for k in ("투자설명서", "증권발행실적", "증권신고서"))]
@@ -246,9 +262,11 @@ def revalue_all(state, dart, codes, manual):
     for ipo in state["pipeline"]:
         if ipo.get("spac") or not ipo.get("peers_ua"):
             continue
-        # 상장 후 30일 지난 종목은 더 이상 갱신하지 않음
-        if ipo.get("listing") and ipo["listing"] < (date.today() - timedelta(days=30)).isoformat():
-            continue
+        if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
+            continue  # 상장 끝난 종목은 갱신 안 함
+        if (ipo.get("our_valuation") or {}).get("as_of") == date.today().isoformat():
+            continue  # 오늘 이미 계산함
+        print(f"  재산정: {ipo['name']}", flush=True)
         m = (manual.get(ipo["name"]) or {}).get("valuation")
         try:
             ipo["our_valuation"] = revalue(dart, codes, ipo, m)
@@ -307,13 +325,17 @@ def main():
         WARN.append(f"[DART 초기화] {e}")
         dart, codes = None, {}
     if dart:
+        print('[1] DART 증권신고서', flush=True)
         from_dart(state, dart, codes)
+    print('[2] 38커뮤니케이션', flush=True)
     from_38(state)
     if dart:
+        print('[3] 수요예측 결과', flush=True)
         demand_from_dart(state, dart)
     apply_manual(state, manual)
     roll_forward(state)
     if dart:
+        print('[4] peer 재산정', flush=True)
         revalue_all(state, dart, codes, manual)
 
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")

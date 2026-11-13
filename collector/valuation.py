@@ -30,7 +30,16 @@ def listing():
     """KRX 상장사: Code, Name, Close, Marcap, Stocks, Industry"""
     global _LISTING
     if _LISTING is None:
-        df = fdr.StockListing("KRX")
+        import signal
+
+        def _to(*_):
+            raise TimeoutError("상장사 시세 목록 조회 120초 초과")
+        signal.signal(signal.SIGALRM, _to)
+        signal.alarm(120)
+        try:
+            df = fdr.StockListing("KRX")
+        finally:
+            signal.alarm(0)
         try:
             desc = fdr.StockListing("KRX-DESC")[["Code", "Industry"]]
             df = df.merge(desc, on="Code", how="left")

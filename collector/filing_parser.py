@@ -5,7 +5,7 @@ DART 원문은 회사·주관사마다 표 양식이 조금씩 달라서 '키워
 """
 import re
 
-from bs4 import BeautifulSoup
+import lxml.html
 
 NUM = r"-?\d[\d,]*(?:\.\d+)?"
 METHODS = ("EV/EBITDA", "PER", "PSR", "PBR")
@@ -29,19 +29,30 @@ def _to_num(s):
 
 class Filing:
     def __init__(self, xml):
-        self.soup = BeautifulSoup(xml, "lxml")
-        self.text = _clean(self.soup.get_text(" "))
+        # BeautifulSoup 대신 lxml 로 한 번만 순회 (수백 페이지 문서도 수 초 내)
+        if isinstance(xml, bytes):
+            xml = xml.decode("utf-8", "ignore")
+        xml = re.sub(r"<\?xml[^>]*\?>", "", xml)  # 유니코드 문자열엔 인코딩 선언 불가
+        root = lxml.html.fromstring(xml)
+        self.text = _clean(root.text_content())
         self.tables = []
-        for t in self.soup.find_all("table"):
-            rows = []
-            for tr in t.find_all("tr"):
-                cells = [_clean(c.get_text(" ")) for c in tr.find_all(["td", "th", "te", "tu"])]
-                if any(cells):
-                    rows.append(cells)
-            if rows:
-                # 표 바로 앞 문단(제목 역할)도 같이 보관
-                prev = t.find_previous(["p", "title", "span"])
-                self.tables.append({"rows": rows, "title": _clean(prev.get_text(" ")) if prev else ""})
+        last_title = ""
+        for el in root.iter():
+            tag = el.tag.lower() if isinstance(el.tag, str) else ""
+            if tag in ("p", "title", "span") and el.getparent() is not None \
+                    and not any(a.tag.lower() == "table" for a in el.iterancestors() if isinstance(a.tag, str)):
+                t = _clean(el.text_content())
+                if t:
+                    last_title = t[:200]
+            elif tag == "table":
+                rows = []
+                for tr in el.iter("tr", "TR"):
+                    cells = [_clean(c.text_content()) for c in tr
+                             if isinstance(c.tag, str) and c.tag.lower() in ("td", "th", "te", "tu")]
+                    if any(cells):
+                        rows.append(cells)
+                if rows:
+                    self.tables.append({"rows": rows, "title": last_title})
 
     # ---------- 공모가 관련 ----------
     def band(self):
