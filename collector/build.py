@@ -82,6 +82,7 @@ def upsert(lst, rec, keep_existing=("source",)):
 def from_dart(state, dart, codes):
     from .filing_parser import Filing
     filings = dart.ipo_filings(days=200)
+    print(f"DART 증권신고서(지분) {len(filings)}건")
     by_corp = {}
     for f in filings:
         by_corp.setdefault(f["corp_code"], []).append(f)
@@ -114,7 +115,17 @@ def from_dart(state, dart, codes):
         except Exception as e:
             WARN.append(f"[estkRs {name}] {e}")
         if not spac:
-            doc = Filing(dart.document(fs[-1]["rcept_no"]))
+            doc = None
+            for f in reversed(fs):  # 최신 원문이 없으면 이전 제출본으로
+                try:
+                    doc = Filing(dart.document(f["rcept_no"]))
+                    rec["rcept_no"] = f["rcept_no"]
+                    break
+                except Exception as e:
+                    WARN.append(f"[원문 {name}] {e}")
+            if doc is None:
+                upsert(state["pipeline"], rec)
+                continue
             meth, mult = doc.method_and_multiple()
             rec.update({
                 "band": doc.band(), "ua_method": meth, "ua_multiple": mult,
@@ -145,7 +156,11 @@ def demand_from_dart(state, dart):
                 if any(k in r["report_nm"] for k in ("투자설명서", "증권발행실적", "증권신고서"))]
         reps.sort(key=lambda r: r["rcept_no"], reverse=True)
         for r in reps[:4]:
-            doc = Filing(dart.document(r["rcept_no"]))
+            try:
+                doc = Filing(dart.document(r["rcept_no"]))
+            except Exception as e:
+                WARN.append(f"[수요예측 원문 {ipo['name']}] {e}")
+                continue
             ds, ls = doc.demand_stats(), doc.lockup_stats()
             if ds or ls:
                 ipo["demand_stats"] = {**ds, **{k: v for k, v in ls.items() if k != "lock_by_period"}}

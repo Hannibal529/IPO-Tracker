@@ -4,6 +4,7 @@
 원문/고유번호는 data/cache 에 캐시한다.
 """
 import io
+import re
 import json
 import os
 import time
@@ -121,6 +122,11 @@ class Dart:
         if f.exists():
             return f.read_text(encoding="utf-8")
         raw = self._get("document.xml", rcept_no=rcept_no)
+        if raw[:2] != b"PK":  # zip이 아니면 DART 오류 XML (예: 014 파일 없음, 020 한도초과)
+            msg = raw[:300].decode("utf-8", "ignore")
+            st = re.search(r"<status>(.*?)</status>", msg)
+            me = re.search(r"<message>(.*?)</message>", msg)
+            raise DartError(f"원문 {rcept_no}: {st and st.group(1)} {me and me.group(1)}")
         parts = []
         with zipfile.ZipFile(io.BytesIO(raw)) as z:
             for n in z.namelist():
