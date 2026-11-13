@@ -116,6 +116,8 @@ class Dart:
                 last_reg[r["corp_code"]] = max(last_reg.get(r["corp_code"], ""), r["rcept_no"])
         self.withdrawn = {r["corp_name"] for r in out
                           if r["corp_code"] in last_wd and last_wd[r["corp_code"]] > last_reg.get(r["corp_code"], "")}
+        self.withdrawn_detail = sorted({(r["corp_name"], r["report_nm"], r["rcept_dt"]) for r in out
+                                        if r["corp_name"] in self.withdrawn and "철회" in r["report_nm"]})
         return [r for r in out if "증권신고서" in r.get("report_nm", "") and "지분증권" in r.get("report_nm", "")
                 and r["corp_name"] not in self.withdrawn]
 

@@ -90,7 +90,10 @@ def from_dart(state, dart, codes):
     filings = dart.ipo_filings(days=120)
     wd = getattr(dart, "withdrawn", set())
     if wd:
-        print(f"  철회 제외: {', '.join(sorted(wd))}", flush=True)
+        for nm, rn, dt in getattr(dart, "withdrawn_detail", []):
+            print(f"  철회 제외: {nm} — {rn} ({dt})", flush=True)
+        state["withdrawn"] = [{"name": nm, "report": rn, "date": _iso(dt)}
+                              for nm, rn, dt in getattr(dart, "withdrawn_detail", [])]
         state["pipeline"] = [p for p in state["pipeline"] if p["name"] not in wd]
     by_corp = {}
     for f in filings:
@@ -159,7 +162,7 @@ def from_dart(state, dart, codes):
                         d.peer_table(summ.get("method"), sm.get("multiple"))
                 if full is None and len(d.tables) > 500:
                     full = d
-                if summ.get("band") and peers and fc and full is not None:
+                if summ.get("band") and peers and fc and full is not None and tni:
                     break
             if not summ:
                 WARN.append(f"[원문 {name}] 공모가 산정 요약표를 찾지 못함")
