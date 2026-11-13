@@ -7,7 +7,8 @@
 import json
 import re
 import traceback
-from datetime import date, datetime, timedelta
+import time
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import holidays
@@ -20,6 +21,8 @@ MANUAL = DATA / "manual.json"
 OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
+KST = timezone(timedelta(hours=9))
+REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속
 KR_HOL = holidays.country_holidays("KR", years=range(2024, 2031))
 
 
@@ -258,8 +261,14 @@ def roll_forward(state):
 
 @step("peer 재산정")
 def revalue_all(state, dart, codes, manual):
-    from .valuation import revalue
-    for ipo in state["pipeline"]:
+    from .valuation import revalue, save_fin_cache
+    start = time.time()
+    # 일정이 가까운 종목부터
+    order = sorted(state["pipeline"], key=lambda x: (x.get("forecast") or x.get("subscription") or ["9999"])[0])
+    for ipo in order:
+        if time.time() - start > REVALUE_BUDGET_SEC:
+            WARN.append("[재산정] 시간 예산 초과 — 나머지 종목은 다음 실행에서 계산")
+            break
         if ipo.get("spac") or not ipo.get("peers_ua"):
             continue
         if ipo.get("listing") and ipo["listing"] < date.today().isoformat():
@@ -272,6 +281,9 @@ def revalue_all(state, dart, codes, manual):
             ipo["our_valuation"] = revalue(dart, codes, ipo, m)
         except Exception as e:
             WARN.append(f"[재산정 {ipo['name']}] {e}")
+        save(state)
+        save_fin_cache()
+        print(f"    완료 ({time.time() - start:.0f}s 경과)", flush=True)
 
 
 def apply_manual(state, manual):
@@ -314,6 +326,14 @@ def _n(v):
         return None
 
 
+def save(state):
+    """단계마다 저장 → 중간에 시간 초과로 끊겨도 그때까지 수집한 데이터는 남음"""
+    STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    pub = {**state, "updated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M"), "warnings": WARN}
+    OUT.write_text(json.dumps(pub, ensure_ascii=False), encoding="utf-8")
+
+
 def main():
     state = json.loads((STATE if STATE.exists() else SEED).read_text(encoding="utf-8"))
     manual = json.loads(MANUAL.read_text(encoding="utf-8")) if MANUAL.exists() else {}
@@ -325,23 +345,21 @@ def main():
         WARN.append(f"[DART 초기화] {e}")
         dart, codes = None, {}
     if dart:
-        print('[1] DART 증권신고서', flush=True)
+        print("[1] DART 증권신고서", flush=True)
         from_dart(state, dart, codes)
-    print('[2] 38커뮤니케이션', flush=True)
+        save(state)
+    print("[2] 38커뮤니케이션", flush=True)
     from_38(state)
     if dart:
-        print('[3] 수요예측 결과', flush=True)
+        print("[3] 수요예측 결과", flush=True)
         demand_from_dart(state, dart)
     apply_manual(state, manual)
     roll_forward(state)
+    save(state)
     if dart:
-        print('[4] peer 재산정', flush=True)
+        print("[4] peer 재산정", flush=True)
         revalue_all(state, dart, codes, manual)
-
-    STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    pub = {**state, "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"), "warnings": WARN}
-    OUT.write_text(json.dumps(pub, ensure_ascii=False), encoding="utf-8")
+    save(state)
     print(f"done: pipeline {len(state['pipeline'])}, demand {len(state['demand'])}, "
           f"lockups {len(state['lockups'])}, warnings {len(WARN)}")
 

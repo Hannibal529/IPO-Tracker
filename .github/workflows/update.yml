@@ -18,7 +18,7 @@ concurrency: { group: ipo, cancel-in-progress: false }
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,7 +26,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: 수집
         continue-on-error: true   # 수집이 실패해도 기존 데이터로 사이트는 배포
-        timeout-minutes: 15
+        timeout-minutes: 22
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "ipo-bot"
           git config user.email "ipo-bot@users.noreply.github.com"
-          git add data/state.json site/data/ipo.json
+          git add data/state.json data/fincache.json site/data/ipo.json
           git diff --cached --quiet || git commit -m "data: $(date -u +%F)" && git push
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }

@@ -15,6 +15,7 @@ import json
 import os
 import statistics
 from datetime import date
+from pathlib import Path
 
 import requests
 
@@ -94,36 +95,78 @@ def _debt(rows):
     return tot
 
 
+FIN_CACHE_FILE = Path(__file__).resolve().parent.parent / "data" / "fincache.json"
+FIN_TTL_DAYS = 14  # 재무는 분기마다 바뀌므로 2주 캐시
+_FIN = None
+
+
+def _fin_cache():
+    global _FIN
+    if _FIN is None:
+        try:
+            _FIN = json.loads(FIN_CACHE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            _FIN = {}
+    return _FIN
+
+
+def save_fin_cache():
+    if _FIN is not None:
+        FIN_CACHE_FILE.write_text(json.dumps(_FIN, ensure_ascii=False), encoding="utf-8")
+
+
 def ltm(dart, corp_code):
-    """최근 분기 누적 + 직전 연간 - 전년 동기 누적 = LTM"""
+    """캐시 확인 후 없으면 DART 조회 (peer 가 여러 공모주에 겹쳐도 한 번만)"""
+    c = _fin_cache().get(corp_code)
+    if c and (date.today() - date.fromisoformat(c["fetched"])).days < FIN_TTL_DAYS:
+        return c["data"]
+    data = _ltm_fetch(dart, corp_code)
+    _fin_cache()[corp_code] = {"fetched": date.today().isoformat(), "data": data}
+    return data
+
+
+def _ltm_fetch(dart, corp_code):
+    """최근 분기 누적 + 직전 연간 - 전년 동기 누적 = LTM (호출 최대 5회)"""
     y = date.today().year
-    for fs_div in ("CFS", "OFS"):
-        for yr, rc in ((y, "11014"), (y, "11012"), (y, "11013"), (y - 1, "11011"),
-                       (y - 1, "11014")):
-            q = dart.fs_all(corp_code, yr, rc, fs_div)
-            if not q:
-                continue
-            bs = {"eq": _pick(q, "eq", "thstrm_amount"), "cash": _pick(q, "cash", "thstrm_amount"),
-                  "debt": _debt(q)}
-            if rc == "11011":
-                flow = {k: _pick(q, k, "thstrm_amount") for k in ("ni", "rev", "op")}
-                flow["da"] = _da(q, "thstrm_amount")
-                return {**flow, **bs, "basis": f"{yr} 연간"}
-            fy = dart.fs_all(corp_code, yr - 1, "11011", fs_div)
-            if not fy:
-                continue
-            flow = {}
-            for k in ("ni", "rev", "op"):
-                a, cur, prev = _pick(fy, k, "thstrm_amount"), _pick(q, k, "thstrm_add_amount"), \
-                    _pick(q, k, "frmtrm_add_amount")
-                if cur is None:  # 일부 회사는 누적 칸을 비워둠
-                    cur, prev = _pick(q, k, "thstrm_amount"), _pick(q, k, "frmtrm_amount")
-                flow[k] = (a + cur - prev) if None not in (a, cur, prev) else None
-            da_fy, da_cur, da_prev = _da(fy, "thstrm_amount"), _da(q, "thstrm_amount"), \
-                _da(q, "frmtrm_amount")
-            flow["da"] = (da_fy + da_cur - da_prev) if None not in (da_fy, da_cur, da_prev) else da_fy
-            return {**flow, **bs, "basis": f"{yr} {dict(zip(['11013','11012','11014'],['1Q','2Q','3Q']))[rc]} LTM"}
-    return None
+    # 1) 직전 연간 보고서로 연결/별도 결정
+    fy, fs_div, fy_year = None, None, None
+    for yr in (y - 1, y - 2):
+        for div in ("CFS", "OFS"):
+            fy = dart.fs_all(corp_code, yr, "11011", div)
+            if fy:
+                fs_div, fy_year = div, yr
+                break
+        if fy:
+            break
+    if not fy:
+        return None
+    bs_src = fy
+    # 2) 그 다음 해 최신 분기 누적
+    q, rc = None, None
+    if fy_year == y - 1:
+        for rc in ("11014", "11012", "11013"):
+            q = dart.fs_all(corp_code, y, rc, fs_div)
+            if q:
+                break
+    if not q:
+        flow = {k: _pick(fy, k, "thstrm_amount") for k in ("ni", "rev", "op")}
+        flow["da"] = _da(fy, "thstrm_amount")
+        basis = f"{fy_year} 연간"
+    else:
+        bs_src = q
+        flow = {}
+        for k in ("ni", "rev", "op"):
+            a, cur, prev = _pick(fy, k, "thstrm_amount"), _pick(q, k, "thstrm_add_amount"), \
+                _pick(q, k, "frmtrm_add_amount")
+            if cur is None:  # 일부 회사는 누적 칸을 비워둠(반기 등)
+                cur, prev = _pick(q, k, "thstrm_amount"), _pick(q, k, "frmtrm_amount")
+            flow[k] = (a + cur - prev) if None not in (a, cur, prev) else a
+        da_fy, da_cur, da_prev = _da(fy, "thstrm_amount"), _da(q, "thstrm_amount"), _da(q, "frmtrm_amount")
+        flow["da"] = (da_fy + da_cur - da_prev) if None not in (da_fy, da_cur, da_prev) else da_fy
+        basis = f"{y} {dict(zip(['11013', '11012', '11014'], ['1Q', '2Q', '3Q']))[rc]} LTM"
+    bs = {"eq": _pick(bs_src, "eq", "thstrm_amount"), "cash": _pick(bs_src, "cash", "thstrm_amount"),
+          "debt": _debt(bs_src)}
+    return {**flow, **bs, "basis": basis, "fs_div": fs_div}
 
 
 def multiples(mcap, f):
