@@ -1,825 +1,10 @@
 {
  "pipeline": [
   {
-   "name": "네오사피엔스",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "대신증권",
-   "first_filed": "2026-07-23",
-   "last_amended": "2026-09-07",
-   "forecast": [
-    "2026-09-02",
-    "2026-09-08"
-   ],
-   "subscription": [
-    "2026-09-10",
-    "2026-09-11"
-   ],
-   "payment": "2026-09-15",
-   "listing": "2026-09-21",
-   "ua_method": "PER",
-   "ua_multiple": 26.76,
-   "ua_value": 22539,
-   "discount": "29.90% ~ 38.77%",
-   "band": [
-    13800,
-    15800
-   ],
-   "final_price": 10000.0,
-   "competition": "219.56 : 1",
-   "shares_offered": 2000000,
-   "exp_mcap": "1,683억 ~ 1,927억",
-   "amount": "276억 ~ 316억",
-   "business": "대용량 데이터를 활용해 거대 생성형 AI모델을 학습시켜 고품질의 음성 품질과 발음 명료성을 확보,제어 기술",
-   "source": "excel",
-   "retail_competition": "1047.78:1",
-   "lock_ratio_38": 0.0898,
-   "first_close": 36900.0
-  },
-  {
-   "name": "빅웨이브로보틱스",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "유진투자증권",
-   "first_filed": "2026-05-04",
-   "last_amended": "2026-09-03",
-   "forecast": [
-    "2026-09-07",
-    "2026-09-11"
-   ],
-   "subscription": [
-    "2026-09-15",
-    "2026-09-16"
-   ],
-   "payment": "2026-09-18",
-   "listing": "2026-09-29",
-   "ua_method": "PSR",
-   "ua_multiple": 11.15,
-   "ua_value": 22526,
-   "discount": "20.11% ~ 33.42%",
-   "band": [
-    15000,
-    18000
-   ],
-   "final_price": 18000.0,
-   "competition": "1,109.37 : 1",
-   "shares_offered": 1600000,
-   "exp_mcap": "1,586억 ~ 1,903억",
-   "amount": "240억 ~ 288억",
-   "business": "로봇 매칭 데이터와 통합 관제 기술의 고도화를 통한 이기종로봇 간 초연결 제어 및 산업 인프라 연동 기슬",
-   "source": "excel",
-   "retail_competition": "1375.34:1",
-   "lock_ratio_38": 0.1814,
-   "first_close": 27050.0
-  },
-  {
-   "name": "한국스팩 17호",
-   "market": "코스닥",
-   "special": false,
-   "underwriter": "한국투자증권",
-   "first_filed": "2026-08-14",
-   "last_amended": "2026-08-28",
-   "forecast": [
-    "2026-09-07",
-    "2026-09-08"
-   ],
-   "subscription": [
-    "2026-09-10",
-    "2026-09-11"
-   ],
-   "payment": "2026-09-15",
-   "listing": "2026-09-22",
-   "ua_method": null,
-   "ua_multiple": null,
-   "ua_value": 2000,
-   "discount": null,
-   "band": [
-    2000,
-    2000
-   ],
-   "final_price": 2000.0,
-   "competition": "1,270.51 : 1",
-   "shares_offered": 7000000,
-   "exp_mcap": "203억",
-   "amount": "140억",
-   "business": null,
-   "source": "excel",
-   "retail_competition": "494.62:1",
-   "lock_ratio_38": null,
-   "first_close": 1937.0
-  },
-  {
-   "name": "덕산넵코어스",
-   "market": "코스닥",
-   "special": false,
-   "underwriter": "대신증권",
-   "first_filed": "2026-07-24",
-   "last_amended": "2026-08-27",
-   "forecast": [
-    "2026-09-08",
-    "2026-09-14"
-   ],
-   "subscription": [
-    "2026-09-16",
-    "2026-09-17"
-   ],
-   "payment": "2026-09-21",
-   "listing": "2026-09-30",
-   "ua_method": "PER",
-   "ua_multiple": 32.57,
-   "ua_value": 19564,
-   "discount": "25.36% ~ 36.61%",
-   "band": [
-    12400,
-    14600
-   ],
-   "final_price": 14600.0,
-   "competition": "868.64 : 1",
-   "shares_offered": 3000000,
-   "exp_mcap": "2,341억 ~ 2,756억",
-   "amount": "372억 ~ 438억",
-   "business": "국방 무기체계와 우주항공 플랫폼의 정밀 운용 및 임무 달성을 지원",
-   "source": "excel",
-   "retail_competition": "332.82:1",
-   "lock_ratio_38": 0.0405,
-   "first_close": 16830.0
-  },
-  {
-   "name": "브릴스",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "IBK증권",
-   "first_filed": "2026-07-13",
-   "last_amended": "2026-08-25",
-   "forecast": [
-    "2026-09-09",
-    "2026-09-15"
-   ],
-   "subscription": [
-    "2026-09-17",
-    "2026-09-18"
-   ],
-   "payment": "2026-09-21",
-   "listing": "2026-10-01",
-   "ua_method": "PSR",
-   "ua_multiple": 12.31,
-   "ua_value": 27837,
-   "discount": "29.95% ~ 40.73%",
-   "band": [
-    16500,
-    19500
-   ],
-   "final_price": 19500.0,
-   "competition": "1,187.74 : 1",
-   "shares_offered": 1200000,
-   "exp_mcap": "1,906억 ~ 2,253억",
-   "amount": "198억 ~ 234억",
-   "business": "로봇 모듈화 플랫폼기반 솔루션 기업(물류,제조,식품가공 등 다양한 산업군)",
-   "source": "excel",
-   "retail_competition": "1676.26:1",
-   "lock_ratio_38": 0.2175,
-   "first_close": 31350.0
-  },
-  {
-   "name": "멜콘",
-   "market": "코스닥",
-   "special": false,
-   "underwriter": "대신증권",
-   "first_filed": "2026-08-21",
-   "last_amended": null,
-   "forecast": [
-    "2026-09-16",
-    "2026-09-22"
-   ],
-   "subscription": [
-    "2026-10-01",
-    "2026-10-02"
-   ],
-   "payment": "2026-10-07",
-   "listing": "2026-10-15",
-   "ua_method": "PER",
-   "ua_multiple": 26.18,
-   "ua_value": 14173,
-   "discount": "13.21% ~ 24.50%",
-   "band": [
-    10700,
-    12300
-   ],
-   "final_price": 12300.0,
-   "competition": "1,136.84 : 1",
-   "shares_offered": 2500000,
-   "exp_mcap": "1345억 ~ 1546억",
-   "amount": "267억 ~ 307억",
-   "business": "초정밀 온도,습도 제어 장비. (주 납입처 : 반도체 전공정)",
-   "source": "excel",
-   "retail_competition": "1741.48:1",
-   "lock_ratio_38": 0.3607,
-   "first_close": 17180.0
-  },
-  {
-   "name": "진코스텍",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "하나증권",
-   "first_filed": "2026-08-27",
-   "last_amended": null,
-   "forecast": [
-    "2026-09-16",
-    "2026-09-22"
-   ],
-   "subscription": [
-    "2026-10-02",
-    "2026-10-06"
-   ],
-   "payment": "2026-10-08",
-   "listing": "2026-10-15",
-   "ua_method": "PER",
-   "ua_multiple": 17.61,
-   "ua_value": 24780,
-   "discount": "5.16% ~ 21.31%",
-   "band": [
-    19500,
-    23500
-   ],
-   "final_price": 23500.0,
-   "competition": "1,097.62 : 1",
-   "shares_offered": 852000,
-   "exp_mcap": "738억 ~ 889억",
-   "amount": "166억 ~ 200억",
-   "business": "화장품(마스크팩,아이패치, 스팟패치) 제조 판매 기업",
-   "source": "excel",
-   "retail_competition": "685:1",
-   "lock_ratio_38": 0.0529,
-   "first_close": 14450.0
-  },
-  {
-   "name": "엠비디",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "하나증권",
-   "first_filed": "2026-08-28",
-   "last_amended": "2026-10-15",
-   "forecast": [
-    "2026-09-21",
-    "2026-09-25"
-   ],
-   "subscription": [
-    "2026-11-12",
-    "2026-11-13"
-   ],
-   "payment": "2026-11-17",
-   "listing": "2026-11-24",
-   "ua_method": "PER",
-   "ua_multiple": 27.36,
-   "ua_value": 16.0,
-   "discount": "39.06% ~ 26.09%",
-   "band": [
-    9600,
-    11700
-   ],
-   "final_price": 7000.0,
-   "competition": "187.10 : 1",
-   "shares_offered": 2000000.0,
-   "exp_mcap": "293억 ~ 358억",
-   "amount": "188억 ~ 230억",
-   "business": "암환자 임상 데이터베이스를 바탕으로 정밀의료 및 신약 개발",
-   "source": "excel",
-   "lock_ratio_38": null,
-   "corp_code": "01705740",
-   "spac": false,
-   "rcept_no": "20261110000253",
-   "total_shares_after": 14322238,
-   "peers_ua": [
-    {
-     "name": "케이웨더",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 3.25
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 2024.0
-    },
-    {
-     "name": "엠디바이스",
-     "ua_multiple": 1.0
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 4.75
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "채비",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "매드업",
-     "ua_multiple": 2025.0
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "딜리셔스",
-     "ua_multiple": 0.5
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 0.75
-    },
-    {
-     "name": "나노엔텍",
-     "ua_multiple": 27.66
-    },
-    {
-     "name": "프로티아",
-     "ua_multiple": 12.52
-    }
-   ],
-   "retail_competition": "172:1",
-   "demand_stats": {
-    "am_lock_qty": null
-   },
-   "lock_by_period": {},
-   "float_lock": {
-    "1개월": 14342238.0,
-    "3개월": 14342238.0,
-    "6개월": 14342238.0
-   },
-   "demand_parsed": "20261110000261"
-  },
-  {
-   "name": "엘리스그룹",
-   "market": "코스닥",
-   "special": false,
-   "underwriter": "미래에셋증권",
-   "first_filed": "2026-08-21",
-   "last_amended": "2026-09-04",
-   "forecast": [
-    "2026-09-23",
-    "2026-10-01"
-   ],
-   "subscription": [
-    "2026-10-07",
-    "2026-10-08"
-   ],
-   "payment": "2026-10-13",
-   "listing": "2026-10-20",
-   "ua_method": "EV/EBITDA",
-   "ua_multiple": 27.13,
-   "ua_value": 106109,
-   "discount": "14.70% ~ 33.65%",
-   "band": [
-    70400,
-    90500
-   ],
-   "final_price": 90500.0,
-   "competition": "388.84 : 1",
-   "shares_offered": 2222000,
-   "exp_mcap": "1,821억 ~ 5,054억",
-   "amount": "1564억 ~ 2010억",
-   "business": "별도의 프로그램 설치 없는 클라우드 기반 교육 실습 플랫폼과 AI 모델 및 솔루션으로 산업별 AI전환 지원",
-   "source": "excel",
-   "retail_competition": "408:1",
-   "lock_ratio_38": 0.13699999999999998,
-   "first_close": 61000.0
-  },
-  {
-   "name": "래블업",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "NH투자증권",
-   "first_filed": "2026-08-25",
-   "last_amended": null,
-   "forecast": [
-    "2026-09-28",
-    "2026-10-02"
-   ],
-   "subscription": [
-    "2026-10-22",
-    "2026-10-23"
-   ],
-   "payment": "2026-10-15",
-   "listing": "2026-11-03",
-   "ua_method": "PER",
-   "ua_multiple": 33.6,
-   "ua_value": 30891,
-   "discount": "25.54% ~ 35.26%",
-   "band": [
-    20000,
-    23000
-   ],
-   "final_price": 19000.0,
-   "competition": "284.53 : 1",
-   "shares_offered": 2180000,
-   "exp_mcap": "2,908억 ~ 3,344억",
-   "amount": "436억 ~ 501억",
-   "business": "인공지능 기술의 확산에 필수적인 컴퓨팅 자원의 효율적 운영·관리 문제를 해결하는 소프트웨어를 개발·공급",
-   "source": "excel",
-   "retail_competition": "3.55:1",
-   "lock_ratio_38": 0.0209,
-   "first_close": 14170.0
-  },
-  {
-   "name": "티앤이코리아",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "신한투자증권",
-   "first_filed": "2026-09-03",
-   "last_amended": null,
-   "forecast": [
-    "2026-10-07",
-    "2026-10-14"
-   ],
-   "subscription": [
-    "2026-10-20",
-    "2026-10-21"
-   ],
-   "payment": "2026-10-23",
-   "listing": "2026-10-29",
-   "ua_method": "PER",
-   "ua_multiple": 19.48,
-   "ua_value": 21291,
-   "discount": "28.14% ~ 40.82%",
-   "band": [
-    12600,
-    15300
-   ],
-   "final_price": 15300.0,
-   "competition": "1,041.02 : 1",
-   "shares_offered": 2400000,
-   "exp_mcap": "1,431억 ~ 1,738억",
-   "amount": "302억 ~ 367억",
-   "business": null,
-   "source": "excel",
-   "retail_competition": "1253.39:1",
-   "lock_ratio_38": 0.2952,
-   "first_close": 21250.0
-  },
-  {
-   "name": "SK증권스팩 14호",
-   "market": "코스닥",
-   "special": false,
-   "underwriter": "SK증권",
-   "first_filed": "2026-08-26",
-   "last_amended": null,
-   "forecast": [
-    "2026-10-12",
-    "2026-10-13"
-   ],
-   "subscription": [
-    "2026-10-15",
-    "2026-10-16"
-   ],
-   "payment": "2026-10-19",
-   "listing": "2026-10-27",
-   "ua_method": null,
-   "ua_multiple": null,
-   "ua_value": 2000,
-   "discount": null,
-   "band": [
-    2000,
-    2000
-   ],
-   "final_price": 2000.0,
-   "competition": "1,228.38 : 1",
-   "shares_offered": 6500000,
-   "exp_mcap": "133억",
-   "amount": "130억",
-   "business": null,
-   "source": "excel",
-   "retail_competition": "656:1",
-   "lock_ratio_38": null,
-   "first_close": 1905.0
-  },
-  {
-   "name": "크리에이츠",
-   "market": "코스닥",
-   "special": true,
-   "underwriter": "삼성증권",
-   "first_filed": "2026-09-04",
-   "last_amended": null,
-   "forecast": [
-    "2026-10-12",
-    "2026-10-16"
-   ],
-   "subscription": [
-    "2026-10-20",
-    "2026-10-21"
-   ],
-   "payment": "2026-10-23",
-   "listing": "2026-10-30",
-   "ua_method": "PER",
-   "ua_multiple": 19.15,
-   "ua_value": 35278,
-   "discount": "48.98% ~ 57.48%",
-   "band": [
-    15000,
-    18000
-   ],
-   "final_price": 15000.0,
-   "competition": "240.46 : 1",
-   "shares_offered": 1400000,
-   "exp_mcap": "1,967억 ~ 2,361억",
-   "amount": "210억 ~ 252억",
-   "business": "골프 론치모니터(Launch Monitor)의 연구개발, 설계, 제조 및 판매와 이를 기반으로 한 연습 및 게임용 시뮬레이터 소프트웨어의 연구개발과 판매",
-   "source": "excel",
-   "retail_competition": "6.92:1",
-   "lock_ratio_38": null,
-   "first_close": 9470.0
-  },
-  {
    "name": "엔키화이트햇",
    "corp_code": "01795859",
    "spac": false,
-   "rcept_no": "20261103000358",
+   "rcept_no": "20261113000615",
    "first_filed": "2026-10-08",
    "last_amended": "2026-11-13",
    "subscription": [
@@ -834,461 +19,40 @@
     16500
    ],
    "ua_method": "PER",
-   "ua_multiple": 18.34,
-   "ua_value": -36.0,
-   "discount": "40.79% ~ 24.85%",
+   "ua_multiple": 24.86,
+   "ua_value": 21661.0,
+   "discount": "23.83% ~ 39.98%",
    "final_price": null,
    "total_shares_after": 10598414,
    "peers_ua": [
     {
-     "name": "티이엠씨",
-     "ua_multiple": 19.7
+     "name": "안랩",
+     "ua_multiple": 25.47
     },
     {
-     "name": "오브젠",
-     "ua_multiple": 22.2
+     "name": "라온시큐어",
+     "ua_multiple": 15.32
     },
     {
-     "name": "샌즈랩",
-     "ua_multiple": 14.1
+     "name": "지니언스",
+     "ua_multiple": 29.47
     },
     {
-     "name": "제이오",
-     "ua_multiple": 38.6
-    },
-    {
-     "name": "자람테크놀로지",
-     "ua_multiple": 26.2
-    },
-    {
-     "name": "지아이이노베이션",
-     "ua_multiple": 41.2
-    },
-    {
-     "name": "마이크로투나노",
-     "ua_multiple": 21.2
-    },
-    {
-     "name": "에스바이오메딕스",
-     "ua_multiple": 52.0
-    },
-    {
-     "name": "모니터랩",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "큐라티스",
-     "ua_multiple": 42.3
-    },
-    {
-     "name": "오픈놀",
-     "ua_multiple": 13.37
-    },
-    {
-     "name": "이노시뮬레이션",
-     "ua_multiple": 29.9
-    },
-    {
-     "name": "센서뷰",
-     "ua_multiple": 36.7
-    },
-    {
-     "name": "버넥트",
-     "ua_multiple": 21.9
-    },
-    {
-     "name": "파로스아이바이오",
-     "ua_multiple": 44.4
-    },
-    {
-     "name": "시지트로닉스",
-     "ua_multiple": 40.6
-    },
-    {
-     "name": "파두",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "큐리옥스바이오시스템즈",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "스마트레이더시스템",
-     "ua_multiple": 42.2
-    },
-    {
-     "name": "시큐레터",
-     "ua_multiple": 25.9
-    },
-    {
-     "name": "아이엠티",
-     "ua_multiple": 40.04
-    },
-    {
-     "name": "퀄리타스반도체",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "쏘닉스",
-     "ua_multiple": 24.55
-    },
-    {
-     "name": "큐로셀",
-     "ua_multiple": 21.18
-    },
-    {
-     "name": "그린리소스",
-     "ua_multiple": 20.2
-    },
-    {
-     "name": "에이텀",
-     "ua_multiple": 25.08
-    },
-    {
-     "name": "와이바이오로직스",
-     "ua_multiple": 35.81
-    },
-    {
-     "name": "케이웨더",
-     "ua_multiple": 14.08
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 16.65
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 31.37
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 12.93
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 16.81
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 24.77
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 40.31
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 13.39
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 15.02
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 10.54
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 32.6
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 34.53
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 17.15
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 25.03
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 11.73
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 23.9
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 27.92
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 23.45
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 25.45
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 41.32
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 21.36
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 17.97
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 25.22
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 14.51
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 11.15
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 15.18
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 24.44
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 45.4
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 32.81
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 26.96
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 38.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 65.27
-    },
-    {
-     "name": "엠디바이스",
-     "ua_multiple": 40.11
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 22.04
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 23.52
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 25.17
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 18.88
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 29.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 32.09
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 42.87
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 29.06
-    },
-    {
-     "name": "뉴엔AI",
-     "ua_multiple": 26.06
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 21.7
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 24.76
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 28.72
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 42.91
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 32.39
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 22.71
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 25.51
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 28.99
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 21.95
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 28.95
-    },
-    {
-     "name": "테라뷰",
-     "ua_multiple": 33.7
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 25.57
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 17.36
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 19.27
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 23.63
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 30.69
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 26.49
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 27.13
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 54.4
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 21.91
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 21.39
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 35.21
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 22.55
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 32.63
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 36.6
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 43.79
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 28.45
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 22.85
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 35.53
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 35.24
+     "name": "Qualys",
+     "ua_multiple": 39.78
     }
    ],
-   "market": null,
+   "market": "코스닥",
    "special": true,
-   "business": "3. 자본금 변동사항 - 기재사항 정정 (주50) (주50) II. 사업의 내용 2…",
-   "source": "dart"
+   "business": "당사는 공격형(오펜시브) 보안 기술을 기반으로 사이버 위협 대응 솔루션을 개발, 공급하는 정보보안 전문기업입니다",
+   "source": "dart",
+   "ua_base": 9901000000.0,
+   "ua_shares": 11361312.0,
+   "forecast": [
+    "2026-11-20",
+    "2026-11-26"
+   ],
+   "parser_v": 2
   },
   {
    "name": "아델",
@@ -1310,333 +74,36 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 20.91,
-   "ua_value": 21661389.0,
-   "discount": "40.81% ~ 17.79%",
+   "ua_value": 30410.0,
+   "discount": "17.79% ~ 40.81%",
    "final_price": 18034,
    "total_shares_after": 21661389,
    "peers_ua": [
     {
-     "name": "케이웨더",
-     "ua_multiple": 14.08
+     "name": "유한양행",
+     "ua_multiple": 22.6
     },
     {
-     "name": "코셈",
-     "ua_multiple": 16.65
+     "name": "한미약품",
+     "ua_multiple": 28.96
     },
     {
-     "name": "케이엔알시스템",
-     "ua_multiple": 31.37
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 12.93
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 16.81
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 24.77
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 40.31
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 13.62
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 15.0
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 10.54
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 32.6
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 34.53
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 17.0
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 25.0
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 11.72
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 24.4
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 23.9
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 27.93
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 22.85
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 23.45
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 25.45
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 41.32
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 21.36
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 17.97
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 25.22
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 14.51
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "쓰리빌리언",
+     "name": "종근당",
      "ua_multiple": 11.15
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 15.18
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 24.44
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 45.4
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 32.81
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 26.96
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 38.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 65.27
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 18.88
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 32.09
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 42.87
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 29.06
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 21.59
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 24.76
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 28.72
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 42.91
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 32.39
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 24.05
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 22.7
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 25.55
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 24.57
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 21.95
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 29.0
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 25.57
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 17.36
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 19.27
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 23.63
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 30.69
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 26.49
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 27.13
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 37.59
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 21.91
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 30.56
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 21.39
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 22.55
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 20.28
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 32.63
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 36.6
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 43.79
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 28.45
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 22.85
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 35.53
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 35.24
-    },
-    {
-     "name": "네오사피엔스",
-     "ua_multiple": 29.9
     }
    ],
    "market": "코스닥",
    "special": true,
-   "business": "1. 회사의 개요 가. 연결대상 종속회사 개황 당사는 증권신고서 제출일 현재 해당사항이 없습니…",
+   "business": "당사는 PSF를 선택적으로 표적함으로써 정상 단백질에 대한 영향을 최소화하는 개발 전략을 취하고 있으며, ADEL-Y01의 acK280(번역 후 변형 기반 PSF), ADEL-Y04의 ApoE4(유전자 동형체 기반 PSF), ADEL-Y03의 유리형 β2m(구조적 해리 기반 PSF)이 이에 해당합니다",
    "source": "dart",
-   "listing": "2026-12-02"
+   "listing": "2026-12-02",
+   "ua_base": 32962000000.0,
+   "ua_shares": 22660089.0,
+   "forecast": [
+    "2026-11-12",
+    "2026-11-18"
+   ],
+   "parser_v": 2
   },
   {
    "name": "에이엘로봇",
@@ -1658,19 +125,47 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 37.17,
-   "ua_value": -14.0,
-   "discount": "32.06% ~ 23.84%",
-   "final_price": 17600.0,
+   "ua_value": 23076.0,
+   "discount": "23.73% ~ 31.96%",
+   "final_price": 17600,
    "total_shares_after": 12048564,
-   "peers_ua": [],
+   "peers_ua": [
+    {
+     "name": "고영",
+     "ua_multiple": 39.43
+    },
+    {
+     "name": "큐렉소",
+     "ua_multiple": 61.01
+    },
+    {
+     "name": "씨피시스템",
+     "ua_multiple": 35.36
+    },
+    {
+     "name": "아진엑스텍",
+     "ua_multiple": 23.28
+    },
+    {
+     "name": "라온로보틱스",
+     "ua_multiple": 26.78
+    }
+   ],
    "market": "코스닥",
    "special": true,
-   "business": null,
+   "business": "당사는 “인간의 감각을 모방하는 메카트로닉스 전문기업”을 목표하고 있으며 힘/토크센서 기술과 제어 기술을 기반으로 글로벌 로봇 업계가 요구하는 고성능, 고신뢰성을 충족하는 다양한 제품을 개발, 공급하고 있습니다",
    "source": "dart",
    "retail_competition": "834.73:1",
    "competition": "871.74 : 1",
    "lock_ratio_38": 0.0113,
-   "listing": "2026-11-18"
+   "listing": "2026-11-18",
+   "ua_base": 7751000000.0,
+   "ua_shares": 12485444.0,
+   "forecast": [
+    "2026-10-28",
+    "2026-11-03"
+   ],
+   "parser_v": 2
   },
   {
    "name": "SimwonAmericaCorp.",
@@ -1717,7 +212,8 @@
    "market": "코스닥",
    "special": null,
    "business": "1. 회사의 개요 가. 회사의 법적, 상업적 명칭 당사는 미국에 설립된 법인으로 영문 명칭은 \"Simwon America Corp…",
-   "source": "dart"
+   "source": "dart",
+   "parser_v": 2
   },
   {
    "name": "다비오",
@@ -1739,440 +235,35 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 30.87,
-   "ua_value": 8547071.0,
-   "discount": "33.74% ~ 10.57%",
+   "ua_value": 18563.0,
+   "discount": "10.57% ~ 33.74%",
    "final_price": 369000000,
    "total_shares_after": null,
    "peers_ua": [
     {
-     "name": "티이엠씨",
+     "name": "비아이매트릭스",
+     "ua_multiple": 52.74
+    },
+    {
+     "name": "슈어소프트테크",
      "ua_multiple": 19.7
     },
     {
-     "name": "오브젠",
-     "ua_multiple": 22.2
-    },
-    {
-     "name": "샌즈랩",
-     "ua_multiple": 14.1
-    },
-    {
-     "name": "제이오",
-     "ua_multiple": 38.6
-    },
-    {
-     "name": "자람테크놀로지",
-     "ua_multiple": 26.2
-    },
-    {
-     "name": "지아이이노베이션",
-     "ua_multiple": 41.2
-    },
-    {
-     "name": "마이크로투나노",
-     "ua_multiple": 21.2
-    },
-    {
-     "name": "에스바이오메딕스",
-     "ua_multiple": 52.0
-    },
-    {
-     "name": "모니터랩",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "큐라티스",
-     "ua_multiple": 42.3
-    },
-    {
-     "name": "오픈놀",
-     "ua_multiple": 13.37
-    },
-    {
-     "name": "이노시뮬레이션",
-     "ua_multiple": 29.9
-    },
-    {
-     "name": "센서뷰",
-     "ua_multiple": 36.7
-    },
-    {
-     "name": "버넥트",
-     "ua_multiple": 21.9
-    },
-    {
-     "name": "파로스아이바이오",
-     "ua_multiple": 44.4
-    },
-    {
-     "name": "시지트로닉스",
-     "ua_multiple": 40.6
-    },
-    {
-     "name": "파두",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "큐리옥스바이오시스템즈",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "스마트레이더시스템",
-     "ua_multiple": 42.2
-    },
-    {
-     "name": "시큐레터",
-     "ua_multiple": 25.9
-    },
-    {
-     "name": "아이엠티",
-     "ua_multiple": 40.04
-    },
-    {
-     "name": "퀄리타스반도체",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "쏘닉스",
-     "ua_multiple": 24.55
-    },
-    {
-     "name": "큐로셀",
-     "ua_multiple": 21.18
-    },
-    {
-     "name": "그린리소스",
-     "ua_multiple": 20.2
-    },
-    {
-     "name": "에이텀",
-     "ua_multiple": 25.08
-    },
-    {
-     "name": "와이바이오로직스",
-     "ua_multiple": 35.81
-    },
-    {
-     "name": "케이웨더",
-     "ua_multiple": 14.08
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 16.65
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 31.37
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 12.93
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 16.81
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 24.77
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 40.31
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 13.39
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 15.02
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 10.54
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 32.6
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 34.53
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 17.15
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 25.03
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 11.73
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 23.9
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 27.92
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 23.45
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 25.45
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 41.32
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 21.36
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 17.97
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 25.22
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 14.51
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 11.15
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 15.18
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 24.44
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 45.4
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 32.81
-    },
-    {
      "name": "와이즈넛",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 26.96
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 38.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 65.27
-    },
-    {
-     "name": "엠디바이스",
-     "ua_multiple": 40.11
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 22.04
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 23.52
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 25.17
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 18.88
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 29.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 32.09
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 42.87
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 29.06
-    },
-    {
-     "name": "뉴엔AI",
-     "ua_multiple": 26.06
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 21.7
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 24.76
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 28.72
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 42.91
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 32.39
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 22.71
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 25.51
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 28.99
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 21.95
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 28.95
-    },
-    {
-     "name": "테라뷰",
-     "ua_multiple": 33.7
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 25.57
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 17.36
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 19.27
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 23.63
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 30.69
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 26.49
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 27.13
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 54.4
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 21.91
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 21.39
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 35.21
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 22.55
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 32.63
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 36.6
+     "ua_multiple": 20.18
     }
    ],
    "market": "코스닥",
    "special": true,
-   "business": "\"공간정보를 생산, 관리, 가공, 유통, 활용하거나 다른 정보기술과 융합해 시스템을 구축하고 관련 서비스를 제공\"[매출 비중] [공간정보 데이터 처리 사업 영위]공간정보 SM 25…",
-   "source": "dart"
+   "business": "동사는 DID 하드웨어 구입비를 과거 DID 구축 사업의 하드웨어 반영 실적을 기준으로 추정에 반영하였습니다.(2) GPU 서버 등 하드웨어동사의 주된 사업은 소프트웨어 및 AI 모델의 개발과 공급이며, 이에 따라 동사가 AI 사업과 관련하여 제출하는 견적서에는 소프트웨어 및 AI 모델과 관련된 금액만을 반영하고 있습니다",
+   "source": "dart",
+   "ua_base": 5456000000.0,
+   "ua_shares": 9071821.0,
+   "forecast": [
+    "2026-11-30",
+    "2026-12-04"
+   ],
+   "parser_v": 2
   },
   {
    "name": "영광와이케이엠씨",
@@ -2192,438 +283,53 @@
     9400,
     11000
    ],
-   "ua_method": null,
-   "ua_multiple": null,
+   "ua_method": "PER",
+   "ua_multiple": 22.91,
    "ua_value": 15254.0,
    "discount": "27.89% ~ 38.38%",
-   "final_price": 11000.0,
+   "final_price": 11000,
    "total_shares_after": 14459531,
    "peers_ua": [
     {
-     "name": "기도산업",
-     "ua_multiple": 25.74
+     "name": "한솔아이원스",
+     "ua_multiple": 17.37
     },
     {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 20.14
+     "name": "원익QnC",
+     "ua_multiple": 14.47
     },
     {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.66
+     "name": "코미코",
+     "ua_multiple": 43.55
     },
     {
-     "name": "폴레드",
-     "ua_multiple": 19.07
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.26
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.77
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.73
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.21
-    },
-    {
-     "name": "아로마티카",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.56
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.44
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.86
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.53
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.24
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.05
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.74
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.46
-    },
-    {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.79
-    },
-    {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.12
-    },
-    {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.87
-    },
-    {
-     "name": "에이유브랜즈",
-     "ua_multiple": 8.79
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.41
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.49
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.46
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.11
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.73
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 16.98
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.78
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 23.97
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.75
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.18
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 30.99
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.77
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 27.98
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.48
-    },
-    {
-     "name": "닷밀",
-     "ua_multiple": 20.91
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.41
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.85
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.03
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.37
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.89
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.37
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.05
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.41
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.63
-    },
-    {
-     "name": "티디에스팜",
-     "ua_multiple": 11.86
-    },
-    {
-     "name": "유라클",
-     "ua_multiple": 22.74
-    },
-    {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.11
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.45
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.09
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.89
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.61
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.93
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.23
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.62
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.37
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 21.53
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 21.96
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.68
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.54
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.55
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 19.96
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 30.96
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.82
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.55
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.43
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.54
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 28.58
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.43
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.01
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.69
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.69
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.73
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.32
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.52
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.41
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 39.0
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.47
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.35
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.77
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.41
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.21
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.64
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.18
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.74
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.73
-    },
-    {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
+     "name": "하나머티리얼즈",
+     "ua_multiple": 16.24
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": null,
+   "special": false,
+   "business": "당사는 표면처리 기술을 기반으로 사업을 영위해 왔으며, 반도체 및 디스플레이 산업의 발전과 함께 관련 제조장비용 핵심부품 분야로 사업영역을 지속적으로 확장해 왔습니다",
    "source": "dart",
    "retail_competition": "1342.66:1",
    "competition": "1,163.35 : 1",
    "lock_ratio_38": 0.0721,
-   "listing": "2026-11-16"
+   "listing": "2026-11-16",
+   "ua_base": 9974000000.0,
+   "ua_shares": 14979531.0,
+   "forecast": [
+    "2026-10-27",
+    "2026-11-02"
+   ],
+   "parser_v": 2
   },
   {
    "name": "제논",
    "corp_code": "01950720",
    "spac": false,
-   "rcept_no": "20261026000001",
+   "rcept_no": "20261113001531",
    "first_filed": "2026-10-07",
-   "last_amended": "2026-10-26",
+   "last_amended": "2026-11-13",
    "subscription": [
     "2026-11-24",
     "2026-11-25"
@@ -2811,10 +517,15 @@
      "ua_multiple": 29.18
     }
    ],
-   "market": null,
-   "special": null,
-   "business": "가. 직전 정기보고서 제출 이후 현재까지 발생한 회사의 주된 변동내용 확인 나…",
-   "source": "dart"
+   "market": "코스닥",
+   "special": false,
+   "business": "당사는 2017년 11월 설립되어 기업 및 기관(B2B) 고객을 대상으로 생성형 인공지능(AI)의 도입ㆍ운영ㆍ확장에 필요한 통합 플랫폼인 \"GenOS\"를 자체 개발ㆍ공급하는 기업용 생성형 AI 플랫폼 전문 기업입니다.당사가 영위하는 사업은 2022년 11월 OpenAI사의 ChatGPT 공개를 기점으로 개화된 생성형 AI 패러다임 전환의 흐름과 밀접하게 맞…",
+   "source": "dart",
+   "forecast": [
+    "2026-11-16",
+    "2026-11-20"
+   ],
+   "parser_v": 2
   },
   {
    "name": "케이엠에프",
@@ -2836,60 +547,35 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 18.53,
-   "ua_value": 8483285.0,
-   "discount": "46.94% ~ 37.04%",
+   "ua_value": 28271.0,
+   "discount": "37.04% ~ 46.94%",
    "final_price": 15000,
    "total_shares_after": 8513285,
    "peers_ua": [
     {
-     "name": "에스앤디",
-     "ua_multiple": 161579176686.0
-    },
-    {
-     "name": "노바렉스",
-     "ua_multiple": 184373964800.0
-    },
-    {
-     "name": "네오크레마",
-     "ua_multiple": 29280867746.0
-    },
-    {
-     "name": "에이치피오",
-     "ua_multiple": 86922766980.0
-    },
-    {
      "name": "셀로맥스사이언스",
-     "ua_multiple": 45437573580.0
-    },
-    {
-     "name": "현대바이오랜드",
-     "ua_multiple": 118320000000.0
+     "ua_multiple": 14.81
     },
     {
      "name": "아미노로직스",
-     "ua_multiple": 90925556175.0
-    },
-    {
-     "name": "대봉엘에스",
-     "ua_multiple": 81818953020.0
-    },
-    {
-     "name": "케어젠",
-     "ua_multiple": 2154508650000.0
+     "ua_multiple": 28.78
     },
     {
      "name": "바이오에프디엔씨",
-     "ua_multiple": 76885110956.0
-    },
-    {
-     "name": "쎌바이오텍",
-     "ua_multiple": 140248000000.0
+     "ua_multiple": 12.0
     }
    ],
-   "market": null,
-   "special": null,
-   "business": "가. 직전 정기보고서 제출 이후 현재까지 발생한 회사의 주된 변동내용 확인 나…",
-   "source": "dart"
+   "market": "코스닥",
+   "special": false,
+   "business": "당사는 발효공학을 기반으로 기능성 소재를 개발·생산하는 기업으로, TDS(Target Delivery System) 기술을 중심으로 바이오 소재 및 기능성 식품 원료의 연구부터 생산, 제형화 및 제품화까지 일괄 수행하는 One-Stop 소재화 역량을 보유하고 있습니다",
+   "source": "dart",
+   "ua_base": 13018901267.0,
+   "ua_shares": 8533285.0,
+   "forecast": [
+    "2026-11-16",
+    "2026-11-20"
+   ],
+   "parser_v": 2
   },
   {
    "name": "옵토닉스",
@@ -2909,434 +595,41 @@
     10000,
     12000
    ],
-   "ua_method": null,
-   "ua_multiple": null,
-   "ua_value": 1.0,
-   "discount": "31.00% ~ 17.80%",
-   "final_price": 12000.0,
-   "total_shares_after": null,
+   "ua_method": "EV/EBITDA",
+   "ua_multiple": 25.27,
+   "ua_value": 14615.0,
+   "discount": "17.80% ~ 31.00%",
+   "final_price": 12000,
+   "total_shares_after": 9566000,
    "peers_ua": [
     {
-     "name": "기도산업",
-     "ua_multiple": 21.65
+     "name": "LIG디펜스앤에어로스페이스",
+     "ua_multiple": 30.5
     },
     {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 20.1
+     "name": "파이버프로",
+     "ua_multiple": 25.35
     },
     {
-     "name": "매드업",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.66
-    },
-    {
-     "name": "폴레드",
-     "ua_multiple": 19.07
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.26
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.77
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.73
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.21
-    },
-    {
-     "name": "아로마티카",
+     "name": "그린광학",
      "ua_multiple": 19.95
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.56
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.44
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.86
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.53
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.24
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.05
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.74
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.46
-    },
-    {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.79
-    },
-    {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.12
-    },
-    {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.87
-    },
-    {
-     "name": "에이유브랜즈",
-     "ua_multiple": 8.79
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.41
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.49
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.46
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.11
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.73
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 16.98
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.78
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 23.97
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.75
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.18
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 30.99
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.77
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 27.98
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.48
-    },
-    {
-     "name": "닷밀",
-     "ua_multiple": 20.91
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.41
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.85
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.03
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.37
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.89
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.37
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.05
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.41
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.63
-    },
-    {
-     "name": "티디에스팜",
-     "ua_multiple": 11.86
-    },
-    {
-     "name": "유라클",
-     "ua_multiple": 22.74
-    },
-    {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.11
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.45
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.09
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.89
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.61
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.93
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.23
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.62
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.37
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 21.53
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 21.96
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.68
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.54
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.55
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 19.96
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 30.96
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.82
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.55
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.43
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.54
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 28.58
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.43
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.01
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.69
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.69
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.73
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.32
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.52
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.41
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 39.0
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.47
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.35
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.77
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.41
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.21
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.64
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.18
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.74
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.73
-    },
-    {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": null,
+   "special": false,
+   "business": "당사는 “광학식 자이로스코프”인 RLG (Ring Laser Gyroscope)와 FOG (Fiber Optic Gyroscope)의 핵심 광학 구성품을 제조해서 한화에어로스페이스에 공급하는 일을 주업으로 하고 있습니다",
    "source": "dart",
    "retail_competition": "1343.32:1",
    "competition": "1,201.81 : 1",
    "lock_ratio_38": 0.0562,
-   "listing": "2026-11-17"
+   "listing": "2026-11-17",
+   "ua_base": 5276000000.0,
+   "ua_shares": 9566000.0,
+   "forecast": [
+    "2026-10-21",
+    "2026-10-27"
+   ],
+   "parser_v": 2
   },
   {
    "name": "하나에어로다이내믹스",
@@ -3356,434 +649,37 @@
     4700,
     5700
    ],
-   "ua_method": null,
-   "ua_multiple": null,
-   "ua_value": 1.0,
+   "ua_method": "EV/EBITDA",
+   "ua_multiple": 17.89,
+   "ua_value": 6950.0,
    "discount": "17.99% ~ 32.37%",
    "final_price": 5700.0,
-   "total_shares_after": null,
+   "total_shares_after": 15302385,
    "peers_ua": [
     {
-     "name": "기도산업",
-     "ua_multiple": 21.65
+     "name": "한화에어로스페이스",
+     "ua_multiple": 15.5
     },
     {
-     "name": "딜리셔스",
-     "ua_multiple": 23.08
-    },
-    {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.66
-    },
-    {
-     "name": "폴레드",
-     "ua_multiple": 19.07
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.26
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.77
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.73
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.21
-    },
-    {
-     "name": "아로마티카",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.56
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.44
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.86
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.53
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.24
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.05
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.74
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.46
-    },
-    {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.79
-    },
-    {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.12
-    },
-    {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.87
-    },
-    {
-     "name": "에이유브랜즈",
-     "ua_multiple": 8.79
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.41
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.49
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.46
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.11
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.73
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 16.98
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.78
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 23.97
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.75
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.18
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 30.99
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.77
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 27.98
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.48
-    },
-    {
-     "name": "닷밀",
-     "ua_multiple": 20.91
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.41
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.85
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.03
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.37
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.89
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.37
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.05
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.41
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.63
-    },
-    {
-     "name": "티디에스팜",
-     "ua_multiple": 11.86
-    },
-    {
-     "name": "유라클",
-     "ua_multiple": 22.74
-    },
-    {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.11
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.45
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.09
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.89
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.61
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.93
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.23
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.62
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.37
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 21.53
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 21.96
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.68
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.54
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.55
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 19.96
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 30.96
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.82
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.55
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.43
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.54
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 28.58
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.43
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.01
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.69
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.69
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.73
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.32
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.52
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.41
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 39.0
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.47
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.35
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.77
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.41
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.21
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.64
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.18
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.74
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.73
-    },
-    {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
+     "name": "신화프리텍",
+     "ua_multiple": 20.3
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": null,
+   "special": false,
+   "business": "당사는 항공기 치공구 및 부품 제조와 동체 조립 사업을 영위하고 있으며, 해외 고객사와의 거래 확대를 통해 매출처를 다변화하고자 합니다",
    "source": "dart",
    "retail_competition": "1851.14:1",
    "competition": "1,051.38 : 1",
    "lock_ratio_38": 0.0416,
-   "listing": "2026-11-20"
+   "listing": "2026-11-20",
+   "ua_base": 6942000000.0,
+   "ua_shares": 17729964.0,
+   "forecast": [
+    "2026-11-02",
+    "2026-11-06"
+   ],
+   "parser_v": 2
   },
   {
    "name": "유캐스트",
@@ -3800,222 +696,45 @@
    "shares_offered": 800000.0,
    "underwriter": "유진증권",
    "band": [
-    21000,
-    26000
+    19000,
+    23000
    ],
    "ua_method": "PER",
    "ua_multiple": 17.97,
-   "ua_value": 35522.0,
-   "discount": "40.88% ~ 26.81%",
+   "ua_value": 31286.0,
+   "discount": "26.48% ~ 39.27%",
    "final_price": null,
    "total_shares_after": 5888910,
    "peers_ua": [
     {
-     "name": "와이즈넛",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 2024.0
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "뉴엔AI",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 4.5
+     "name": "알에프에이치아이씨",
+     "ua_multiple": 37.65
     },
     {
      "name": "쏠리드",
-     "ua_multiple": 15.7
+     "ua_multiple": 9.66
+    },
+    {
+     "name": "인텔리안테크놀로지스",
+     "ua_multiple": 15.42
     },
     {
      "name": "와이어블",
-     "ua_multiple": 13.2
+     "ua_multiple": 9.16
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": "1. 회사의 개요 가. 연결대상 종속회사 현황 (기준일: 증권신고서 제출일 현재) (단위: 사) 구분 연결대상회사수 주요 기초 증가 감소 기말 종속회사수 상장 - - - - - 비상장 1 - - 1 1 합계 1 - - 1 1 ※ 상세현황은 XI…",
+   "special": false,
+   "business": "당사는 이동통신 기지국 및 코어 네트워크 장비의 하드웨어와 소프트웨어 설계, 개발부터 완제품 조립 및 통합 유지보수에 이르는 전 과정을 자체 원천기술을 기반으로 일괄 수행하는 이동통신 장비 전문 제조기업입니다",
    "source": "dart",
-   "listing": "2026-11-30"
+   "listing": "2026-11-30",
+   "ua_base": 10401000000.0,
+   "ua_shares": 5973910.0,
+   "forecast": [
+    "2026-11-09",
+    "2026-11-13"
+   ],
+   "parser_v": 2
   },
   {
    "name": "태석광학",
@@ -4037,444 +756,39 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 19.49,
-   "ua_value": 2023.0,
-   "discount": "20.68% ~ 8.44%",
+   "ua_value": 22061.0,
+   "discount": "8.44% ~ 20.68%",
    "final_price": null,
    "total_shares_after": 8321118,
    "peers_ua": [
     {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.73
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.74
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.18
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.64
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.21
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.41
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.77
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.35
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.47
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 39.0
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.41
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.52
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.32
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.73
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.69
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.69
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.01
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.43
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 28.58
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.54
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.43
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.55
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.82
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 19.96
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 30.96
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.55
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.54
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.68
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 21.96
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 21.53
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.37
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.62
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.23
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.93
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.61
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.89
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.09
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.45
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.11
-    },
-    {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "유라클",
-     "ua_multiple": 22.74
-    },
-    {
-     "name": "티디에스팜",
-     "ua_multiple": 11.86
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.63
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.41
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.37
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.05
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.89
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.37
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.03
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.41
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.85
-    },
-    {
-     "name": "닷밀",
-     "ua_multiple": 20.91
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.48
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 27.98
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.77
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 30.99
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.18
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.75
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 23.97
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.78
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 16.98
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.73
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.11
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.49
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.46
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.41
-    },
-    {
      "name": "에이유브랜즈",
-     "ua_multiple": 8.79
+     "ua_multiple": 14.5
     },
     {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.87
+     "name": "EssilorLuxottica",
+     "ua_multiple": 30.21
     },
     {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.12
+     "name": "FielmannGroup",
+     "ua_multiple": 15.61
     },
     {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.79
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.46
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.74
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.05
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.24
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.53
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.86
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.44
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.56
-    },
-    {
-     "name": "아로마티카",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.21
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.73
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.77
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.26
-    },
-    {
-     "name": "폴레드",
-     "ua_multiple": 19.07
-    },
-    {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.66
-    },
-    {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 20.14
-    },
-    {
-     "name": "기도산업",
-     "ua_multiple": 21.65
-    },
-    {
-     "name": "와이즈플래닛컴퍼니",
-     "ua_multiple": 48.5
-    },
-    {
-     "name": "브릴스",
-     "ua_multiple": 29.95
-    },
-    {
-     "name": "멜콘",
-     "ua_multiple": 13.21
-    },
-    {
-     "name": "진코스텍",
-     "ua_multiple": 5.16
-    },
-    {
-     "name": "엠에스바이오",
-     "ua_multiple": 16.55
+     "name": "JINSHoldings",
+     "ua_multiple": 17.65
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": "가. 직전 정기보고서 제출 이후 현재까지 발생한 회사의 주된 변동내용 확인 나…",
-   "source": "dart"
+   "special": false,
+   "business": "당사는 시장조사·상품기획부터 디자인, 제조·생산, 품질관리 및 유통에 이르는 End-to-End 밸류체인을 구축하고, 국내외 제조공장 및 전용 생산라인과의 협력체계를 기반으로 안정적인 공급능력과 원가 경쟁력을 확보하고 있습니다",
+   "source": "dart",
+   "ua_base": 9418000000.0,
+   "ua_shares": 8321118.0,
+   "forecast": [
+    "2026-12-03",
+    "2026-12-09"
+   ],
+   "parser_v": 2
   },
   {
    "name": "KTE",
@@ -4496,15 +810,39 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 16.4,
-   "ua_value": 1979.0,
+   "ua_value": 28192.0,
    "discount": "18.42% ~ 32.60%",
    "final_price": 19000,
    "total_shares_after": null,
-   "peers_ua": [],
-   "market": null,
-   "special": null,
+   "peers_ua": [
+    {
+     "name": "HD현대일렉트릭",
+     "ua_multiple": 21.14
+    },
+    {
+     "name": "에스엔시스",
+     "ua_multiple": 11.22
+    },
+    {
+     "name": "대양전기공업",
+     "ua_multiple": 5.28
+    },
+    {
+     "name": "HD현대마린솔루션",
+     "ua_multiple": 27.95
+    }
+   ],
+   "market": "코스닥",
+   "special": false,
    "business": "3. 자본금 변동사항 - 가. 자본금 변동사항 - 기재사항 정정 (주42) (주42) 5…",
-   "source": "dart"
+   "source": "dart",
+   "ua_base": 19371000000.0,
+   "ua_shares": 11268631.0,
+   "forecast": [
+    "2026-12-02",
+    "2026-12-08"
+   ],
+   "parser_v": 2
   },
   {
    "name": "씨아이에스케미칼",
@@ -4526,384 +864,35 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 24.06,
-   "ua_value": 30916595.0,
-   "discount": "45.79% ~ 31.74%",
+   "ua_value": 9962.0,
+   "discount": "31.74% ~ 45.79%",
    "final_price": null,
    "total_shares_after": 30916595,
    "peers_ua": [
     {
-     "name": "케이웨더",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 0.75
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 3.25
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 2024.0
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "뉴엔AI",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 4.75
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "테라뷰",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 0.75
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "네오사피엔스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "빅웨이브로보틱스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "글로벌테크놀로지",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "덕산넵코어스",
-     "ua_multiple": 2.5
-    },
-    {
      "name": "나노신소재",
-     "ua_multiple": 36.5
+     "ua_multiple": 48.18
     },
     {
      "name": "신흥에스이씨",
-     "ua_multiple": 11.9
+     "ua_multiple": 12.01
     },
     {
      "name": "성우",
-     "ua_multiple": 20.3
-    },
-    {
-     "name": "나노신소재",
-     "ua_multiple": 34.5
-    },
-    {
-     "name": "신흥에스이씨",
-     "ua_multiple": 12.1
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 27.5
+     "ua_multiple": 11.98
     }
    ],
-   "market": null,
+   "market": "코스닥",
    "special": true,
-   "business": "3. 자본금 변동사항 - 가. 자본금 변동 현황 - 기재사항 정정 (주27) (주27) II…",
-   "source": "dart"
+   "business": "당사는 광물 및 재활용 원료의 회수·정제와 소재 가공 기술을 기반으로 이차전지·반도체 등 첨단산업용 소재를 생산하는 소재 전문기업입니다",
+   "source": "dart",
+   "ua_base": 13296000000.0,
+   "ua_shares": 32109595.0,
+   "forecast": [
+    "2026-11-30",
+    "2026-12-04"
+   ],
+   "parser_v": 2
   },
   {
    "name": "인터엑스",
@@ -4925,368 +914,35 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 18.99,
-   "ua_value": 23.0,
-   "discount": "38.70% ~ 20.31%",
+   "ua_value": 15648.0,
+   "discount": "16.92% ~ 36.09%",
    "final_price": null,
    "total_shares_after": null,
    "peers_ua": [
     {
-     "name": "케이웨더",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 3.25
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 2024.0
-    },
-    {
-     "name": "엠디바이스",
-     "ua_multiple": 1.0
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 0.75
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "네오사피엔스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "글로벌테크놀로지",
-     "ua_multiple": 3.5
-    },
-    {
      "name": "엠아이큐브솔루션",
-     "ua_multiple": 25.4
+     "ua_multiple": 19.31
     },
     {
      "name": "슈어소프트테크",
-     "ua_multiple": 35.3
+     "ua_multiple": 18.87
     },
     {
      "name": "와이즈넛",
-     "ua_multiple": 24.8
+     "ua_multiple": 18.79
     }
    ],
    "market": "코스닥",
    "special": true,
-   "business": "3. 자본금 변동사항 - 가. 자본금 변동추이 아니오 기재사항 정정 (주32) 정정 전 (주32) 정정 후 II…",
-   "source": "dart"
+   "business": "당사는 제조 AX 솔루션 공급사를 넘어, 인간의 개입이 완벽하게 제로화되는 ‘다크 팩토리(Dark Factory) 통합 아키텍처 설계자’이자 글로벌 공급망을 데이터로 연결하는 ‘제조 데이터스페이스(Dataspace) 플랫폼 기업’입니다",
+   "source": "dart",
+   "ua_base": 12153000000.0,
+   "ua_shares": 14748955.0,
+   "forecast": [
+    "2026-11-30",
+    "2026-12-04"
+   ],
+   "parser_v": 2
   },
   {
    "name": "신영해피투모로우제12호기업인수목적",
@@ -5323,15 +979,11 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 15.2,
-   "ua_value": 14840032.0,
-   "discount": null,
+   "ua_value": 19785.0,
+   "discount": "26.71% ~ 44.40%",
    "final_price": null,
    "total_shares_after": 500000,
    "peers_ua": [
-    {
-     "name": "부광약품",
-     "ua_multiple": 41.79
-    },
     {
      "name": "동아에스티",
      "ua_multiple": 38.65
@@ -5353,26 +1005,25 @@
      "ua_multiple": 8.48
     },
     {
-     "name": "하나제약",
-     "ua_multiple": 2026.07
-    },
-    {
      "name": "명인제약",
      "ua_multiple": 6.58
     },
     {
      "name": "보령",
      "ua_multiple": 5.92
-    },
-    {
-     "name": "안국약품",
-     "ua_multiple": 5.72
     }
    ],
    "market": "코스닥",
-   "special": null,
-   "business": "가. 직전 정기보고서 제출 이후 현재까지 발생한 회사의 주된 변동내용 확인 나…",
-   "source": "dart"
+   "special": false,
+   "business": "당사는 인구 고령화와 만성질환 증가에 따라 지속적인 처방 수요가 발생하는 전문의약품(ETC) 시장을 중심으로 사업 포트폴리오를 구축하고 있습니다",
+   "source": "dart",
+   "ua_base": 19316000000.0,
+   "ua_shares": 14840032.0,
+   "forecast": [
+    "2026-11-27",
+    "2026-12-03"
+   ],
+   "parser_v": 2
   },
   {
    "name": "이노보테라퓨틱스",
@@ -5394,332 +1045,31 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 25.53,
-   "ua_value": -21.0,
-   "discount": "45.08% ~ 34.10%",
+   "ua_value": 36418.0,
+   "discount": "34.10% ~ 45.08%",
    "final_price": null,
    "total_shares_after": 14143061,
    "peers_ua": [
     {
-     "name": "케이웨더",
-     "ua_multiple": 14.08
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 16.65
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 31.37
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 12.93
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 16.81
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 24.77
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 40.31
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 13.62
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 15.0
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 10.54
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 32.6
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 34.53
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 17.0
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 25.0
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 11.72
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 24.4
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 23.9
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 27.93
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 22.85
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 23.45
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 25.45
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 41.32
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 21.36
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 17.97
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 25.22
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 14.51
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 11.15
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 15.18
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 24.44
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 45.4
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 32.81
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 26.96
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 38.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 65.27
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 18.88
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 32.09
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 42.87
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 29.06
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 21.59
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 24.76
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 28.72
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 42.91
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 32.39
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 24.05
-    },
-    {
-     "name": "노타",
+     "name": "유한양행",
      "ua_multiple": 22.7
     },
     {
-     "name": "큐리오시스",
-     "ua_multiple": 25.55
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 24.57
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 21.95
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 29.0
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 25.57
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 17.36
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 19.27
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 23.63
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 30.69
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 26.49
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 27.13
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 37.59
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 21.91
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 30.56
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 21.39
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 22.55
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 20.28
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 32.63
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 36.6
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 43.79
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 28.45
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 22.85
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 35.53
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 35.24
-    },
-    {
-     "name": "네오사피엔스",
-     "ua_multiple": 29.9
+     "name": "한미약품",
+     "ua_multiple": 28.36
     }
    ],
-   "market": null,
-   "special": null,
-   "business": "1. 회사의 개요 - 사. 주요 사업의 내용(주요제품 및 서비스 등을 포함한다) 및 향후 추진하려는 신규사업에 관한 간략한 설명 아니오 기재사항 정정 (주29) (주29) III…",
-   "source": "dart"
+   "market": "코스닥",
+   "special": false,
+   "business": "당사는 2019년 3월 설립된 합성신약 개발 전문기업으로, 자체 개발한 AI 기반 신약연구 플랫폼인 DeepZema®를 활용하여 면역ㆍ염증, 섬유증 및 암 분야에서 기존 치료제의 효능이 미흡하거나 부작용이 있는 질환의 미충족 의료수요(Unmet Medical Needs)를 해결하는 합성신약을 연구개발하고 있습니다",
+   "source": "dart",
+   "ua_base": 20559000000.0,
+   "ua_shares": 14412061.0,
+   "forecast": [
+    "2026-11-26",
+    "2026-12-02"
+   ],
+   "parser_v": 2
   },
   {
    "name": "우리투자제1호기업인수목적",
@@ -5756,432 +1106,39 @@
    ],
    "ua_method": "EV/EBITDA",
    "ua_multiple": 21.25,
-   "ua_value": 18918774.0,
-   "discount": "46.49% ~ 35.34%",
+   "ua_value": 49336.0,
+   "discount": "35.34% ~ 46.49%",
    "final_price": null,
    "total_shares_after": 18918774,
    "peers_ua": [
     {
-     "name": "브릴스",
-     "ua_multiple": 29.95
+     "name": "아모그린텍",
+     "ua_multiple": 9.04
     },
     {
-     "name": "와이즈플래닛컴퍼니",
-     "ua_multiple": 48.5
-    },
-    {
-     "name": "기도산업",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.66
-    },
-    {
-     "name": "폴레드",
-     "ua_multiple": 19.07
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.26
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.77
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.73
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.21
-    },
-    {
-     "name": "아로마티카",
-     "ua_multiple": 19.95
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.56
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.44
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.86
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.53
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.24
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.05
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.74
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.46
-    },
-    {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.79
-    },
-    {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.12
-    },
-    {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.87
-    },
-    {
-     "name": "에이유브랜즈",
-     "ua_multiple": 8.79
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.41
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.49
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.46
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.11
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.73
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 16.98
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.78
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 23.97
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.75
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.18
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 30.99
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.77
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 27.98
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.48
-    },
-    {
-     "name": "닷밀",
-     "ua_multiple": 20.91
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.41
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.85
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.03
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.37
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.89
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.37
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.05
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.41
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.63
-    },
-    {
-     "name": "티디에스팜",
+     "name": "상아프론테크",
      "ua_multiple": 11.86
     },
     {
-     "name": "유라클",
-     "ua_multiple": 22.74
+     "name": "대주전자재료",
+     "ua_multiple": 38.64
     },
     {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.11
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.45
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.09
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.89
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.61
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.93
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.23
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.62
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.37
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 21.53
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 21.96
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.68
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.54
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.55
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.87
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 19.96
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 30.96
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.82
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.55
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.43
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.54
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 28.58
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.43
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.01
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.69
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.48
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.69
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.73
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.32
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.52
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.41
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 39.0
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.47
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.35
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.77
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.41
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.21
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.64
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.18
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.74
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.73
-    },
-    {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
+     "name": "나노신소재",
+     "ua_multiple": 25.45
     }
    ],
    "market": null,
-   "special": null,
-   "business": "2. 회사의 연혁, 5. 정관에 관한 사항 - 기재사항 정정 (주21) (주21) II…",
-   "source": "dart"
+   "special": false,
+   "business": "당사는 신재생에너지 산업에 적용되는 핵심 소재·부품을 개발·제조하는 기업으로 주요 사업은 에너지저장장치(Energy Storage System, ESS)용 비리튬계 이차전지 소재 사업과 수소 생산 및 활용 분야에 적용되는 수소산업용 소재ㆍ부품 사업으로 구성되어 있습니다",
+   "source": "dart",
+   "ua_base": 40835000000.0,
+   "ua_shares": 19055024.0,
+   "forecast": [
+    "2026-11-03",
+    "2026-11-09"
+   ],
+   "parser_v": 2
   },
   {
    "name": "씨앤엠",
@@ -6203,440 +1160,39 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 24.96,
-   "ua_value": 29450000.0,
-   "discount": "37.66% ~ 18.96%",
+   "ua_value": 16041.0,
+   "discount": "18.96% ~ 37.66%",
    "final_price": null,
    "total_shares_after": null,
    "peers_ua": [
     {
-     "name": "브릴스",
-     "ua_multiple": 29.9
+     "name": "SNT모티브",
+     "ua_multiple": 7.18
     },
     {
-     "name": "와이즈플래닛컴퍼니",
-     "ua_multiple": 48.5
+     "name": "네오티스",
+     "ua_multiple": 19.73
     },
     {
-     "name": "기도산업",
-     "ua_multiple": 21.7
+     "name": "신성델타테크",
+     "ua_multiple": 28.15
     },
     {
-     "name": "에이치엘지노믹스",
-     "ua_multiple": 20.1
-    },
-    {
-     "name": "매드업",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "피스피스스튜디오",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "폴레드",
-     "ua_multiple": 19.1
-    },
-    {
-     "name": "한패스",
-     "ua_multiple": 30.3
-    },
-    {
-     "name": "액스비스",
-     "ua_multiple": 23.4
-    },
-    {
-     "name": "에스팀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "덕양에너젠",
-     "ua_multiple": 24.7
-    },
-    {
-     "name": "삼진식품",
-     "ua_multiple": 26.2
-    },
-    {
-     "name": "아로마티카",
-     "ua_multiple": 20.0
-    },
-    {
-     "name": "씨엠티엑스",
-     "ua_multiple": 33.6
-    },
-    {
-     "name": "더핑크퐁컴퍼니",
-     "ua_multiple": 15.3
-    },
-    {
-     "name": "세나테크놀로지",
-     "ua_multiple": 39.4
-    },
-    {
-     "name": "이노테크",
-     "ua_multiple": 20.3
-    },
-    {
-     "name": "제이피아이헬스케어",
-     "ua_multiple": 22.9
-    },
-    {
-     "name": "한라캐스트",
-     "ua_multiple": 17.5
-    },
-    {
-     "name": "에스엔시스",
-     "ua_multiple": 28.0
-    },
-    {
-     "name": "삼양컴텍",
-     "ua_multiple": 25.3
-    },
-    {
-     "name": "엔알비",
-     "ua_multiple": 10.0
-    },
-    {
-     "name": "도우인시스",
-     "ua_multiple": 16.2
-    },
-    {
-     "name": "싸이닉솔루션",
-     "ua_multiple": 8.7
-    },
-    {
-     "name": "키스트론",
-     "ua_multiple": 19.5
-    },
-    {
-     "name": "바이오비쥬",
-     "ua_multiple": 31.8
-    },
-    {
-     "name": "원일티엔아이",
-     "ua_multiple": 41.1
-    },
-    {
-     "name": "한국피아이엠",
-     "ua_multiple": 31.9
-    },
-    {
-     "name": "에이유브랜즈",
-     "ua_multiple": 8.8
-    },
-    {
-     "name": "더즌",
-     "ua_multiple": 24.4
-    },
-    {
-     "name": "한텍",
-     "ua_multiple": 43.5
-    },
-    {
-     "name": "티엑스알로보틱스",
-     "ua_multiple": 25.5
-    },
-    {
-     "name": "대진첨단소재",
-     "ua_multiple": 30.1
-    },
-    {
-     "name": "엘케이켐",
-     "ua_multiple": 29.7
-    },
-    {
-     "name": "모티브링크",
-     "ua_multiple": 17.0
-    },
-    {
-     "name": "동국생명과학",
-     "ua_multiple": 11.2
-    },
-    {
-     "name": "동방메디컬",
-     "ua_multiple": 38.8
-    },
-    {
-     "name": "피아이이",
-     "ua_multiple": 24.0
-    },
-    {
-     "name": "삼양엔씨켐",
-     "ua_multiple": 17.7
-    },
-    {
-     "name": "아스테라시스",
-     "ua_multiple": 13.7
-    },
-    {
-     "name": "미트박스",
-     "ua_multiple": 29.2
-    },
-    {
-     "name": "듀켐바이오",
-     "ua_multiple": 31.0
-    },
-    {
-     "name": "위츠",
-     "ua_multiple": 14.8
-    },
-    {
-     "name": "사이냅소프트",
-     "ua_multiple": 28.0
-    },
-    {
-     "name": "엠오티",
-     "ua_multiple": 6.5
-    },
-    {
-     "name": "탑런토탈솔루션",
-     "ua_multiple": 37.9
-    },
-    {
-     "name": "에이럭스",
-     "ua_multiple": 13.4
-    },
-    {
-     "name": "성우",
-     "ua_multiple": 14.0
-    },
-    {
-     "name": "에이치엔에스하이텍",
-     "ua_multiple": 19.4
-    },
-    {
-     "name": "한켐",
-     "ua_multiple": 18.9
-    },
-    {
-     "name": "와이제이링크",
-     "ua_multiple": 23.0
-    },
-    {
-     "name": "인스피언",
-     "ua_multiple": 16.4
-    },
-    {
-     "name": "아이스크림미디어",
-     "ua_multiple": 9.4
-    },
-    {
-     "name": "M83",
-     "ua_multiple": 33.6
-    },
-    {
-     "name": "티디에스팜",
-     "ua_multiple": 11.9
-    },
-    {
-     "name": "유라클",
-     "ua_multiple": 22.7
-    },
-    {
-     "name": "하이젠알앤엠",
-     "ua_multiple": 19.1
-    },
-    {
-     "name": "그리드위즈",
-     "ua_multiple": 43.1
-    },
-    {
-     "name": "노브랜드",
-     "ua_multiple": 14.5
-    },
-    {
-     "name": "코칩",
-     "ua_multiple": 9.1
-    },
-    {
-     "name": "오상헬스케어",
-     "ua_multiple": 39.9
-    },
-    {
-     "name": "스튜디오삼익",
-     "ua_multiple": 19.6
-    },
-    {
-     "name": "이닉스",
-     "ua_multiple": 21.9
-    },
-    {
-     "name": "포스뱅크",
-     "ua_multiple": 17.2
-    },
-    {
-     "name": "현대힘스",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "HB인베스트먼트",
-     "ua_multiple": 26.6
-    },
-    {
-     "name": "우진엔텍",
-     "ua_multiple": 14.9
-    },
-    {
-     "name": "LS머트리얼즈",
-     "ua_multiple": 14.4
-    },
-    {
-     "name": "케이엔에스",
-     "ua_multiple": 22.3
-    },
-    {
-     "name": "에이에스텍",
-     "ua_multiple": 22.0
-    },
-    {
-     "name": "한선엔지니어링",
-     "ua_multiple": 22.7
-    },
-    {
-     "name": "에코아이",
-     "ua_multiple": 15.5
-    },
-    {
-     "name": "스톰테크",
-     "ua_multiple": 26.6
-    },
-    {
-     "name": "캡스톤파트너스",
-     "ua_multiple": 14.9
-    },
-    {
-     "name": "에이직랜드",
-     "ua_multiple": 31.0
-    },
-    {
-     "name": "에스와이스틸텍",
-     "ua_multiple": 20.0
-    },
-    {
-     "name": "메가터치",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "비아이매트릭스",
-     "ua_multiple": 15.5
-    },
-    {
-     "name": "유진테크놀로지",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "워트",
-     "ua_multiple": 12.4
-    },
-    {
-     "name": "에스엘에스바이오",
-     "ua_multiple": 7.5
-    },
-    {
-     "name": "신성에스티",
-     "ua_multiple": 29.3
-    },
-    {
-     "name": "퓨릿",
-     "ua_multiple": 27.0
-    },
-    {
-     "name": "레뷰코퍼레이션",
-     "ua_multiple": 22.4
-    },
-    {
-     "name": "한싹",
-     "ua_multiple": 20.0
-    },
-    {
-     "name": "빅텐츠",
-     "ua_multiple": 21.6
-    },
-    {
-     "name": "코츠테크놀로지",
-     "ua_multiple": 23.7
-    },
-    {
-     "name": "엠아이큐브솔루션",
-     "ua_multiple": 24.5
-    },
-    {
-     "name": "에이엘티",
-     "ua_multiple": 24.5
-    },
-    {
-     "name": "뷰티스킨",
-     "ua_multiple": 6.7
-    },
-    {
-     "name": "필에너지",
-     "ua_multiple": 20.7
-    },
-    {
-     "name": "마녀공장",
-     "ua_multiple": 37.3
-    },
-    {
-     "name": "나라셀라",
-     "ua_multiple": 21.5
-    },
-    {
-     "name": "진영",
-     "ua_multiple": 31.4
-    },
-    {
-     "name": "기가비스",
-     "ua_multiple": 7.7
-    },
-    {
-     "name": "트루엔",
-     "ua_multiple": 23.5
-    },
-    {
-     "name": "토마토시스템",
-     "ua_multiple": 21.3
-    },
-    {
-     "name": "LB인베스트먼트",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "금양그린파워",
-     "ua_multiple": 33.4
-    },
-    {
-     "name": "나노팀",
-     "ua_multiple": 22.2
-    },
-    {
-     "name": "바이오인프라",
-     "ua_multiple": 25.6
-    },
-    {
-     "name": "이노진",
-     "ua_multiple": 6.6
-    },
-    {
-     "name": "꿈비",
-     "ua_multiple": 13.2
-    },
-    {
-     "name": "스튜디오미르",
-     "ua_multiple": 20.7
-    },
-    {
-     "name": "미래반도체",
-     "ua_multiple": 10.7
-    },
-    {
-     "name": "한주라이트메탈",
-     "ua_multiple": 32.2
+     "name": "이랜시스",
+     "ua_multiple": 44.78
     }
    ],
-   "market": null,
-   "special": null,
-   "business": "1. 회사의 개요 가. 연결대상 종속회사 개황 (1) 연결대상 종속회사 현황(요약) 구분 연결대상회사수 주요 종속회사수 기초 증가 감소 기말 상장 - - - - - 비상장 4 - - 4 1 합계 4 - - 4 - (2) 연결대상회사의 변동내용 공시대상기간 중에는 변동 사항이 없습니다 나…",
-   "source": "dart"
+   "market": "코스닥",
+   "special": false,
+   "business": "당사는 2006년 8월 LG전자 모터사업부 소속 임직원들이 EBO(Employee Buy-Out) 방식으로 분사하여 설립한 전동 구동부품 전문기업으로, 모터의 핵심부품인 코어(Core), 회전자(Rotor), 고정자(Stator), 권선(Winding), 사출부품에서 완성 모터의 조립과 성능검사까지 일괄 수행하는 제조역량을 기반으로 자동차와 가전 분야에 모…",
+   "source": "dart",
+   "ua_base": 18990000000.0,
+   "ua_shares": 29550000.0,
+   "forecast": [
+    "2026-11-03",
+    "2026-11-09"
+   ],
+   "parser_v": 2
   },
   {
    "name": "에이엔에이치스트럭쳐",
@@ -6658,524 +1214,35 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 32.73,
-   "ua_value": 10328057.0,
-   "discount": "35.42% ~ 21.58%",
+   "ua_value": 17342.0,
+   "discount": "21.58% ~ 35.42%",
    "final_price": null,
    "total_shares_after": null,
    "peers_ua": [
     {
-     "name": "네오사피엔스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "해치텍",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "니어스랩",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "인제니아테라퓨틱스",
-     "ua_multiple": 0.75
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 4.75
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 2024.0
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 3.25
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 4.5
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 4.0
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "케이웨더",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 2.25
-    },
-    {
-     "name": "와이바이오로직스",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "그린리소스",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "에이텀",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "큐로셀",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "쏘닉스",
-     "ua_multiple": 1.5
-    },
-    {
-     "name": "퀄리타스반도체",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "아이엠티",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "시큐레터",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "스마트레이더시스템",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "큐리옥스바이오시스템즈",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "시지트로닉스",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "파로스아이바이오",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "버넥트",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "센서뷰",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "이노시뮬레이션",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "오픈놀",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "큐라티스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "모니터랩",
-     "ua_multiple": 1.75
-    },
-    {
-     "name": "에스바이오메딕스",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "마이크로투나노",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "지아이이노베이션",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "자람테크놀로지",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "제이오",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "샌즈랩",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "오브젠",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "인벤티지랩",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "엔젯",
-     "ua_multiple": 1.25
-    },
-    {
-     "name": "뉴로메카",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "플라즈맵",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "핀텔",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "샤페론",
-     "ua_multiple": 3.5
-    },
-    {
-     "name": "에스비비테크",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "아이씨에이치",
-     "ua_multiple": 0.5
-    },
-    {
-     "name": "에이프릴바이오",
-     "ua_multiple": 2.5
-    },
-    {
-     "name": "루닛",
-     "ua_multiple": 3.75
-    },
-    {
-     "name": "코난테크놀로지",
-     "ua_multiple": 2.75
-    },
-    {
-     "name": "넥스트칩",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "보로노이",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "레이저쎌",
-     "ua_multiple": 0.5
-    },
-    {
-     "name": "모아데이타",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "노을",
-     "ua_multiple": 3.25
-    },
-    {
-     "name": "풍원정밀",
-     "ua_multiple": 1.0
-    },
-    {
-     "name": "퓨런티어",
-     "ua_multiple": 1.0
-    },
-    {
-     "name": "바이오에프디엔씨",
-     "ua_multiple": 1.15
-    },
-    {
-     "name": "이지트로닉스",
-     "ua_multiple": 2.0
-    },
-    {
-     "name": "스코넥",
-     "ua_multiple": 3.0
-    },
-    {
-     "name": "애드바이오텍",
-     "ua_multiple": 1.0
-    },
-    {
      "name": "한화에어로스페이스",
-     "ua_multiple": 15.81
+     "ua_multiple": 29.4
+    },
+    {
+     "name": "엘아이지디펜스앤에어로스페이스",
+     "ua_multiple": 34.26
     },
     {
      "name": "퍼스텍",
-     "ua_multiple": 22.76
+     "ua_multiple": 34.53
     }
    ],
    "market": null,
    "special": true,
-   "business": "3. 자본금 변동사항 아니오 기재사항 정정 (주32) (주32) II. 사업의 내용 1…",
-   "source": "dart"
+   "business": "당사는 항공기 구조 설계ㆍ해석 엔지니어링 및 항공ㆍ방산용 복합재 구조물의 설계ㆍ제작ㆍ시험ㆍ인증을 주된 사업으로 영위하고 있으며, 매출의 상당 부분이 정부의 중장기 국방 획득계획 및 체계업체의 개발ㆍ양산 일정에 연동되어 있습니다",
+   "source": "dart",
+   "ua_base": 5671088407.0,
+   "ua_shares": 10703357.0,
+   "forecast": [
+    "2026-11-19",
+    "2026-11-25"
+   ],
+   "parser_v": 2
   },
   {
    "name": "데스틴파워",
@@ -7197,460 +1264,93 @@
    ],
    "ua_method": "PER",
    "ua_multiple": 22.84,
-   "ua_value": 2.0,
-   "discount": "47.98% ~ 28.47%",
+   "ua_value": 15378.0,
+   "discount": "28.47% ~ 47.98%",
    "final_price": null,
    "total_shares_after": 14559425,
    "peers_ua": [
     {
-     "name": "티이엠씨",
-     "ua_multiple": 19.7
+     "name": "코세스",
+     "ua_multiple": 34.78
     },
     {
-     "name": "오브젠",
-     "ua_multiple": 22.2
+     "name": "HD현대에너지솔루션",
+     "ua_multiple": 14.26
     },
     {
-     "name": "샌즈랩",
-     "ua_multiple": 14.1
-    },
-    {
-     "name": "제이오",
-     "ua_multiple": 38.6
-    },
-    {
-     "name": "자람테크놀로지",
-     "ua_multiple": 26.2
-    },
-    {
-     "name": "지아이이노베이션",
-     "ua_multiple": 41.2
-    },
-    {
-     "name": "마이크로투나노",
-     "ua_multiple": 21.2
-    },
-    {
-     "name": "에스바이오메딕스",
-     "ua_multiple": 52.0
-    },
-    {
-     "name": "모니터랩",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "큐라티스",
-     "ua_multiple": 42.3
-    },
-    {
-     "name": "오픈놀",
-     "ua_multiple": 13.37
-    },
-    {
-     "name": "이노시뮬레이션",
-     "ua_multiple": 29.9
-    },
-    {
-     "name": "센서뷰",
-     "ua_multiple": 36.7
-    },
-    {
-     "name": "버넥트",
-     "ua_multiple": 21.9
-    },
-    {
-     "name": "파로스아이바이오",
-     "ua_multiple": 44.4
-    },
-    {
-     "name": "시지트로닉스",
-     "ua_multiple": 40.6
-    },
-    {
-     "name": "파두",
-     "ua_multiple": 24.2
-    },
-    {
-     "name": "큐리옥스바이오시스템즈",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "스마트레이더시스템",
-     "ua_multiple": 42.2
-    },
-    {
-     "name": "시큐레터",
-     "ua_multiple": 25.9
-    },
-    {
-     "name": "아이엠티",
-     "ua_multiple": 40.04
-    },
-    {
-     "name": "퀄리타스반도체",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "쏘닉스",
-     "ua_multiple": 24.55
-    },
-    {
-     "name": "큐로셀",
-     "ua_multiple": 21.18
-    },
-    {
-     "name": "그린리소스",
-     "ua_multiple": 20.2
-    },
-    {
-     "name": "에이텀",
-     "ua_multiple": 25.08
-    },
-    {
-     "name": "와이바이오로직스",
-     "ua_multiple": 35.81
-    },
-    {
-     "name": "케이웨더",
-     "ua_multiple": 14.08
-    },
-    {
-     "name": "코셈",
-     "ua_multiple": 16.65
-    },
-    {
-     "name": "케이엔알시스템",
-     "ua_multiple": 31.37
-    },
-    {
-     "name": "삼현",
-     "ua_multiple": 12.93
-    },
-    {
-     "name": "엔젤로보틱스",
-     "ua_multiple": 16.81
-    },
-    {
-     "name": "아이엠비디엑스",
-     "ua_multiple": 24.77
-    },
-    {
-     "name": "디앤디파마텍",
-     "ua_multiple": 40.31
-    },
-    {
-     "name": "민테크",
-     "ua_multiple": 13.39
-    },
-    {
-     "name": "아이씨티케이",
-     "ua_multiple": 15.02
-    },
-    {
-     "name": "라메디텍",
-     "ua_multiple": 10.54
-    },
-    {
-     "name": "한중엔시에스",
-     "ua_multiple": 32.6
-    },
-    {
-     "name": "에스오에스랩",
-     "ua_multiple": 34.53
-    },
-    {
-     "name": "에이치브이엠",
-     "ua_multiple": 17.15
-    },
-    {
-     "name": "이노스페이스",
-     "ua_multiple": 25.03
-    },
-    {
-     "name": "하스",
-     "ua_multiple": 11.73
-    },
-    {
-     "name": "엑셀세라퓨틱스",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "아이빔테크놀로지",
-     "ua_multiple": 23.9
-    },
-    {
-     "name": "뱅크웨어글로벌",
-     "ua_multiple": 27.92
-    },
-    {
-     "name": "넥스트바이오메디컬",
-     "ua_multiple": 30.6
-    },
-    {
-     "name": "케이쓰리아이",
-     "ua_multiple": 25.84
-    },
-    {
-     "name": "이엔셀",
-     "ua_multiple": 23.45
-    },
-    {
-     "name": "아이언디바이스",
-     "ua_multiple": 25.45
-    },
-    {
-     "name": "셀비온",
-     "ua_multiple": 41.32
-    },
-    {
-     "name": "루미르",
-     "ua_multiple": 21.36
-    },
-    {
-     "name": "웨이비스",
-     "ua_multiple": 17.97
-    },
-    {
-     "name": "클로봇",
-     "ua_multiple": 25.22
-    },
-    {
-     "name": "토모큐브",
-     "ua_multiple": 14.51
-    },
-    {
-     "name": "에어레인",
-     "ua_multiple": 30.8
-    },
-    {
-     "name": "쓰리빌리언",
-     "ua_multiple": 11.15
-    },
-    {
-     "name": "온코크로스",
-     "ua_multiple": 15.18
-    },
-    {
-     "name": "온코닉테라퓨틱스",
-     "ua_multiple": 24.44
-    },
-    {
-     "name": "쓰리에이로직스",
-     "ua_multiple": 45.4
-    },
-    {
-     "name": "파인메딕스",
-     "ua_multiple": 32.81
-    },
-    {
-     "name": "와이즈넛",
-     "ua_multiple": 29.08
-    },
-    {
-     "name": "아이지넷",
-     "ua_multiple": 26.96
-    },
-    {
-     "name": "아이에스티이",
-     "ua_multiple": 38.0
-    },
-    {
-     "name": "오름테라퓨틱",
-     "ua_multiple": 65.27
-    },
-    {
-     "name": "엠디바이스",
-     "ua_multiple": 40.11
-    },
-    {
-     "name": "심플랫폼",
-     "ua_multiple": 22.04
-    },
-    {
-     "name": "쎄크",
-     "ua_multiple": 23.52
-    },
-    {
-     "name": "나우로보틱스",
-     "ua_multiple": 25.17
-    },
-    {
-     "name": "오가노이드사이언스",
-     "ua_multiple": 18.88
-    },
-    {
-     "name": "로킷헬스케어",
-     "ua_multiple": 29.0
-    },
-    {
-     "name": "이뮨온시아",
-     "ua_multiple": 32.09
-    },
-    {
-     "name": "인투셀",
-     "ua_multiple": 25.8
-    },
-    {
-     "name": "링크솔루션",
-     "ua_multiple": 42.87
-    },
-    {
-     "name": "지씨지놈",
-     "ua_multiple": 25.74
-    },
-    {
-     "name": "지에프씨생명과학",
-     "ua_multiple": 29.06
-    },
-    {
-     "name": "뉴엔AI",
-     "ua_multiple": 26.06
-    },
-    {
-     "name": "아우토크립트",
-     "ua_multiple": 21.7
-    },
-    {
-     "name": "뉴로핏",
-     "ua_multiple": 24.76
-    },
-    {
-     "name": "프로티나",
-     "ua_multiple": 28.72
-    },
-    {
-     "name": "지투지바이오",
-     "ua_multiple": 42.91
-    },
-    {
-     "name": "그래피",
-     "ua_multiple": 32.39
-    },
-    {
-     "name": "에스투더블유",
-     "ua_multiple": 24.13
-    },
-    {
-     "name": "노타",
-     "ua_multiple": 22.71
-    },
-    {
-     "name": "큐리오시스",
-     "ua_multiple": 25.51
-    },
-    {
-     "name": "그린광학",
-     "ua_multiple": 28.99
-    },
-    {
-     "name": "비츠로넥스텍",
-     "ua_multiple": 21.95
-    },
-    {
-     "name": "에임드바이오",
-     "ua_multiple": 28.95
-    },
-    {
-     "name": "테라뷰",
-     "ua_multiple": 33.7
-    },
-    {
-     "name": "페스카로",
-     "ua_multiple": 25.57
-    },
-    {
-     "name": "이지스",
-     "ua_multiple": 17.36
-    },
-    {
-     "name": "쿼드메디슨",
-     "ua_multiple": 19.27
-    },
-    {
-     "name": "아크릴",
-     "ua_multiple": 23.63
-    },
-    {
-     "name": "나라스페이스테크놀로지",
-     "ua_multiple": 30.69
-    },
-    {
-     "name": "알지노믹스",
-     "ua_multiple": 26.49
-    },
-    {
-     "name": "리브스메드",
-     "ua_multiple": 27.13
-    },
-    {
-     "name": "세미파이브",
-     "ua_multiple": 15.53
-    },
-    {
-     "name": "카나프테라퓨틱스",
-     "ua_multiple": 19.13
-    },
-    {
-     "name": "아이엠바이오로직스",
-     "ua_multiple": 37.59
-    },
-    {
-     "name": "메쥬",
-     "ua_multiple": 19.8
-    },
-    {
-     "name": "리센스메디컬",
-     "ua_multiple": 32.0
-    },
-    {
-     "name": "인벤테라",
-     "ua_multiple": 21.91
-    },
-    {
-     "name": "코스모로보틱스",
-     "ua_multiple": 30.56
-    },
-    {
-     "name": "마키나락스",
-     "ua_multiple": 21.39
-    },
-    {
-     "name": "져스텍",
-     "ua_multiple": 22.55
-    },
-    {
-     "name": "스트라드비젼",
-     "ua_multiple": 20.28
-    },
-    {
-     "name": "레몬헬스케어",
-     "ua_multiple": 32.63
-    },
-    {
-     "name": "레메디",
-     "ua_multiple": 36.6
-    },
-    {
-     "name": "케이앤에스아이앤씨",
-     "ua_multiple": 43.79
-    },
-    {
-     "name": "스카이랩스",
-     "ua_multiple": 35.24
-    },
-    {
-     "name": "글로벌테크놀로지",
-     "ua_multiple": 14.84
-    },
-    {
-     "name": "덕산넵코어스",
-     "ua_multiple": 25.36
+     "name": "지투파워",
+     "ua_multiple": 19.49
     }
    ],
    "market": "코스닥",
    "special": true,
-   "business": "1. 회사의 개요 가. 연결대상 종속회사 개황(1) 연결대상 종속회사 개황 (기준일 : 증권신고서 제출일 현재) (단위 : 사) 구분 연결대상회사수 주요종속회사수 기초 증가 감소 기말 상장 - - - - - 비상장 2 - - 2 1 합계 2 - - 2 1 (2) 연결대상회사의 변동내용당…",
-   "source": "dart"
+   "business": "당사는 2012년 설립된 전력변환장치 전문 기업으로, 전력전자 기술을 기반으로 수소의 생산 및 활용 분야와 에너지저장 분야에 적용되는 발전용 연료전지 인버터, 에너지저장장치(ESS)용 전력변환장치(PCS) 및 수전해 정류기 등을 설계·제조하여 공급하고 있습니다",
+   "source": "dart",
+   "ua_base": 9869000000.0,
+   "ua_shares": 14659425.0,
+   "forecast": [
+    "2026-12-02",
+    "2026-12-08"
+   ],
+   "parser_v": 2
+  },
+  {
+   "name": "엠비디",
+   "corp_code": "01705740",
+   "spac": false,
+   "rcept_no": "20261110000253",
+   "first_filed": "2026-08-28",
+   "last_amended": "2026-10-15",
+   "subscription": [
+    "2026-11-12",
+    "2026-11-13"
+   ],
+   "payment": "2026-11-17",
+   "shares_offered": 2000000.0,
+   "underwriter": "하나증권",
+   "band": [
+    9600,
+    11700
+   ],
+   "final_price": 7000,
+   "ua_method": "PER",
+   "ua_multiple": 27.36,
+   "ua_value": 15840.0,
+   "discount": "55.81%",
+   "ua_base": 8730000000.0,
+   "ua_shares": 15078738.0,
+   "peers_ua": [
+    {
+     "name": "나노엔텍",
+     "ua_multiple": 23.65
+    },
+    {
+     "name": "프로티아",
+     "ua_multiple": 11.2
+    },
+    {
+     "name": "METTLER-TOLEDOINTERNATIONAL",
+     "ua_multiple": 30.8
+    },
+    {
+     "name": "ILLUMINAINC",
+     "ua_multiple": 36.0
+    },
+    {
+     "name": "SARTORIUSAG",
+     "ua_multiple": 35.2
+    }
+   ],
+   "forecast": [
+    "2026-11-02",
+    "2026-11-06"
+   ],
+   "source": "dart",
+   "parser_v": 2,
+   "market": "코스닥",
+   "special": false,
+   "business": "당사는 실험 자동화 스크리닝 시스템 설계 기술과 지속적으로 축적되는 대규모 암환자 임상 데이터베이스를 바탕으로 차세대 정밀의료 및 신약개발 지원 솔루션을 제공하는 바이오-엔지니어링 융합기업입니다",
+   "total_shares_after": 14322238
   }
  ],
  "lockups": [
