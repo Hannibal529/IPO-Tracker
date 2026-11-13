@@ -271,7 +271,10 @@ def render(p, state, nar=None):
                       f"적정가는 {n(exb)}원임(아래 민감도 표 참고).")
         out.append("<ul>" + "".join(f"<li>{x}</li>" for x in my) + "</ul>")
 
-        cmp_rows = [["PEER 그룹", e(peers_names), "동일" if all(q.get("origin") == "주관사" for q in v["peers"]) else "변경"],
+        kept = [q["name"].split(" (")[0] for q in v["peers"] if q.get("kept")]
+        dropped = [q["name"].split(" (")[0] for q in v["peers"] if not q.get("kept")]
+        our_peer = e("·".join(kept)) + (f"<br><span class='small'>(제외: {e(', '.join(dropped))})</span>" if dropped else "")
+        cmp_rows = [["PEER 그룹", e(peers_names), our_peer],
                     [m, f"{n(p.get('ua_multiple'), 2)}배 (신고서)", f"{v['multiple_mean']:.2f}배 ({e(pb or 'LTM')}, 3개월 평균주가)"]]
         if est and v.get("rate_base") is not None:
             cmp_rows.append(["할인율", f"{est['rate'] * 100:.0f}%", f"{v['rate_base'] * 100:.0f}%"])
@@ -286,7 +289,7 @@ def render(p, state, nar=None):
                    + f"<p class='small'>*적용 주가는 {v.get('as_of', '')} 기준 최근 61영업일 평균값</p>")
         if v.get("sens"):
             exn = e((v.get("top_peer") or "").split(" (")[0])
-            head = ["할인율 \\ " + m, f"{v['multiple_mean']:.2f}배 (주관사 {len([q for q in v['peers'] if q.get('kept')])}사)"]
+            head = ["할인율 \\ " + m, f"{v['multiple_mean']:.2f}배 (재산정 {len([q for q in v['peers'] if q.get('kept')])}사)"]
             if v.get("multiple_ex_top"):
                 head.append(f"{v['multiple_ex_top']:.2f}배 ({exn} 제외)")
             rows = []
