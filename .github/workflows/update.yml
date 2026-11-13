@@ -10,6 +10,10 @@ on:
         description: "파서 점검용 원문 표 추출 (종목명, 쉼표 구분). 비우면 일반 수집"
         required: false
         default: ""
+      debug_naver:
+        description: "네이버 실적표 점검용 종목코드 (비우면 생략)"
+        required: false
+        default: ""
   push:
     paths: ["site/**", "data/manual.json", "collector/**"]
 
@@ -34,6 +38,9 @@ jobs:
           path: data/cache
           key: dart-${{ github.run_id }}
           restore-keys: dart-
+      - name: 네이버 점검
+        if: ${{ github.event.inputs.debug_naver != '' && github.event.inputs.debug_naver != null }}
+        run: python -m collector.debug_naver ${{ github.event.inputs.debug_naver }}
       - name: 원문 표 추출(점검용)
         if: ${{ github.event.inputs.dump != '' && github.event.inputs.dump != null }}
         env:
