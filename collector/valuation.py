@@ -332,8 +332,11 @@ def _with_fwd_per(mult, mcap, code, f, shares=None):
     cons = naver_consensus(code, shares) if code else None
     if cons:
         ni, basis = cons["ni"], cons["basis"]
-    elif f and f.get("ni_ann") is not None:
+    elif f and f.get("ni_ann") is not None and (f["ni_ann"] > 0 or not (f.get("ni") or 0) > 0):
         ni, basis = f["ni_ann"], f["ann_basis"]
+    elif f and f.get("ni_ann") is not None:
+        # 4분기에 이익이 몰리는 업종(소프트웨어 등)은 누적 연환산이 적자로 나옴 → 흑자인 LTM 사용
+        ni, basis = f["ni"], f"{f.get('basis')} (연환산 적자라 LTM 사용)"
     else:
         ni, basis = (f or {}).get("ni"), (f or {}).get("basis")
     if "PER" in mult:

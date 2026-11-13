@@ -22,7 +22,7 @@ OUT = ROOT / "site" / "data" / "ipo.json"
 
 WARN = []
 BIO_RE = r"바이오|신약|의약|제약|치료제|치료|항체|항암|임상|진단|헬스케어|정밀의료|테라퓨틱스|파마|단백질|파이프라인|기술이전|퇴행성|치매"
-VALUATION_V = 7  # 재산정 로직 바꾸면 올림
+VALUATION_V = 8  # 재산정 로직 바꾸면 올림
 PARSER_V = 9  # 파서를 고치면 올려서 기존 종목도 다시 읽게 함
 KST = timezone(timedelta(hours=9))
 REVALUE_BUDGET_SEC = 9 * 60  # 재산정에 쓸 최대 시간, 남은 종목은 다음 실행에서 계속

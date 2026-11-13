@@ -19,7 +19,7 @@ on:
         required: false
         default: ""
   push:
-    paths: ["site/**", "data/manual.json", "collector/**"]
+    paths: ["site/**", "data/manual.json", "data/narratives.json", "collector/**"]
 
 permissions:
   contents: write
