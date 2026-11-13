@@ -27,7 +27,11 @@ def main():
             continue
         print("dump", ipo["name"], flush=True)
         try:
-            doc = Filing(dart.document(ipo["rcept_no"]))
+            raw = dart.document(ipo["rcept_no"])
+            import gzip
+            (out_dir / f"{ipo['name']}.xml.gz").write_bytes(gzip.compress(raw.encode("utf-8")))
+            continue
+            doc = Filing(raw)
         except Exception as e:
             print("  fail", e)
             continue
